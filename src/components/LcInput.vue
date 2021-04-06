@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="inputClass">
     <slot name="label">
       <label
         v-if="label"
@@ -9,59 +9,43 @@
       </label>
     </slot>
 
-    <div
-      class="w-full"
-      :class="{'grid grid-cols-12': hasSlotPrepend || hasSlotAppend}"
-    >
-      <slot name="prepend" />
-
+    <div class="w-full">
       <input
         :id="$attrs.id || name"
         :ref="name"
-        v-bind="$attrs"
-        :value="modelValue"
+        :value="inputValue"
         :class="computedClass"
         :name="name"
         :placeholder="placeholder"
-        @input="updateValue"
-        @change="updateValue"
-        @blur="focusOut"
+        v-bind="$attrs"
+        @input="onInput"
+        @change="handleChange"
+        @blur="onBlur"
       >
-
-      <slot name="append" />
     </div>
 
-    <!-- <lc-errors :errors="errors" /> -->
-
-    <lc-field-rules
-      v-if="rulesText || detailText"
-      :detail-text="detailText"
-      :rules="rules"
-      :show-rules="rulesText"
-    />
-
-    <slot
-      name="content"
-    />
+    <error-message v-slot="{ message }" :name="name">
+      <span class="text-small text-red">{{ message }}</span>
+    </error-message>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
+import { ErrorMessage, useField } from 'vee-validate'
 
 export default defineComponent({
   name: 'LcInput',
+  components: {
+    ErrorMessage,
+  },
   inheritAttrs: false,
   props: {
-    detailText: {
-      type: String,
-      default: '',
-    },
-    appendClass: {
-      type: String,
-      default: '',
-    },
     noBorder: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       default: false,
     },
@@ -85,54 +69,51 @@ export default defineComponent({
       type: String,
       default: '',
     },
-    rulesText: {
-      type: Boolean,
-      default: false,
-    },
     modelValue: {
       type: [String, Number],
       default: '',
     },
-    vid: {
-      type: String,
-      default: '',
-    },
-    vname: {
-      type: String,
-      default: '',
-    },
   },
   emits: ['update:modelValue', 'focus-out'],
-  computed: {
-    hasSlotPrepend(): any {
-      return this.$slots?.prepend && this.$slots?.prepend.length > 0
-    },
-    hasSlotAppend(): any {
-      return this.$slots?.append && this.$slots?.append.length > 0
-    },
-    computedClass(): any {
-      return [
-        'base-input--input block bg-clip-padding w-full text-gray-700 font-normal text-base leading-normal py-1.5 px-4 bg-white focus:text-gray-700 focus:bg-white focus:border-input-focus focus:shadow-focus',
-        { 'border border-gray-400 rounded-sm': !this.noBorder },
-        { 'bg-gray-300 pointer-events-none text-gray-500': this.$attrs.disabled },
-        // { 'border-red': this.errors?.length },
-        {
-          'border-l-0 rounded-l-none border border-gray-400': this
-            .hasSlotPrepend,
-        },
-        {
-          'border-r-0 rounded-r-none border border-gray-400': this.hasSlotAppend,
-        },
-        this.appendClass,
-      ]
-    },
+  setup(props, { emit }) {
+    const {
+      value: inputValue,
+      handleBlur,
+      handleChange,
+      errors,
+    } = useField<string|number>(props.name, props.rules, {
+      initialValue: props.modelValue,
+    })
+
+    const isError = computed(() => Boolean(errors.value.length))
+
+    function onInput(event: Event & { target: HTMLInputElement }): void {
+      handleChange(event)
+      emit('update:modelValue', event.target.value)
+    }
+
+    function onBlur(): void {
+      handleBlur()
+      emit('focus-out')
+    }
+
+    return {
+      inputValue,
+      handleChange,
+      isError,
+      onInput,
+      onBlur,
+    }
   },
-  methods: {
-    focusOut() {
-      this.$emit('focus-out')
-    },
-    updateValue(event: Event) {
-      this.$emit('update:modelValue', event.target.value)
+  computed: {
+    computedClass(): any[] {
+      return [
+        'base-input--input block bg-clip-padding w-full text-gray-700 font-normal text-base leading-normal py-1.5 px-4 bg-white focus:text-gray-700 focus:bg-white focus:border-input-focus focus:shadow-focus focus:outline-none',
+        { 'border rounded-sm': !this.noBorder },
+        { 'bg-gray-300 pointer-events-none text-gray-500': this.disabled },
+        { 'border-red-500': this.isError && !this.noBorder },
+        { 'border-gray-400': !this.isError && !this.noBorder },
+      ]
     },
   },
 })
@@ -145,8 +126,5 @@ export default defineComponent({
 }
 .base-input--input[disabled=disabled] {
   -webkit-text-fill-color: #aaaaaa;
-}
-.base-input--input:focus {
-  outline: 0;
 }
 </style>

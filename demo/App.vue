@@ -152,12 +152,13 @@
       <div class="w-full">
         <lc-form
           id-form="1"
-          :fields="formInput"
+          :fields="formFields"
           :button-primary="lcFormButtonPrimary"
-          edition-mode
+          :button-secondary="lcFormButtonSecondary"
           @onSubmit="onSubmit"
+          @onCancel="onCancel"
         />
-        <pre>{{ formInput }}</pre>
+        <pre>{{ formFields }}</pre>
       </div>
     </div>
   </div>
@@ -180,17 +181,49 @@ export default defineComponent({
         full: true,
         text: 'Valider',
       },
+      lcFormButtonSecondary: {
+        attrs: {
+          color: 'secondary',
+          class: 'btn-secondary',
+        },
+        full: true,
+        text: 'Annuler',
+      },
       formInput: [{
         model: '',
         inputType: 'input',
-        inputClass: 'w-full lc-col',
         attr: {
+          inputClass: 'w-full lc-col',
           placeholder: 'Ecrit dedans :)',
-          label: 'addresse',
-          name: 'address',
+          label: 'Nom',
+          name: 'lastname',
           rules: 'required',
         },
       }],
+      formFields: [
+        {
+          model: '',
+          inputType: 'input',
+          attr: {
+            disabled: true,
+            inputClass: 'w-full lc-col',
+            placeholder: 'Ecrit dedans :)',
+            label: 'Prénom',
+            name: 'firstname',
+            rules: 'required',
+          },
+        },
+        {
+          model: '',
+          inputType: 'input',
+          attr: {
+            inputClass: 'w-full lc-col',
+            label: 'addresse',
+            name: 'address',
+            rules: 'required',
+          },
+        },
+      ],
       buttonSizes: ['sm', 'md', 'lg', 'xl'],
       iconSizes: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
       btnColors: ['primary',
@@ -215,8 +248,12 @@ export default defineComponent({
     }
   },
   methods: {
-    onSubmit() {
-      console.log('on submit')
+    onSubmit(values: Object) {
+      console.log('onSubmit', values)
+    },
+    onCancel(group: String, oldFields: Array<any>) {
+      console.log('onCancel', group, oldFields)
+      this.formFields = oldFields
     },
   },
 })

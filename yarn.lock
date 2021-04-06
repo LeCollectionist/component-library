@@ -424,6 +424,16 @@
     "@typescript-eslint/types" "4.15.2"
     eslint-visitor-keys "^2.0.0"
 
+"@vee-validate/i18n@^4.1.20":
+  version "4.1.20"
+  resolved "https://registry.yarnpkg.com/@vee-validate/i18n/-/i18n-4.1.20.tgz#1f3a3a5da83217fc77fd32e5da6c9d714e91c515"
+  integrity sha512-3K7R3m3Z206Hq6iJpXHJNSYDjJFFHzZrA7wjowTts52iEsv9kNpA/WCkdJsQLae8J+QLiKyK53ma35gAet8yFg==
+
+"@vee-validate/rules@^4.1.20":
+  version "4.1.20"
+  resolved "https://registry.yarnpkg.com/@vee-validate/rules/-/rules-4.1.20.tgz#50c8cdf92df18560b6c6e8772399df88c44b7de3"
+  integrity sha512-DsG+NrCv/rEIpEEOqv+R7Za5rsA9xdIq4XEARjcHI3liXgkd8aeNWCnnmGyDbkz2BVav7n37IhP16ceJHnFXBA==
+
 "@vitejs/plugin-vue@^1.1.4":
   version "1.1.4"
   resolved "https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-1.1.4.tgz"
@@ -2753,6 +2763,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+vee-validate@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.2.4.tgz#98d81231ba9509c143d261e15c83b9b8bac7994e"
+  integrity sha512-6C7Nwy2+ZwWUYjGYDi+KXAkDk+ngLa2Gi+9bHcsp+fAxwfX8s8giU/2RERA2ki7EPR5P3VFFyyFSNHhPbYEHaA==
 
 vite-plugin-windicss@^0.6.10:
   version "0.6.10"
