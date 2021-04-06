@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { LcComponents } from '../src/main'
+import { LcComponents } from '@/main'
 import App from './App.vue'
 
 const app = createApp(App)

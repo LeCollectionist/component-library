@@ -2,25 +2,24 @@
   <div class="py-4 px-12 flex flex-col">
     <h1>Component library</h1>
 
-    <h2 class="text-3xl my-1">
-      LcButton
-    </h2>
-
-    <div class="w-full">
-      <h2 class="text-2xl font-bold pl-4">
-        Variants :
+    <div class="lc-button">
+      <h2 class="text-3xl my-1" @click="lcButton = !lcButton">
+        LcButton
       </h2>
-      <div class="w-full pl-4 my-2">
-        <h3 class="text-1xl font-bold">
-          Btn :
-        </h3>
-        <div class="w-full flex my-2 pl-4">
-          <div
-            v-for="color in btnColors"
-            :key="color"
-            class="mr-8"
-          >
+
+      <div v-if="lcButton" class="w-full">
+        <h2 class="text-2xl font-bold pl-4">
+          Variants :
+        </h2>
+        <div class="w-full pl-4 my-2">
+          <h3 class="text-1xl font-bold">
+            Btn :
+          </h3>
+          <div class="w-full flex my-2 pl-4">
             <lc-button
+              v-for="color in btnColors"
+              :key="color"
+              class="mr-8"
               variant="btn"
               :disabled="btnIsDisable"
               :color="color"
@@ -29,19 +28,16 @@
             </lc-button>
           </div>
         </div>
-      </div>
 
-      <div class="w-full pl-4 my-2">
-        <h3 class="text-1xl font-bold">
-          Link :
-        </h3>
-        <div class="w-full flex my-2 pl-4">
-          <div
-            v-for="color in colors"
-            :key="color"
-            class="mr-8"
-          >
+        <div class="w-full pl-4 my-2">
+          <h3 class="text-1xl font-bold">
+            Link :
+          </h3>
+          <div class="w-full flex my-2 pl-4">
             <lc-button
+              v-for="color in colors"
+              :key="color"
+              class="mr-8"
               variant="link"
               :disabled="linkIsDisable"
               :color="color"
@@ -50,19 +46,16 @@
             </lc-button>
           </div>
         </div>
-      </div>
 
-      <div class="w-full pl-4 my-2">
-        <h3 class="text-1xl font-bold">
-          Outline :
-        </h3>
-        <div class="w-full flex my-2 pl-4">
-          <div
-            v-for="color in outlineColors"
-            :key="color"
-            class="mr-8"
-          >
+        <div class="w-full pl-4 my-2">
+          <h3 class="text-1xl font-bold">
+            Outline :
+          </h3>
+          <div class="w-full flex my-2 pl-4">
             <lc-button
+              v-for="color in outlineColors"
+              :key="color"
+              class="mr-8"
               :disabled="outlineIsDisable"
               variant="outline"
               :color="color"
@@ -71,49 +64,38 @@
             </lc-button>
           </div>
         </div>
-      </div>
 
-      <h2 class="text-2xl font-bold pl-4">
-        Sizes :
-      </h2>
-      <div class="w-full pl-8 my-2">
-        <div class="w-full flex my-2 pl-4">
-          <div
+        <h2 class="text-2xl font-bold pl-4">
+          Sizes :
+        </h2>
+        <div class="w-full pl-8 my-2">
+          <lc-button
             v-for="size in buttonSizes"
             :key="size"
             class="mr-8"
+            :size="size"
           >
-            <lc-button
-              :size="size"
-            >
-              {{ size }}
-            </lc-button>
-          </div>
+            {{ size }}
+          </lc-button>
         </div>
-      </div>
 
-      <h2 class="text-2xl font-bold pl-4">
-        Loader :
-      </h2>
-      <div class="w-full pl-8 flex my-2">
-        <div class="mr-8">
+        <h2 class="text-2xl font-bold pl-4">
+          Loader :
+        </h2>
+        <div class="w-full pl-8 flex my-2">
           <lc-button
             loader
           >
             primary
           </lc-button>
-        </div>
 
-        <div class="mr-8">
           <lc-button
             color="secondary"
             loader
           >
             secondary
           </lc-button>
-        </div>
 
-        <div>
           <lc-button
             color="grey"
             loader
@@ -124,24 +106,59 @@
       </div>
     </div>
 
-    <h2 class="text-3xl my-1">
-      LcIcon
-    </h2>
+    <div class="lc-icon">
+      <h2 class="text-3xl my-1" @click="lcIcon = !lcIcon">
+        LcIcon
+      </h2>
 
-    <h3 class="text-2xl font-bold pl-4">
-      Sizes :
-    </h3>
-    <div class="w-full flex flex-wrap pl-16 my-2">
-      <div
-        v-for="size in iconSizes"
-        :key="size"
-        class="mr-8"
-      >
-        <strong class="text-sm block mb-2 font-medium">{{ size }}</strong>
-        <lc-icon
-          name="finances"
-          :size="size"
+      <div v-if="lcIcon" class="w-full">
+        <h3 class="text-2xl font-bold pl-4">
+          Sizes :
+        </h3>
+        <div class="w-full flex flex-wrap pl-16 my-2">
+          <template
+            v-for="size in iconSizes"
+            :key="size"
+          >
+            <strong class="text-sm block mb-2 font-medium">{{ size }}</strong>
+            <lc-icon
+              name="finances"
+              :size="size"
+            />
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <div class="lc-input">
+      <h2 class="text-3xl my-1">
+        LcInput
+      </h2>
+
+      <div class="w-full">
+        <lc-input
+          v-model="formInput[0].model"
+          name="lcinput"
         />
+        <pre>{{ formInput[0].model }}</pre>
+      </div>
+    </div>
+
+    <div class="lc-form">
+      <h2 class="text-3xl my-1">
+        LcForm
+      </h2>
+
+      <div class="w-full">
+        <lc-form
+          id-form="1"
+          :fields="formFields"
+          :button-primary="lcFormButtonPrimary"
+          :button-secondary="lcFormButtonSecondary"
+          @onSubmit="onSubmit"
+          @onCancel="onCancel"
+        />
+        <pre>{{ formFields }}</pre>
       </div>
     </div>
   </div>
@@ -154,6 +171,59 @@ export default defineComponent({
   name: 'App',
   data() {
     return {
+      lcButton: false,
+      lcIcon: false,
+      lcFormButtonPrimary: {
+        attrs: {
+          color: 'secondary',
+          class: 'btn-primary',
+        },
+        full: true,
+        text: 'Valider',
+      },
+      lcFormButtonSecondary: {
+        attrs: {
+          color: 'secondary',
+          class: 'btn-secondary',
+        },
+        full: true,
+        text: 'Annuler',
+      },
+      formInput: [{
+        model: '',
+        inputType: 'input',
+        attr: {
+          inputClass: 'w-full lc-col',
+          placeholder: 'Ecrit dedans :)',
+          label: 'Nom',
+          name: 'lastname',
+          rules: 'required',
+        },
+      }],
+      formFields: [
+        {
+          model: '',
+          inputType: 'input',
+          attr: {
+            disabled: true,
+            inputClass: 'w-full lc-col',
+            placeholder: 'Ecrit dedans :)',
+            label: 'Prénom',
+            name: 'firstname',
+            rules: 'required',
+          },
+        },
+        {
+          model: '',
+          inputType: 'input',
+          attr: {
+            inputClass: 'w-full lc-col',
+            label: 'addresse',
+            name: 'address',
+            rules: 'required',
+          },
+        },
+      ],
       buttonSizes: ['sm', 'md', 'lg', 'xl'],
       iconSizes: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
       btnColors: ['primary',
@@ -162,6 +232,7 @@ export default defineComponent({
         'grey',
         'black'],
       btnIsDisable: false,
+      name: '',
       colors: [
         'primary',
         'primary-light',
@@ -175,6 +246,15 @@ export default defineComponent({
       outlineColors: ['primary', 'secondary', 'grey'],
       outlineIsDisable: false,
     }
+  },
+  methods: {
+    onSubmit(values: Object) {
+      console.log('onSubmit', values)
+    },
+    onCancel(group: String, oldFields: Array<any>) {
+      console.log('onCancel', group, oldFields)
+      this.formFields = oldFields
+    },
   },
 })
 </script>
