@@ -10,7 +10,7 @@ export default {
   },
 }
 
-const Template = args => ({
+const Template = (args: any) => ({
   components: { LcButton },
   setup() {
     return { args }
@@ -18,13 +18,13 @@ const Template = args => ({
   template: '<lc-button v-bind="args">Hello world</lc-button>',
 })
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({}) as any
 Primary.args = {
   color: 'primary',
   variant: 'btn',
 }
 
-export const Secondary = Template.bind({})
+export const Secondary = Template.bind({}) as any
 Secondary.args = {
   color: 'secondary',
   variant: 'btn',

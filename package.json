@@ -1,6 +1,6 @@
 {
   "name": "lc-component-library",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "files": [
     "dist"
@@ -11,10 +11,8 @@
   "scripts": {
     "dev": "vite",
     "build": "node build/exports.js && vite build && tsc --emitDeclarationOnly",
-    "build-t": "postcss tailwind.css -o ./dist/tailwind.css",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "chromatic": "yarn chromatic --project-token f93655101893"
+    "build-storybook": "build-storybook"
   },
   "exports": {
     ".": {

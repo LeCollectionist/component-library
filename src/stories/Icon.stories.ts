@@ -9,7 +9,7 @@ export default {
   },
 }
 
-const Template = args => ({
+const Template = (args: any) => ({
   components: { LcIcon },
   setup() {
     return { args }
@@ -17,7 +17,7 @@ const Template = args => ({
   template: '<lc-icon v-bind="args"/>',
 })
 
-export const Base = Template.bind({})
+export const Base = Template.bind({}) as any
 Base.args = {
   size: 'md',
   name: 'finances',
