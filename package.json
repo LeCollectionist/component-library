@@ -13,7 +13,8 @@
     "build": "node build/exports.js && vite build && tsc --emitDeclarationOnly",
     "build-t": "postcss tailwind.css -o ./dist/tailwind.css",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "yarn chromatic --project-token f93655101893"
   },
   "exports": {
     ".": {
@@ -46,6 +47,7 @@
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^9",
     "babel-loader": "^8.2.2",
+    "chromatic": "^5.7.1",
     "cross-env": "^7.0.3",
     "eslint": "7.23.0",
     "fast-glob": "^3.2.5",
