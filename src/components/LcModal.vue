@@ -1,27 +1,53 @@
 <template>
-  <div
-    v-if="modelValue"
-    :class="[
-      'fixed bottom-0 left-0 right-0 h-full bg-white bg-opacity-20 px-2',
-    ]"
-  >
+  <transition name="fade">
     <div
-      :class="[
-        'base-modal absolute -bottom-full left-0 right-0 w-full bg-white h-5/6 border-l-8 border-r-8 border-t-8 border-gray-100 rounded-t-3xl',
-        { '-bottom-full': !modelValue },
-        { 'bottom-0': modelValue },
-      ]"
+      v-if="modelValue"
+      class="z-[99999] fixed top-0 left-0 right-0 h-full flex mx-auto my-0 items-center justify-center"
     >
-      <div class="h-full py-6 px-2 flex justify-between flex-col">
-        <div class="flex flex-col flex-wrap items-center">
-          <slot name="content" />
-        </div>
-        <div class="flex flex-wrap justify-center">
-          <slot name="footer" />
+      <div
+        class="z-[9999] bg-gray-700 bg-opacity-40 absolute top-0 left-0 right-0 h-full"
+        @click="clickOnShadow"
+      />
+      <div
+        class="relative flex mx-auto my-0 items-center w-full p-4 max-w-[500px] z-[99999]"
+      >
+        <div class="lc-modal__container w-full relative bg-white">
+          <lc-icon
+            v-if="!disableCloseModal"
+            name="exit"
+            class="absolute top-1 right-0"
+            size="xs"
+            @click="closeModal"
+          />
+
+          <header
+            v-if="!noHeader"
+            class="text-center relative px-8 py-4 pointer-events-none"
+          >
+            <slot name="header">
+              <h2 class="text-4xl m-0">
+                {{ title }}
+              </h2>
+            </slot>
+          </header>
+
+          <div
+            ref="lcModalContent"
+            class="overflow-y-auto p-8"
+          >
+            <slot name="content" />
+          </div>
+
+          <footer
+            v-if="!noFooter"
+            class="relative py-4 px-6 lc-modal__container--footer"
+          >
+            <slot name="footer" />
+          </footer>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -30,35 +56,70 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'BaseModal',
   props: {
+    disableCloseModal: {
+      type: Boolean,
+      default: false,
+    },
+    title: {
+      type: String,
+      default: '',
+    },
+    multipleModals: {
+      type: Boolean,
+      default: false,
+    },
+    noFooter: {
+      type: Boolean,
+      default: false,
+    },
+    noHeader: {
+      type: Boolean,
+      default: false,
+    },
     modelValue: {
       type: Boolean,
       default: false,
     },
   },
-  emits: ['update:modelValue'],
+  emits: ['close-modal', 'update:modelValue'],
+  watch: {
+    modelValue() {
+      this.updateOverflow()
+    },
+    multipleModals(newVal: boolean) {
+      const body = <HTMLElement>document.querySelector('body')
+
+      if (!newVal) {
+        body.style.overflow = 'auto'
+      } else {
+        body.style.overflow = 'hidden'
+      }
+    },
+  },
+  mounted() {
+    this.updateOverflow()
+  },
+  beforeUnmount() {
+    const body = <HTMLElement>document.querySelector('body')
+
+    body.style.overflow = 'auto'
+  },
   methods: {
-    closeModal(tabName: string) {
-      this.$emit('update:modelValue', tabName)
+    clickOnShadow() {
+      if (!this.disableCloseModal) this.closeModal()
+    },
+    closeModal() {
+      this.$emit('close-modal')
+      this.$emit('update:modelValue', false)
+    },
+    updateOverflow() {
+      if (!this.multipleModals) {
+        const body = <HTMLElement>document.querySelector('body')
+        const overflow = this.modelValue ? 'hidden' : 'auto' as string
+
+        body.style.overflow = overflow
+      }
     },
   },
 })
 </script>
-
-<style lang="postcss">
-  .base-modal {
-    animation-name: slideup;
-    animation-delay: 0.2s;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
-  }
-
-  @keyframes slideup {
-    0% {
-      @apply -bottom-full;
-    }
-    100% {
-      @apply bottom-0;
-    }
-  }
-</style>

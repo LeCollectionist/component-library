@@ -25,9 +25,9 @@
               @click="actionClick(action.method, list.id)"
             />
           </template>
-          <span v-else :class="list[head.key].class">{{
-            list[head.key].name
-          }}</span>
+          <span v-else-if="list[head.key]" :class="tdClass(list, head)">
+            {{ list[head.key].name }}
+          </span>
         </td>
       </tr>
     </tbody>
@@ -36,6 +36,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+
+interface HeadClass {
+  class: string
+}
+interface List {
+  [key: string]: HeadClass
+}
+interface Head {
+  key: string
+}
 
 export default defineComponent({
   name: 'BaseTable',
@@ -54,6 +64,9 @@ export default defineComponent({
     },
   },
   methods: {
+    tdClass(list: List, head: Head): string {
+      return list[head.key]?.class || ''
+    },
     actionClick(method: string, actionId: string) {
       this.$emit(method, actionId)
     },
