@@ -6,9 +6,11 @@
 
     <div class="px-4">
       <lc-button-demo />
+      <lc-form-demo />
       <lc-icon-demo />
       <lc-input-demo />
-      <lc-form-demo />
+      <lc-modal-demo />
+      <lc-table-demo />
     </div>
   </div>
 </template>
@@ -17,17 +19,21 @@
 import { defineComponent } from 'vue'
 
 import LcButtonDemo from './components/LcButtonDemo.vue'
+import LcFormDemo from './components/LcFormDemo.vue'
 import LcIconDemo from './components/LcIconDemo.vue'
 import LcInputDemo from './components/LcInputDemo.vue'
-import LcFormDemo from './components/LcFormDemo.vue'
+import LcModalDemo from './components/LcModalDemo.vue'
+import LcTableDemo from './components/LcTableDemo.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     LcButtonDemo,
+    LcFormDemo,
     LcIconDemo,
     LcInputDemo,
-    LcFormDemo,
+    LcModalDemo,
+    LcTableDemo,
   },
 })
 </script>
