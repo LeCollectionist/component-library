@@ -1,4 +1,4 @@
-# LcButton
+# Lc Component Library
 
 This repo provides a basic setup for developing component libraries in Vite with Vue 3 typescript and TailwindCss
 
@@ -13,8 +13,39 @@ This repo provides a basic setup for developing component libraries in Vite with
 - [x] LcIcon
 - [x] LcTable
 - [x] LcModal
+- [x] LcInput
+- [x] LcForm
+
 ## Commands
 ```bash
-yarn run dev # Will run the demos app so you can see your components
-yarn run build # Will build your components into a library and generate types
+yarn dev # Will run the demos app so you can see your components
+yarn build # Will build your components into a library and generate types
+```
+
+## Push on npm
+
+### Generate build
+
+Upgrade version package :
+
+- Patch releases: 1.0 or 1.0.x or ~1.0.4
+- Minor releases: 1 or 1.x or ^1.0.4
+- Major releases: * or x
+
+```
+$ yarn build
+```
+
+### Logged on NPM
+
+```bash
+$ npm login // Entrer your email + mdp
+```
+
+### Logged on NPM
+
+Push on NPM when the branch is merged on master :
+
+```bash
+$ npm publish
 ```
