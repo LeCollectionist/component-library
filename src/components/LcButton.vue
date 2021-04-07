@@ -174,7 +174,7 @@ export default defineComponent({
 .lc-link {
   user-select: none;
   transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
-  @apply font-bold bg-transparent rounded-sm p-0 inline-block border-none outline-none focus:outline-none hover:inherit;
+  @apply font-bold bg-transparent rounded-sm p-0 inline-block border-none outline-none focus:outline-none;
 }
 .lc-outline { @apply font-bold rounded-sm inline-block text-center cursor-pointer align-middle border border-solid text-base leading-tight hover:no-underline focus:outline-none focus:border-primary-focus; }
 
