@@ -10,6 +10,7 @@ This repo provides a basic setup for developing component libraries in Vite with
 
 ## Components
 - [x] LcButton
+- [x] LcCheckbox
 - [x] LcIcon
 - [x] LcTable
 - [x] LcModal

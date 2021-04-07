@@ -24,9 +24,7 @@
       >
     </div>
 
-    <error-message v-slot="{ message }" :name="name">
-      <span class="text-small text-red">{{ message }}</span>
-    </error-message>
+    <error-message :name="name" as="span" class="text-small text-red" />
   </div>
 </template>
 

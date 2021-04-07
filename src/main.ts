@@ -14,6 +14,7 @@ export const LcComponents: Plugin = {
 
 // START_EXPORTS
 export { default as LcButton } from './components/LcButton.vue'
+export { default as LcCheckbox } from './components/LcCheckbox.vue'
 export { default as LcForm } from './components/LcForm.vue'
 export { default as LcIcon } from './components/LcIcon.vue'
 export { default as LcInput } from './components/LcInput.vue'
