@@ -53,8 +53,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+import LcIcon from './LcIcon.vue'
+
 export default defineComponent({
-  name: 'BaseModal',
+  name: 'LcModal',
+  components: {
+    LcIcon,
+  },
   props: {
     disableCloseModal: {
       type: Boolean,
@@ -87,20 +92,20 @@ export default defineComponent({
       this.updateOverflow()
     },
     multipleModals(newVal: boolean) {
-      const body = <HTMLElement>document.querySelector('body')
+      const body = document.querySelector('body')
 
-      if (!newVal) {
+      if (!newVal)
         body.style.overflow = 'auto'
-      } else {
+
+      else
         body.style.overflow = 'hidden'
-      }
     },
   },
   mounted() {
     this.updateOverflow()
   },
   beforeUnmount() {
-    const body = <HTMLElement>document.querySelector('body')
+    const body = document.querySelector('body')
 
     body.style.overflow = 'auto'
   },
@@ -114,7 +119,7 @@ export default defineComponent({
     },
     updateOverflow() {
       if (!this.multipleModals) {
-        const body = <HTMLElement>document.querySelector('body')
+        const body = document.querySelector('body')
         const overflow = this.modelValue ? 'hidden' : 'auto' as string
 
         body.style.overflow = overflow

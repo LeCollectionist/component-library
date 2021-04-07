@@ -64,6 +64,10 @@ import fr from '@vee-validate/i18n/dist/locale/fr.json'
 
 import { FieldClassContainer, FormValues } from '../types/LcForm'
 
+import LcButton from './LcButton.vue'
+import LcCheckbox from './LcCheckbox.vue'
+import LcInput from './LcInput.vue'
+
 configure({
   generateMessage: localize({
     fr,
@@ -80,6 +84,9 @@ defineRule('max_value', max_value)
 export default defineComponent({
   name: 'LcForm',
   components: {
+    LcButton,
+    LcCheckbox,
+    LcInput,
     vForm,
   },
   props: {
