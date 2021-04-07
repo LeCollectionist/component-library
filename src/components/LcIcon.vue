@@ -22,7 +22,9 @@ export default defineComponent({
 })
 </script>
 
-<style lang="postcss">
+<style scoped>
+  @import 'https://d1azc1qln24ryf.cloudfront.net/192288/AdminTool/style-cf.css?8tpss0';
+
   .icon {
     font-size: 2rem;
     @apply inline-block align-bottom box-content leading-none;

@@ -37,6 +37,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+import LcIcon from './LcIcon.vue'
+
 interface HeadClass {
   class: string
 }
@@ -48,7 +50,8 @@ interface Head {
 }
 
 export default defineComponent({
-  name: 'BaseTable',
+  name: 'LcTable',
+  components: { LcIcon },
   props: {
     headers: {
       type: Array,
@@ -74,7 +77,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="postcss">
+<style scoped>
   table {
     @apply w-full p-0 m-0 table-fixed border-collapse;
   }

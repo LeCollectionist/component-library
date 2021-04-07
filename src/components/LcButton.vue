@@ -158,7 +158,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="postcss">
+<style>
 /* Sizes */
 .lc-btn--sm { @apply py-2.5 px-6; }
 .lc-btn--md { @apply py-3.5 px-6; }
@@ -208,8 +208,7 @@ export default defineComponent({
 
 /* Btn Loader */
 .lc-btn-loader {
-  margin: 0 5px 0 0;
-  @apply w-5 h-5 inline-block relative align-middle;
+  @apply w-5 h-5 inline-block relative align-middle mr-4;
 }
 .lc-btn-loader__spin {
   transform: rotate(0deg);
