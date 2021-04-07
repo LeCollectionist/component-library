@@ -66,6 +66,15 @@ export default defineComponent({
             rules: 'required',
           },
         },
+        {
+          model: false,
+          inputType: 'checkbox',
+          attr: {
+            label: 'Je souhaite recevoir occasionnellement une sélection d’expériences et de maisons.',
+            name: 'newsletter',
+            rules: 'required',
+          },
+        },
       ],
     }
   },

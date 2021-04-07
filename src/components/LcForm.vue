@@ -17,6 +17,12 @@
           v-model="field.model"
           v-bind="field.attr"
         />
+        <lc-checkbox
+          v-if="field.inputType === 'checkbox' && !field.hidden"
+          v-model="field.model"
+          :fields="field.fields || []"
+          v-bind="field.attr"
+        />
       </div>
 
       <slot name="before-submit-button" />
