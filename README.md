@@ -22,7 +22,7 @@ yarn dev # Will run the demos app so you can see your components
 yarn build # Will build your components into a library and generate types
 ```
 
-## Push on npm
+## Publish on NPM
 
 ### Generate build
 
@@ -42,7 +42,7 @@ $ yarn build
 $ npm login // Entrer your email + mdp
 ```
 
-### Logged on NPM
+### Publish on NPM
 
 Push on NPM when the branch is merged on master :
 
