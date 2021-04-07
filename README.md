@@ -1,10 +1,10 @@
 # LcButton
 
-This repo provides a basic setup for developing component libraries in Vite with Vue 3 typescript and WindiCss
+This repo provides a basic setup for developing component libraries in Vite with Vue 3 typescript and TailwindCss
 
 ## Features
 - Create a component library using Vue3 Vite and typescript
-- Tailwind CSS via [WindiCSS](https://windicss.netlify.app/)
+- Tailwind CSS
 - Automatically export and register all components in `./src/components`
 - `./demo` folder where you can test your components
 

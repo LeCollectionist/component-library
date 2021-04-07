@@ -21,7 +21,18 @@
 
       <slot name="before-submit-button" />
 
-      <div :class="computedContainerButtonClass">
+      <div :class="computedContainerButtonClass" class="mt-4">
+        <lc-button
+          v-if="buttonSecondary"
+          class="mr-0 md:mr-6"
+          type="button"
+          variant="outline"
+          v-bind="buttonSecondary.attrs"
+          @click="onCancel"
+        >
+          {{ buttonSecondary.text }}
+        </lc-button>
+
         <lc-button
           :disabled="disabledPrimaryButton"
           block-full
@@ -31,16 +42,6 @@
           v-bind="buttonPrimary.attrs"
         >
           <span>{{ buttonPrimary.text }}</span>
-        </lc-button>
-
-        <lc-button
-          v-if="buttonSecondary"
-          class="order-1 mr-0 md:mr-6"
-          type="button"
-          v-bind="buttonSecondary.attrs"
-          @click="onCancel"
-        >
-          {{ buttonSecondary.text }}
         </lc-button>
       </div>
     </form>
