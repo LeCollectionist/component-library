@@ -6,7 +6,7 @@ export default {
   component: LcModal,
 }
 
-const Template = args => ({
+const Template = (args: any) => ({
   components: { LcModal, LcButton },
   setup() {
     return { args }
@@ -21,7 +21,7 @@ const Template = args => ({
   `,
 })
 
-export const Base = Template.bind({})
+export const Base = Template.bind({}) as any
 Base.args = {
   modelValue: true,
   title: 'Hello',

@@ -8,7 +8,7 @@ export default {
   },
 }
 
-const Template = args => ({
+const Template = (args: any) => ({
   components: { LcCheckbox },
   setup() {
     return { args }
@@ -16,7 +16,7 @@ const Template = args => ({
   template: '<lc-checkbox v-model="args.modelValue" v-bind="args"/>',
 })
 
-export const Base = Template.bind({})
+export const Base = Template.bind({}) as any
 Base.args = {
   modelValue: true,
   label: 'Label de la checkbox',
@@ -24,7 +24,7 @@ Base.args = {
   rules: 'required',
 }
 
-export const Multiple = Template.bind({})
+export const Multiple = Template.bind({}) as any
 Multiple.args = {
   modelValue: ['matin'],
   name: 'schedule',

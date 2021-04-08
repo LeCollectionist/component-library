@@ -5,7 +5,7 @@ export default {
   component: LcTable,
 }
 
-const Template = args => ({
+const Template = (args: any) => ({
   components: { LcTable },
   setup() {
     return { args }
@@ -13,7 +13,7 @@ const Template = args => ({
   template: '<lc-table v-bind="args"/>',
 })
 
-export const Base = Template.bind({})
+export const Base = Template.bind({}) as any
 Base.args = {
   headers: [
     {
