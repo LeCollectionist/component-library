@@ -4,7 +4,12 @@
       Component library
     </h1>
 
-    <div class="px-4" />
+    <div class="px-4">
+      Launch storybook :
+      <code class="pl-4 block">
+        <pre class="text-gray-600">yarn storybook</pre>
+      </code>
+    </div>
   </div>
 </template>
 

@@ -4,6 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { vSize } from '../validators/LcIcon'
 
 export default defineComponent({
   name: 'BaseIcon',
@@ -16,7 +17,7 @@ export default defineComponent({
       type: String,
       default: 'sm',
       validator: (value: string) =>
-        ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(value),
+        vSize.includes(value),
     },
   },
 })
