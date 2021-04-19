@@ -6,7 +6,6 @@ This repo provides a basic setup for developing component libraries in Vite with
 - Create a component library using Vue3 Vite and typescript
 - Tailwind CSS
 - Automatically export and register all components in `./src/components`
-- `./demo` folder where you can test your components
 
 ## Components
 - [x] LcButton
