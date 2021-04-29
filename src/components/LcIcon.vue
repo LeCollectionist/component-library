@@ -23,7 +23,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-  @import 'https://d1azc1qln24ryf.cloudfront.net/192288/AdminTool/style-cf.css?8tpss0';
+  @import 'https://d1azc1qln24ryf.cloudfront.net/192288/AdminTool/style-cf.css?nzzigk';
 
   .icon {
     font-size: 2rem;
