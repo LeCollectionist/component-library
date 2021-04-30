@@ -10,13 +10,12 @@
       <lc-icon
         name="left-chevron"
         size="xs"
-        @click="prevPage"
       />
     </button>
 
-    <template v-for="(number, i) in paginateArr">
+    <template v-for="(item, i) in paginateArr">
       <span
-        v-if="number === '...'"
+        v-if="item === '...'"
         :key="`etc-${i}`"
         data-testid="etc"
         class="w-8 h-8 flex items-center justify-center"
@@ -24,27 +23,27 @@
         ...
       </span>
       <span
-        v-if="number === 0"
+        v-if="item === 0"
         :key="`empty-${i}`"
         data-testid="empty"
         class="w-8 h-8 flex items-center justify-center"
       />
 
       <button
-        v-if="number > 0"
+        v-if="item > 0"
         :key="`index-${i}`"
         :class="[
           'w-8 h-8 flex items-center justify-center rounded-full transition-all hover:bg-gray-200 focus:outline-none',
-          {'medium bg-primary-300 font-bold': number === modelValue}
+          {'font-medium bg-primary-300': item === modelValue}
         ]"
-        @click="clickOnNumber(number)"
+        @click="clickOnNumber(item)"
       >
-        {{ number }}
+        {{ item }}
       </button>
     </template>
 
     <button
-      :disabled="modelValue === page"
+      :disabled="modelValue === nbPages"
       class="w-8 h-8 ml-4 outline-none focus:outline-none disabled:opacity-40"
       data-testid="nextPage"
       type="button"
@@ -73,7 +72,7 @@ export default defineComponent({
       type: Number,
       default: 1,
     },
-    page: {
+    nbPages: {
       type: Number,
       default: 1,
     },
@@ -81,20 +80,20 @@ export default defineComponent({
   emits: ['update:modelValue'],
   computed: {
     paginateArr(): (string|number)[] {
-      const firstNumber = this.modelValue > 2 ? 1 : 0 as number
-      const secondNumber = this.modelValue < 4 ? this.modelValue - 1 : '...' as number | string
-      const thirdNumber = this.modelValue as number
-      let fourthNumber = this.modelValue + 1 as number | string
+      const firstItem = this.modelValue > 2 ? 1 : 0 as number
+      const secondItem = this.modelValue < 4 ? this.modelValue - 1 : '...' as number | string
+      const thirdItem = this.modelValue as number
+      let fourthItem = this.modelValue + 1 as number | string
 
-      if (this.modelValue > this.page - 1)
-        fourthNumber = 0
+      if (this.modelValue > this.nbPages - 1)
+        fourthItem = 0
 
-      else if (this.modelValue < this.page - 2)
-        fourthNumber = '...'
+      else if (this.modelValue < this.nbPages - 2)
+        fourthItem = '...'
 
-      const fifthNumber = this.modelValue < this.page - 1 ? this.page : 0 as number
+      const fifthItem = this.modelValue < this.nbPages - 1 ? this.nbPages : 0
 
-      return [firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber]
+      return [firstItem, secondItem, thirdItem, fourthItem, fifthItem]
     },
   },
   methods: {
@@ -109,7 +108,7 @@ export default defineComponent({
       }
     },
     nextPage() {
-      if (this.modelValue < this.page) {
+      if (this.modelValue < this.nbPages) {
         const value = this.modelValue + 1
 
         this.$emit('update:modelValue', value)

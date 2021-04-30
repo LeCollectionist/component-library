@@ -5,7 +5,7 @@ export default {
   title: 'Example/LcPagination',
   component: LcPagination,
   argTypes: {
-    page: { control: { type: 'select', options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } },
+    nbPages: { control: { type: 'select', options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } },
     modelValue: { control: { type: 'select', options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } },
   },
 }
@@ -23,11 +23,11 @@ const Template = (args: any) => ({
 export const FirstCase = Template.bind({}) as any
 FirstCase.args = {
   modelValue: 1,
-  page: 3,
+  nbPages: 3,
 }
 
 export const SecondCase = Template.bind({}) as any
 SecondCase.args = {
   modelValue: 1,
-  page: 10,
+  nbPages: 10,
 }
