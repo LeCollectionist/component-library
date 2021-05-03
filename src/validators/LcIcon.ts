@@ -1,3 +1,3 @@
-const vSize: string[] = ['xs', 'sm', 'md', 'lg', 'xl']
+const vSize: string[] = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']
 
 export { vSize }
