@@ -238,6 +238,11 @@ export default defineComponent({
 .lc-outline--font-normal {
   @apply font-normal;
 }
+.lc-btn--font-medium,
+.lc-link--font-medium,
+.lc-outline--font-medium {
+  @apply font-medium;
+}
 
 /* Btn Colors */
 .lc-btn--primary {
