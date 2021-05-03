@@ -22,7 +22,7 @@ import { defineComponent } from 'vue'
 import { vColor, vFontWeight, vSize, vVariant } from '../validators/LcButton'
 
 // Types
-interface computedClass {
+interface ComputedClass {
   [key: string]: string
 }
 
@@ -132,22 +132,22 @@ export default defineComponent({
       // Variants
       const color = this.disabled ? 'disabled' : this.color as string
       const size = this.variant === 'link' ? '' : this.size as string
-      const blockClass: computedClass = {
+      const blockClass: ComputedClass = {
         btn: this.block ? 'lc-btn--block' : '',
         link: this.block ? 'lc-link--block' : '',
         outline: this.block ? 'lc-outline--block' : '',
       }
-      const blockFullClass: computedClass = {
+      const blockFullClass: ComputedClass = {
         btn: this.blockFull ? 'lc-btn--block-full' : '',
         link: this.blockFull ? 'lc-link--block-full' : '',
         outline: this.blockFull ? 'lc-outline--block-full' : '',
       }
-      const hasIconClass: computedClass = {
+      const hasIconClass: ComputedClass = {
         btn: this.hasIcon ? 'lc-btn--has-icon' : '',
         link: this.hasIcon ? 'lc-link--has-icon' : '',
         outline: this.hasIcon ? 'lc-outline--has-icon' : '',
       }
-      const weightClass: computedClass = {
+      const weightClass: ComputedClass = {
         btn: `lc-btn--${this.fontWeight}`,
         link: `lc-link--${this.fontWeight}`,
         outline: `lc-outline--${this.fontWeight}`,

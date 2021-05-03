@@ -10,11 +10,12 @@ This repo provides a basic setup for developing component libraries in Vite with
 ## Components
 - [x] LcButton
 - [x] LcCheckbox
-- [x] LcIcon
-- [x] LcTable
-- [x] LcModal
-- [x] LcInput
 - [x] LcForm
+- [x] LcIcon
+- [x] LcInput
+- [x] LcModal
+- [x] LcPagination
+- [x] LcTable
 
 ## Commands
 ```bash
@@ -23,7 +24,6 @@ yarn build # Will build your components into a library and generate types
 ```
 
 ## Publish on NPM
-
 ### Generate build
 
 Upgrade version package :

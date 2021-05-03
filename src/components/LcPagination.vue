@@ -97,7 +97,7 @@ export default defineComponent({
     },
   },
   methods: {
-    clickOnNumber(value: number | string) {
+    clickOnNumber(value: number|string) {
       this.$emit('update:modelValue', value)
     },
     prevPage() {
