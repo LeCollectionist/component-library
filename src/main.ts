@@ -19,5 +19,6 @@ export { default as LcForm } from './components/LcForm.vue'
 export { default as LcIcon } from './components/LcIcon.vue'
 export { default as LcInput } from './components/LcInput.vue'
 export { default as LcModal } from './components/LcModal.vue'
+export { default as LcPagination } from './components/LcPagination.vue'
 export { default as LcTable } from './components/LcTable.vue'
 // END_EXPORTS
