@@ -1,12 +1,14 @@
 import LcButton from '../components/LcButton'
+import { vColor, vFontWeight, vSize, vVariant } from '../validators/LcButton'
 
 export default {
   title: 'Example/LcButton',
   component: LcButton,
   argTypes: {
-    size: { control: { type: 'select', options: ['sm', 'md', 'lg', 'xl'] } },
-    color: { control: { type: 'select', options: ['primary', 'primary-light', 'secondary', 'light', 'white', 'grey', 'black'] } },
-    variant: { control: { type: 'select', options: ['btn', 'link', 'outline'] } },
+    size: { control: { type: 'select', options: vSize } },
+    color: { control: { type: 'select', options: vColor } },
+    variant: { control: { type: 'select', options: vVariant } },
+    fontWeight: { control: { type: 'select', options: vFontWeight } },
   },
 }
 
