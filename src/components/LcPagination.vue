@@ -2,7 +2,7 @@
   <div class="flex items-center">
     <button
       :disabled="modelValue === 1"
-      class="w-8 h-8 mr-4 outline-none focus:outline-none disabled:opacity-40"
+      class="w-8 h-8 mr-2 outline-none focus:outline-none disabled:opacity-40"
       data-testid="prevPage"
       type="button"
       @click="prevPage"
@@ -18,7 +18,7 @@
         v-if="item === '...'"
         :key="`etc-${i}`"
         data-testid="etc"
-        class="w-8 h-8 flex items-center justify-center"
+        class="flex items-center justify-center w-8 h-8 mx-2"
       >
         ...
       </span>
@@ -26,14 +26,14 @@
         v-if="item === 0"
         :key="`empty-${i}`"
         data-testid="empty"
-        class="w-8 h-8 flex items-center justify-center"
+        class="flex items-center justify-center w-8 h-8 mx-2"
       />
 
       <button
         v-if="item > 0"
         :key="`index-${i}`"
         :class="[
-          'w-8 h-8 flex items-center justify-center rounded-full transition-all hover:bg-gray-200 focus:outline-none',
+          'w-8 h-8 flex items-center justify-center rounded-full transition-all hover:bg-gray-200 outline-none focus:outline-none mx-2',
           {'font-medium bg-primary-300': item === modelValue}
         ]"
         @click="clickOnNumber(item)"
@@ -44,7 +44,7 @@
 
     <button
       :disabled="modelValue === nbPages"
-      class="w-8 h-8 ml-4 outline-none focus:outline-none disabled:opacity-40"
+      class="w-8 h-8 ml-2 outline-none focus:outline-none disabled:opacity-40"
       data-testid="nextPage"
       type="button"
       @click="nextPage"
