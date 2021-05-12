@@ -5,7 +5,7 @@
       :ref="`form-${group}`"
       :class="{'flex flex-wrap': columnMode}"
       novalidate
-      @submit="handleSubmit($event, onSubmit)"
+      @submit.prevent="handleSubmit($event, onSubmit)"
     >
       <div
         v-for="field in fields"
