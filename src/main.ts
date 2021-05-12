@@ -1,24 +1,19 @@
-import type { Plugin } from 'vue'
+import LcButton from './components/LcButton.vue'
+import LcCheckbox from './components/LcCheckbox.vue'
+import LcForm from './components/LcForm.vue'
+import LcIcon from './components/LcIcon.vue'
+import LcInput from './components/LcInput.vue'
+import LcModal from './components/LcModal.vue'
+import LcPagination from './components/LcPagination.vue'
+import LcTable from './components/LcTable.vue'
 
-import components from './components'
-
-export default components
-
-export const LcComponents: Plugin = {
-  install(app) {
-    Object.entries(components).forEach(([key, value]: [string, any]) => {
-      app.component(key, value)
-    })
-  },
+export {
+  LcButton,
+  LcCheckbox,
+  LcForm,
+  LcIcon,
+  LcInput,
+  LcModal,
+  LcPagination,
+  LcTable,
 }
-
-// START_EXPORTS
-export { default as LcButton } from './components/LcButton.vue'
-export { default as LcCheckbox } from './components/LcCheckbox.vue'
-export { default as LcForm } from './components/LcForm.vue'
-export { default as LcIcon } from './components/LcIcon.vue'
-export { default as LcInput } from './components/LcInput.vue'
-export { default as LcModal } from './components/LcModal.vue'
-export { default as LcPagination } from './components/LcPagination.vue'
-export { default as LcTable } from './components/LcTable.vue'
-// END_EXPORTS
