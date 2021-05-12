@@ -2,7 +2,7 @@
   <div class="flex items-center">
     <button
       :disabled="modelValue === 1"
-      class="w-8 h-8 mr-2 outline-none focus:outline-none disabled:opacity-40"
+      class="lc-pagination__prev"
       data-testid="prevPage"
       type="button"
       @click="prevPage"
@@ -18,7 +18,7 @@
         v-if="item === '...'"
         :key="`etc-${i}`"
         data-testid="etc"
-        class="flex items-center justify-center w-8 h-8 mx-2"
+        class="lc-pagination__etc"
       >
         ...
       </span>
@@ -26,16 +26,13 @@
         v-if="item === 0"
         :key="`empty-${i}`"
         data-testid="empty"
-        class="flex items-center justify-center w-8 h-8 mx-2"
+        class="lc-pagination__empty"
       />
 
       <button
         v-if="item > 0"
         :key="`index-${i}`"
-        :class="[
-          'w-8 h-8 flex items-center justify-center rounded-full transition-all hover:bg-gray-200 outline-none focus:outline-none mx-2',
-          {'font-medium bg-primary-300': item === modelValue}
-        ]"
+        :class="['lc-pagination__number', {'lc-pagination__number--active': item === modelValue}]"
         @click="clickOnNumber(item)"
       >
         {{ item }}
@@ -44,7 +41,7 @@
 
     <button
       :disabled="modelValue === nbPages"
-      class="w-8 h-8 ml-2 outline-none focus:outline-none disabled:opacity-40"
+      class="lc-pagination__next"
       data-testid="nextPage"
       type="button"
       @click="nextPage"
@@ -117,3 +114,12 @@ export default defineComponent({
   },
 })
 </script>
+
+<style>
+  .lc-pagination__prev { @apply w-8 h-8 mr-2 outline-none focus:outline-none disabled:opacity-40; }
+  .lc-pagination__etc { @apply flex items-center justify-center w-8 h-8 mx-2; }
+  .lc-pagination__empty { @apply flex items-center justify-center w-8 h-8 mx-2; }
+  .lc-pagination__number { @apply w-8 h-8 flex items-center justify-center rounded-full transition-all hover:bg-gray-200 outline-none focus:outline-none mx-2; }
+  .lc-pagination__number--active { @apply font-medium bg-primary-300; }
+  .lc-pagination__next { @apply w-8 h-8 ml-2 outline-none focus:outline-none disabled:opacity-40; }
+</style>
