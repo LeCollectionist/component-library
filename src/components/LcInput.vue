@@ -24,7 +24,7 @@
       >
     </div>
 
-    <error-message :name="name" as="span" class="text-small text-red" />
+    <error-message :name="name" as="span" class="lc-input--error" />
   </div>
 </template>
 
@@ -106,11 +106,11 @@ export default defineComponent({
   computed: {
     computedClass(): any[] {
       return [
-        'base-input--input block bg-clip-padding w-full text-gray-700 font-normal text-base leading-normal py-1.5 px-4 bg-white focus:text-gray-700 focus:bg-white focus:border-input-focus focus:shadow-focus focus:outline-none',
-        { 'border rounded-sm': !this.noBorder },
-        { 'bg-gray-300 pointer-events-none text-gray-500': this.disabled },
-        { 'border-red-500': this.isError && !this.noBorder },
-        { 'border-gray-400': !this.isError && !this.noBorder },
+        'lc-input',
+        { 'lc-input--hasBorder': !this.noBorder },
+        { 'lc-input--disabled': this.disabled },
+        { 'lc-input--hasError-hasBorder': this.isError && !this.noBorder },
+        { 'lc-input--hasntError-hasBorder': !this.isError && !this.noBorder },
       ]
     },
   },
@@ -118,11 +118,27 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.base-input--input {
+.lc-input {
   height: 51px;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  @apply block bg-clip-padding w-full text-gray-700 font-normal text-base leading-normal py-1.5 px-4 bg-white focus:text-gray-700 focus:bg-white focus:border-primary-focus focus:shadow-focus focus:outline-none;
 }
-.base-input--input[disabled=disabled] {
+.lc-input--hasBorder {
+  @apply border rounded-sm;
+}
+.lc-input--disabled {
+  @apply bg-gray-300 pointer-events-none text-gray-500;
+}
+.lc-input--hasError-hasBorder {
+  @apply border-error;
+}
+.lc-input--hasntError-hasBorder {
+  @apply border-gray-400;
+}
+.lc-input[disabled=disabled] {
   -webkit-text-fill-color: #aaaaaa;
+}
+.lc-input--error {
+  @apply text-sm text-error;
 }
 </style>

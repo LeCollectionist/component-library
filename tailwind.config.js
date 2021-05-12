@@ -58,10 +58,14 @@ module.exports = {
         '9xl': '4.5rem', // 80px
         '10xl': '7rem', // 128px
       },
+      boxShadow: {
+        focus: '0 0 0 0.2rem #dbbc8f40',
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 }
