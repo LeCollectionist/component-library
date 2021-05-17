@@ -45,11 +45,6 @@ export default defineComponent({
     color: {
       type: String,
       default: '',
-      validator: (value: string) => {
-        const isHexa = /[0-9A-Fa-f]{6}/g
-
-        return isHexa.test(value)
-      },
     },
     label: {
       type: String,
