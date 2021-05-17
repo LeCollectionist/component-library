@@ -2,13 +2,30 @@
   <div>
     <template v-if="multipleCheckbox">
       <label v-for="checkbox in fields" :key="checkbox.label" class="mr-4 label">
-        <input v-model="inputValue" type="checkbox" :disabled="disabled" :value="checkbox.value" class="form-tick checkbox-custom">
-        <span>{{ checkbox.label }}</span>
+        <input
+          v-model="inputValue"
+          type="checkbox"
+          :disabled="disabled"
+          :value="checkbox.value"
+          :style="checkbox.value && checkbox.color ?
+            { backgroundColor: checkbox.color , borderColor: checkbox.color } :
+            { borderColor: checkbox.color }"
+          class="form-tick checkbox-custom"
+        >
+        <span :style="checkbox.value && checkbox.color ? { color: checkbox.color } : ''">{{ checkbox.label }}</span>
       </label>
     </template>
     <label v-else class="label">
-      <input v-model="inputValue" type="checkbox" :disabled="disabled" class="form-tick checkbox-custom">
-      <span>{{ label }}</span>
+      <input
+        v-model="inputValue"
+        type="checkbox"
+        :disabled="disabled"
+        :style="inputValue && color ? {
+          backgroundColor: color, borderColor: color } :
+          { borderColor: color }"
+        class="form-tick checkbox-custom"
+      >
+      <span :style="inputValue && color ? { color: color } : ''">{{ label }}</span>
     </label>
 
     <error-message as="div" :name="name" class="text-small text-red" />
@@ -25,6 +42,15 @@ export default defineComponent({
     ErrorMessage,
   },
   props: {
+    color: {
+      type: String,
+      default: '',
+      validator: (value: string) => {
+        const isHexa = /[0-9A-Fa-f]{6}/g
+
+        return isHexa.test(value)
+      },
+    },
     label: {
       type: String,
       default: '',
