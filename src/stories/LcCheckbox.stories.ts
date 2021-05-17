@@ -33,14 +33,17 @@ Multiple.args = {
     {
       label: 'Matin',
       value: 'matin',
+      color: '#CDCDD6',
     },
     {
       label: 'Midi',
       value: 'midi',
+      color: '#77A6DC',
     },
     {
       label: 'Soirée',
       value: 'soiree',
+      color: '#B5DCF3',
     },
   ],
 }
