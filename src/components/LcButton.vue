@@ -218,10 +218,10 @@ export default defineComponent({
 }
 /* Icon */
 .lc-icon--xs {
-  @apply w-8 h-8 p-2;
+  @apply w-5 h-5 p-2;
 }
 .lc-icon--sm {
-  @apply w-8 h-8 p-3;
+  @apply w-6 h-6 p-2;
 }
 .lc-icon--md {
   @apply w-8 h-8 p-4;
