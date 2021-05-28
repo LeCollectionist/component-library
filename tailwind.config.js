@@ -34,13 +34,17 @@ module.exports = {
           500: '#195252',
           600: '#0B4141',
         },
+        red: {
+          100: '#E38687',
+          200: '#DC6869',
+          300: '#EFCCC3',
+        },
         transparent: 'transparent',
         'primary-focus': '#dbbc8f40',
         'secondary-focus': '#dbbc8f40',
         active: '#448084',
         black: '#202020',
         error: '#DC6869',
-        red: '#DC6869',
         white: '#ffffff',
       },
       fontSize: {

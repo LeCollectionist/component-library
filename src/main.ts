@@ -6,6 +6,7 @@ import LcInput from './components/LcInput.vue'
 import LcModal from './components/LcModal.vue'
 import LcPagination from './components/LcPagination.vue'
 import LcTable from './components/LcTable.vue'
+import LcTooltip from './components/LcTooltip.vue'
 
 export {
   LcButton,
@@ -16,4 +17,5 @@ export {
   LcModal,
   LcPagination,
   LcTable,
+  LcTooltip,
 }

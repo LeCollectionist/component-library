@@ -16,6 +16,7 @@ This repo provides a basic setup for developing component libraries in Vite with
 - [x] LcModal
 - [x] LcPagination
 - [x] LcTable
+- [x] LcTooltip
 
 ## Commands
 ```bash

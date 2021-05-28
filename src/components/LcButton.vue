@@ -13,6 +13,7 @@
     >
       <i class="lc-btn-loader__spin" />
     </span>
+
     <slot />
   </component>
 </template>
@@ -107,18 +108,40 @@ export default defineComponent({
           grey: 'lc-outline--grey',
           disabled: 'lc-outline--disabled',
         },
+        icon: {
+          primary: 'lc-icon--primary',
+          secondary: 'lc-icon--secondary',
+          red: 'lc-icon--red',
+        },
       },
       btnSizes: {
-        xs: 'lc-btn--xs',
-        sm: 'lc-btn--sm',
-        md: 'lc-btn--md',
-        lg: 'lc-btn--lg',
-        xl: 'lc-btn--xl',
+        btn: {
+          xs: 'lc-btn--xs',
+          sm: 'lc-btn--sm',
+          md: 'lc-btn--md',
+          lg: 'lc-btn--lg',
+          xl: 'lc-btn--xl',
+        },
+        outline: {
+          xs: 'lc-btn--xs',
+          sm: 'lc-btn--sm',
+          md: 'lc-btn--md',
+          lg: 'lc-btn--lg',
+          xl: 'lc-btn--xl',
+        },
+        icon: {
+          xs: 'lc-icon--xs',
+          sm: 'lc-icon--sm',
+          md: 'lc-icon--md',
+          lg: 'lc-icon--lg',
+          xl: 'lc-icon--xl',
+        },
       },
       btnVariants: {
         btn: 'lc-btn',
         link: 'lc-link',
         outline: 'lc-outline',
+        icon: 'lc-icon',
       },
     }
   },
@@ -132,10 +155,12 @@ export default defineComponent({
       // Variants
       const color = this.disabled ? 'disabled' : this.color as string
       const size = this.variant === 'link' ? '' : this.size as string
+
       const blockClass: ComputedClass = {
         btn: this.block ? 'lc-btn--block' : '',
         link: this.block ? 'lc-link--block' : '',
         outline: this.block ? 'lc-outline--block' : '',
+        icon: this.block ? 'lc-icon--block' : '',
       }
       const blockFullClass: ComputedClass = {
         btn: this.blockFull ? 'lc-btn--block-full' : '',
@@ -151,6 +176,7 @@ export default defineComponent({
         btn: `lc-btn--${this.fontWeight}`,
         link: `lc-link--${this.fontWeight}`,
         outline: `lc-outline--${this.fontWeight}`,
+        icon: `lc-icon--${this.fontWeight}`,
       }
 
       return [
@@ -158,7 +184,7 @@ export default defineComponent({
         blockFullClass[this.variant],
         hasIconClass[this.variant],
         this.btnColors[this.variant][color],
-        this.btnSizes[size],
+        this.btnSizes[this.variant][size],
         this.btnVariants[this.variant],
         weightClass[this.variant],
       ]
@@ -174,6 +200,7 @@ export default defineComponent({
 
 <style>
 /* Sizes */
+/* Btn */
 .lc-btn--xs {
   @apply p-0;
 }
@@ -188,6 +215,22 @@ export default defineComponent({
 }
 .lc-btn--xl {
   @apply py-4 px-12;
+}
+/* Icon */
+.lc-icon--xs {
+  @apply w-8 h-8 p-2;
+}
+.lc-icon--sm {
+  @apply w-8 h-8 p-3;
+}
+.lc-icon--md {
+  @apply w-8 h-8 p-4;
+}
+.lc-icon--lg {
+  @apply w-8 h-8 p-5;
+}
+.lc-icon--xl {
+  @apply w-8 h-8 p-6;
 }
 
 /* Types */
@@ -204,6 +247,9 @@ export default defineComponent({
 }
 .lc-outline {
   @apply rounded-sm inline-block text-center cursor-pointer align-middle border border-solid text-base leading-tight hover:no-underline focus:outline-none focus:border-primary-focus;
+}
+.lc-icon {
+  @apply flex items-center justify-center transition-colors rounded-full outline-none cursor-pointer focus:outline-none box-content;
 }
 
 /* HasIcon */
@@ -314,6 +360,17 @@ export default defineComponent({
 }
 .lc-outline--disabled {
   @apply pointer-events-none bg-white font-medium text-gray-500 border border-gray-500 text-gray-400 md:hover:text-gray-400;
+}
+
+/* Icon Colors */
+.lc-icon--primary {
+  @apply bg-primary-400 hover:bg-primary-500;
+}
+.lc-icon--secondary {
+  @apply bg-secondary-400 hover:bg-secondary-500;
+}
+.lc-icon--red {
+  @apply bg-red-100 hover:bg-red-200;
 }
 
 /* Btn Loader */
