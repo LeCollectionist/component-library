@@ -2,12 +2,16 @@
   <div class="flex items-center">
     <button
       :disabled="modelValue === 1"
-      class="lc-pagination__prev"
+      :class="[
+        'lc-pagination__prev',
+        {'lc-pagination__prev--hover': modelValue > 1}
+      ]"
       data-testid="prevPage"
       type="button"
       @click="prevPage"
     >
       <lc-icon
+        class="lc-pagination__arrow"
         name="left-chevron"
         size="xs"
       />
@@ -42,11 +46,16 @@
     <button
       :disabled="modelValue === nbPages"
       class="lc-pagination__next"
+      :class="[
+        'lc-pagination__next',
+        {'lc-pagination__next--hover': modelValue !== nbPages}
+      ]"
       data-testid="nextPage"
       type="button"
       @click="nextPage"
     >
       <lc-icon
+        class="lc-pagination__arrow"
         name="right-chevron"
         size="xs"
       />
@@ -116,10 +125,13 @@ export default defineComponent({
 </script>
 
 <style>
-  .lc-pagination__prev { @apply w-8 h-8 mr-2 outline-none focus:outline-none disabled:opacity-40; }
+  .lc-pagination__prev { @apply w-8 h-8 mr-2 outline-none focus:outline-none rounded-full disabled:opacity-40; }
+  .lc-pagination__prev--hover { @apply hover:bg-gray-200; }
   .lc-pagination__etc { @apply flex items-center justify-center w-8 h-8 mx-2; }
   .lc-pagination__empty { @apply flex items-center justify-center w-8 h-8 mx-2; }
   .lc-pagination__number { @apply w-8 h-8 flex items-center justify-center rounded-full transition-all hover:bg-gray-200 outline-none focus:outline-none mx-2; }
   .lc-pagination__number--active { @apply font-medium bg-primary-300; }
-  .lc-pagination__next { @apply w-8 h-8 ml-2 outline-none focus:outline-none disabled:opacity-40; }
+  .lc-pagination__next { @apply w-8 h-8 ml-2 outline-none focus:outline-none rounded-full disabled:opacity-40; }
+  .lc-pagination__next--hover { @apply hover:bg-gray-200; }
+  .lc-pagination__arrow { @apply font-bold lg:text-[.8rem]; }
 </style>
