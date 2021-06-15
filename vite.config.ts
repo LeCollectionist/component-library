@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     lib: {
       name: 'LcComponents',
-      entry: path.resolve(__dirname, 'src/main.ts'),
+      entry: path.resolve(__dirname, 'src/library.ts'),
     },
     rollupOptions: {
       external: ['vue'],
