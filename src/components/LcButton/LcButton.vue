@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { vColor, vFontWeight, vSize, vVariant } from '../validators/LcButton'
+import { vColor, vFontWeight, vSize, vVariant } from '../../validators/LcButton'
 
 // Types
 interface ComputedClass {
@@ -113,7 +113,7 @@ export default defineComponent({
           secondary: 'lc-icon--secondary',
           red: 'lc-icon--red',
         },
-      },
+      } as any,
       btnSizes: {
         btn: {
           xs: 'lc-btn--xs',
@@ -136,13 +136,13 @@ export default defineComponent({
           lg: 'lc-icon--lg',
           xl: 'lc-icon--xl',
         },
-      },
+      } as any,
       btnVariants: {
         btn: 'lc-btn',
         link: 'lc-link',
         outline: 'lc-outline',
         icon: 'lc-icon',
-      },
+      } as any,
     }
   },
   computed: {
@@ -183,9 +183,9 @@ export default defineComponent({
         blockClass[this.variant],
         blockFullClass[this.variant],
         hasIconClass[this.variant],
-        this.btnColors[this.variant][color],
-        this.btnSizes[this.variant][size],
-        this.btnVariants[this.variant],
+        this.btnColors[this.variant] && this.btnColors[this.variant][color] ? this.btnColors[this.variant][color] : '',
+        this.btnSizes[this.variant] && this.btnSizes[this.variant][size] ? this.btnSizes[this.variant][size] : '',
+        this.btnVariants[this.variant] ? this.btnVariants[this.variant] : '',
         weightClass[this.variant],
       ]
     },

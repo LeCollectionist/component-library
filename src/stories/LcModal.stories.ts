@@ -1,4 +1,4 @@
-import LcButton from '../components/LcButton'
+import LcButton from '../components/LcButton/LcButton'
 import LcModal from '../components/LcModal'
 
 export default {

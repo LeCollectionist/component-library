@@ -64,7 +64,7 @@ import fr from '@vee-validate/i18n/dist/locale/fr.json'
 
 import { FieldClassContainer, FormValues } from '../types/LcForm'
 
-import LcButton from './LcButton.vue'
+import LcButton from './LcButton/LcButton.vue'
 import LcCheckbox from './LcCheckbox.vue'
 import LcInput from './LcInput.vue'
 

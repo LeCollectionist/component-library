@@ -1,4 +1,4 @@
-import LcButton from './components/LcButton.vue'
+import LcButton from './components/LcButton/LcButton.vue'
 import LcCheckbox from './components/LcCheckbox.vue'
 import LcForm from './components/LcForm.vue'
 import LcIcon from './components/LcIcon.vue'
