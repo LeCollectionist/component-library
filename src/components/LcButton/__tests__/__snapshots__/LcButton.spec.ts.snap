@@ -1,51 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LcButton Colors Btn Must have a primary color as default 1`] = `
-"<button class=\\"lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" type=\\"button\\">
-  <!--v-if-->
-</button>"
-`;
-
-exports[`LcButton Colors Link Must have a primary color as default 1`] = `
-"<button class=\\"lc-link--primary lc-link lc-link--font-bold\\" type=\\"button\\">
-  <!--v-if-->
-</button>"
-`;
-
-exports[`LcButton Colors Outline Must have a primary color as default 1`] = `
-"<button class=\\"lc-outline--primary lc-btn--md lc-outline lc-outline--font-bold\\" type=\\"button\\">
-  <!--v-if-->
-</button>"
-`;
-
-exports[`LcButton Html tag Must be a <a></a> 1`] = `
+exports[`LcButton Html tag must be a <a></a> 1`] = `
 "<a class=\\"lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" disabled=\\"false\\" href=\\"/\\">
   <!--v-if-->
 </a>"
 `;
 
-exports[`LcButton Html tag Must be a <nuxt-link></nuxt-link> 1`] = `
+exports[`LcButton Html tag must be a <nuxt-link></nuxt-link> 1`] = `
 "<nuxt-link class=\\"lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" disabled=\\"false\\" to=\\"/\\">
   <!--v-if-->
 </nuxt-link>"
 `;
 
-exports[`LcButton Should be a block button 1`] = `
+exports[`LcButton should be a block button 1`] = `
 "<button class=\\"lc-btn--block lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" type=\\"button\\">
   <!--v-if-->
 </button>"
 `;
 
-exports[`LcButton Should be a blockFull button 1`] = `
+exports[`LcButton should be a blockFull button 1`] = `
 "<button class=\\"lc-btn--block-full lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" type=\\"button\\">
   <!--v-if-->
 </button>"
 `;
 
-exports[`LcButton Should be a hasIcon button 1`] = `
+exports[`LcButton should be a hasIcon button 1`] = `
 "<button class=\\"lc-btn--has-icon lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" type=\\"button\\">
   <!--v-if-->
 </button>"
 `;
 
-exports[`LcButton Should be a loader button 1`] = `"<button class=\\"lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" type=\\"button\\"><span class=\\"lc-btn-loader\\"><i class=\\"lc-btn-loader__spin\\"></i></span></button>"`;
+exports[`LcButton should be a loader button 1`] = `"<button class=\\"lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" type=\\"button\\"><span class=\\"lc-btn-loader\\" data-testid=\\"lc-btn-loader\\"><i class=\\"lc-btn-loader__spin\\"></i></span></button>"`;

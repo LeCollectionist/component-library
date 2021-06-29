@@ -14,27 +14,30 @@ describe('LcButton', () => {
     expect(wrapper.vm).toBeTruthy()
   })
 
-  it('Should be a loader button', () => {
+  it('should be a loader button', () => {
     wrapper = mount(LcButton, { props: { loader: true } })
 
+    const loader = wrapper.get('[data-testid="lc-btn-loader"]')
+
     expect(wrapper.html()).toMatchSnapshot()
+    expect(loader.exists()).toBeTruthy()
   })
 
-  it('Should be a block button', () => {
+  it('should be a block button', () => {
     wrapper = mount(LcButton, { props: { block: true } })
 
     expect(wrapper.html()).toMatchSnapshot()
     expect(wrapper.classes('lc-btn--block')).toBeTruthy()
   })
 
-  it('Should be a blockFull button', () => {
+  it('should be a blockFull button', () => {
     wrapper = mount(LcButton, { props: { blockFull: true } })
 
     expect(wrapper.html()).toMatchSnapshot()
     expect(wrapper.classes('lc-btn--block-full')).toBeTruthy()
   })
 
-  it('Should be a hasIcon button', () => {
+  it('should be a hasIcon button', () => {
     wrapper = mount(LcButton, { props: { hasIcon: true } })
 
     expect(wrapper.html()).toMatchSnapshot()
@@ -54,41 +57,20 @@ describe('LcButton', () => {
         wrapper = mount(LcButton)
       })
 
-      it('Must have a primary color as default', () => {
-        expect(wrapper.html()).toMatchSnapshot()
+      it('must have a primary color as default', () => {
+        expect(wrapper.classes('lc-btn--primary')).toBeTruthy()
       })
 
-      it('Should have a secondary class color', async() => {
-        await wrapper.setProps({ color: 'secondary' })
+      const colors = ['secondary', 'light', 'white', 'grey', 'black']
+      colors.forEach((color) => {
+        it(`should have a ${color} class color`, async() => {
+          await wrapper.setProps({ color })
 
-        expect(wrapper.classes('lc-btn--secondary')).toBeTruthy()
+          expect(wrapper.classes(`lc-btn--${color}`)).toBeTruthy()
+        })
       })
 
-      it('Should have a light class color', async() => {
-        await wrapper.setProps({ color: 'light' })
-
-        expect(wrapper.classes('lc-btn--light')).toBeTruthy()
-      })
-
-      it('Should have a white class color', async() => {
-        await wrapper.setProps({ color: 'white' })
-
-        expect(wrapper.classes('lc-btn--white')).toBeTruthy()
-      })
-
-      it('Should have a grey class color', async() => {
-        await wrapper.setProps({ color: 'grey' })
-
-        expect(wrapper.classes('lc-btn--grey')).toBeTruthy()
-      })
-
-      it('Should have a black class color', async() => {
-        await wrapper.setProps({ color: 'black' })
-
-        expect(wrapper.classes('lc-btn--black')).toBeTruthy()
-      })
-
-      it('Should have a disabled class color', async() => {
+      it('should have a disabled class color', async() => {
         await wrapper.setProps({ disabled: true })
 
         expect(wrapper.classes('lc-btn--disabled')).toBeTruthy()
@@ -101,41 +83,20 @@ describe('LcButton', () => {
         wrapper = mount(LcButton, { props: { variant: 'link' } })
       })
 
-      it('Must have a primary color as default', () => {
-        expect(wrapper.html()).toMatchSnapshot()
+      it('must have a primary color as default', () => {
+        expect(wrapper.classes('lc-link--primary')).toBeTruthy()
       })
 
-      it('Should have a primary-light class color', async() => {
-        await wrapper.setProps({ color: 'primary-light' })
+      const colors = ['primary-light', 'secondary', 'grey', 'black', 'white']
+      colors.forEach((color) => {
+        it(`should have a ${color} class color`, async() => {
+          await wrapper.setProps({ color })
 
-        expect(wrapper.classes('lc-link--primary-light')).toBeTruthy()
+          expect(wrapper.classes(`lc-link--${color}`)).toBeTruthy()
+        })
       })
 
-      it('Should have a secondary class color', async() => {
-        await wrapper.setProps({ color: 'secondary' })
-
-        expect(wrapper.classes('lc-link--secondary')).toBeTruthy()
-      })
-
-      it('Should have a grey class color', async() => {
-        await wrapper.setProps({ color: 'grey' })
-
-        expect(wrapper.classes('lc-link--grey')).toBeTruthy()
-      })
-
-      it('Should have a black class color', async() => {
-        await wrapper.setProps({ color: 'black' })
-
-        expect(wrapper.classes('lc-link--black')).toBeTruthy()
-      })
-
-      it('Should have a white class color', async() => {
-        await wrapper.setProps({ color: 'white' })
-
-        expect(wrapper.classes('lc-link--white')).toBeTruthy()
-      })
-
-      it('Should have a disabled class color', async() => {
+      it('should have a disabled class color', async() => {
         await wrapper.setProps({ disabled: true })
 
         expect(wrapper.classes('lc-link--disabled')).toBeTruthy()
@@ -148,23 +109,20 @@ describe('LcButton', () => {
         wrapper = mount(LcButton, { props: { variant: 'outline' } })
       })
 
-      it('Must have a primary color as default', () => {
-        expect(wrapper.html()).toMatchSnapshot()
+      it('must have a primary color as default', () => {
+        expect(wrapper.classes('lc-outline--primary')).toBeTruthy()
       })
 
-      it('Should have a secondary class color', async() => {
-        await wrapper.setProps({ color: 'secondary' })
+      const colors = ['secondary', 'grey']
+      colors.forEach((color) => {
+        it(`should have a ${color} class color`, async() => {
+          await wrapper.setProps({ color })
 
-        expect(wrapper.classes('lc-outline--secondary')).toBeTruthy()
+          expect(wrapper.classes(`lc-outline--${color}`)).toBeTruthy()
+        })
       })
 
-      it('Should have a grey class color', async() => {
-        await wrapper.setProps({ color: 'grey' })
-
-        expect(wrapper.classes('lc-outline--grey')).toBeTruthy()
-      })
-
-      it('Should have a disabled class color', async() => {
+      it('should have a disabled class color', async() => {
         await wrapper.setProps({ disabled: true })
 
         expect(wrapper.classes('lc-outline--disabled')).toBeTruthy()
@@ -186,33 +144,30 @@ describe('LcButton', () => {
         wrapper = mount(LcButton)
       })
 
-      it('Should have a font-bold class as default', () => {
+      it('should have a font-bold class as default', () => {
         expect(wrapper.classes('lc-btn--font-bold')).toBeTruthy()
       })
 
-      it('Should have a font-normal class', async() => {
-        await wrapper.setProps({ fontWeight: 'font-normal' })
+      const fontWeights = ['font-normal', 'font-medium']
+      fontWeights.forEach((fontWeight) => {
+        it(`should have a ${fontWeight} class`, async() => {
+          await wrapper.setProps({ fontWeight })
 
-        expect(wrapper.classes('lc-btn--font-normal')).toBeTruthy()
-      })
-
-      it('Should have a font-medium class', async() => {
-        await wrapper.setProps({ fontWeight: 'font-medium' })
-
-        expect(wrapper.classes('lc-btn--font-medium')).toBeTruthy()
+          expect(wrapper.classes(`lc-btn--${fontWeight}`)).toBeTruthy()
+        })
       })
     })
   })
 
   describe('Variant button', () => {
-    it('Should accept valid variant props', () => {
+    it('should accept valid variant props', () => {
       const validator = LcButton.props.variant.validator
 
       vVariant.forEach(variant => expect(validator(variant)).toBeTruthy())
       expect(validator('outline-link')).toBeFalsy()
     })
 
-    it('Should be a variant link', () => {
+    it('should be a variant link', () => {
       wrapper = mount(LcButton, { props: { variant: 'link' } })
 
       expect(wrapper.classes('lc-btn')).toBeFalsy()
@@ -220,9 +175,8 @@ describe('LcButton', () => {
       expect(wrapper.classes('lc-link')).toBeTruthy()
     })
 
-    it('Should be a variant outline', () => {
+    it('should be a variant outline', () => {
       wrapper = mount(LcButton, { props: { variant: 'outline' } })
-      // await wrapper.setProps({ variant: 'outline' })
 
       expect(wrapper.classes('lc-btn')).toBeFalsy()
       expect(wrapper.classes('lc-link')).toBeFalsy()
@@ -231,7 +185,7 @@ describe('LcButton', () => {
   })
 
   describe('Sizes', () => {
-    it('Should accept valid sizes props', () => {
+    it('should accept valid sizes props', () => {
       const validator = LcButton.props.size.validator
 
       vSize.forEach(size => expect(validator(size)).toBeTruthy())
@@ -243,40 +197,23 @@ describe('LcButton', () => {
         wrapper = mount(LcButton)
       })
 
-      it('Should have a xs class size', async() => {
-        await wrapper.setProps({ size: 'xs' })
-
-        expect(wrapper.classes('lc-btn--xs')).toBeTruthy()
-      })
-
-      it('Should have a sm class size', async() => {
-        await wrapper.setProps({ size: 'sm' })
-
-        expect(wrapper.classes('lc-btn--sm')).toBeTruthy()
-      })
-
-      it('Should have a md class size', async() => {
-        await wrapper.setProps({ size: 'md' })
-
+      it('should have a md class as default', () => {
         expect(wrapper.classes('lc-btn--md')).toBeTruthy()
       })
 
-      it('Should have a lg class size', async() => {
-        await wrapper.setProps({ size: 'lg' })
+      const sizes = ['xs', 'sm', 'lg', 'xl']
+      sizes.forEach((size) => {
+        it(`should have a ${size} class`, async() => {
+          await wrapper.setProps({ size })
 
-        expect(wrapper.classes('lc-btn--lg')).toBeTruthy()
-      })
-
-      it('Should have a xl class size', async() => {
-        await wrapper.setProps({ size: 'xl' })
-
-        expect(wrapper.classes('lc-btn--xl')).toBeTruthy()
+          expect(wrapper.classes(`lc-btn--${size}`)).toBeTruthy()
+        })
       })
     })
   })
 
   describe('Click on button', () => {
-    it('Should be clickable', async() => {
+    it('should be clickable', async() => {
       wrapper = mount(LcButton)
 
       await wrapper.trigger('click')
@@ -284,7 +221,7 @@ describe('LcButton', () => {
       expect(wrapper.emitted('click')).toBeTruthy()
     })
 
-    it('Shouldn\'t be clickable', async() => {
+    it('shouldn\'t be clickable', async() => {
       wrapper = mount(LcButton, { props: { disabled: true } })
 
       await wrapper.trigger('click')
@@ -294,13 +231,13 @@ describe('LcButton', () => {
   })
 
   describe('Html tag', () => {
-    it('Must be a <nuxt-link></nuxt-link>', () => {
+    it('must be a <nuxt-link></nuxt-link>', () => {
       const wrapperNuxtLink = mount(LcButton, { attrs: { to: '/' } })
 
       expect(wrapperNuxtLink.html()).toMatchSnapshot()
     })
 
-    it('Must be a <a></a>', () => {
+    it('must be a <a></a>', () => {
       const wrapperA = mount(LcButton, { attrs: { href: '/' } })
 
       expect(wrapperA.html()).toMatchSnapshot()
@@ -308,26 +245,26 @@ describe('LcButton', () => {
   })
 
   describe('Type', () => {
-    it('Must be a type submit', () => {
+    it('must be a type submit', () => {
       const wrapperTypeSubmit = mount(LcButton, { attrs: { type: 'submit' } })
 
       expect(wrapperTypeSubmit.attributes('type')).toBe('submit')
     })
 
-    it('Must be a type button', () => {
+    it('must be a type button', () => {
       const wrapperTypeButton = mount(LcButton)
 
       expect(wrapperTypeButton.attributes('type')).toBe('button')
     })
 
     describe('Link', () => {
-      it('Must be a none button', () => {
+      it('must be a button without attribute type', () => {
         const wrapperLink = mount(LcButton, { attrs: { href: '/' } })
 
         expect(wrapperLink.attributes('type')).toBeFalsy()
       })
 
-      it('Must be a none button', () => {
+      it('must be a button without attribute type', () => {
         const wrapperNuxtLink = mount(LcButton, { attrs: { to: '/' } })
 
         expect(wrapperNuxtLink.attributes('type')).toBeFalsy()
