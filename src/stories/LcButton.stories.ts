@@ -1,4 +1,4 @@
-import LcButton from '../components/LcButton'
+import LcButton from '../components/LcButton/LcButton'
 import LcIcon from '../components/LcIcon'
 
 import { vColor, vFontWeight, vSize, vVariant } from '../validators/LcButton'

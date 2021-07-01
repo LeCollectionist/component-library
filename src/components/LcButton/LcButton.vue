@@ -10,6 +10,7 @@
     <span
       v-if="loader"
       class="lc-btn-loader"
+      data-testid="lc-btn-loader"
     >
       <i class="lc-btn-loader__spin" />
     </span>
@@ -20,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { vColor, vFontWeight, vSize, vVariant } from '../validators/LcButton'
+import { vColor, vFontWeight, vSize, vVariant } from '../../validators/LcButton'
 
 // Types
 interface ComputedClass {
@@ -91,6 +92,7 @@ export default defineComponent({
           white: 'lc-btn--white',
           grey: 'lc-btn--grey',
           black: 'lc-btn--black',
+          red: 'lc-btn--red',
           disabled: 'lc-btn--disabled',
         },
         link: {
@@ -100,12 +102,14 @@ export default defineComponent({
           grey: 'lc-link--grey',
           black: 'lc-link--black',
           white: 'lc-link--white',
+          red: 'lc-link--red',
           disabled: 'lc-link--disabled',
         },
         outline: {
           primary: 'lc-outline--primary',
           secondary: 'lc-outline--secondary',
           grey: 'lc-outline--grey',
+          red: 'lc-outline--red',
           disabled: 'lc-outline--disabled',
         },
         icon: {
@@ -113,7 +117,7 @@ export default defineComponent({
           secondary: 'lc-icon--secondary',
           red: 'lc-icon--red',
         },
-      },
+      } as any,
       btnSizes: {
         btn: {
           xs: 'lc-btn--xs',
@@ -136,13 +140,13 @@ export default defineComponent({
           lg: 'lc-icon--lg',
           xl: 'lc-icon--xl',
         },
-      },
+      } as any,
       btnVariants: {
         btn: 'lc-btn',
         link: 'lc-link',
         outline: 'lc-outline',
         icon: 'lc-icon',
-      },
+      } as any,
     }
   },
   computed: {
@@ -183,9 +187,9 @@ export default defineComponent({
         blockClass[this.variant],
         blockFullClass[this.variant],
         hasIconClass[this.variant],
-        this.btnColors[this.variant][color],
-        this.btnSizes[this.variant][size],
-        this.btnVariants[this.variant],
+        this.btnColors[this.variant] && this.btnColors[this.variant][color] ? this.btnColors[this.variant][color] : '',
+        this.btnSizes[this.variant] && this.btnSizes[this.variant][size] ? this.btnSizes[this.variant][size] : '',
+        this.btnVariants[this.variant] ? this.btnVariants[this.variant] : '',
         weightClass[this.variant],
       ]
     },
@@ -315,6 +319,9 @@ export default defineComponent({
 .lc-btn--black {
   @apply text-black focus:text-black md:hover:text-black;
 }
+.lc-btn--red {
+  @apply text-white bg-red-100 hover:bg-red-200;
+}
 .lc-btn--disabled {
   @apply pointer-events-none bg-gray-400 hover:bg-gray-400 text-white;
 }
@@ -341,6 +348,9 @@ export default defineComponent({
 .lc-link--white {
   @apply text-white focus:text-white focus:underline hover:text-white hover:underline;
 }
+.lc-link--red {
+  @apply text-red-100 focus:text-red-200 md:hover:text-red-200;
+}
 .lc-link--disabled {
   @apply pointer-events-none text-gray-400 md:hover:text-gray-400;
 }
@@ -357,6 +367,9 @@ export default defineComponent({
 }
 .lc-outline--grey {
   @apply bg-white font-medium text-black border-gray-400 focus:bg-white focus:font-medium focus:text-black focus:border-gray-400 hover:bg-gray-200 hover:text-black;
+}
+.lc-outline--red {
+  @apply bg-white font-medium text-red-100 border-red-100 hover:bg-gray-200 hover:text-red-500;
 }
 .lc-outline--disabled {
   @apply pointer-events-none bg-white font-medium text-gray-500 border border-gray-500 text-gray-400 md:hover:text-gray-400;

@@ -1,5 +1,5 @@
 import LcTooltip from '../components/LcTooltip'
-import LcButton from '../components/LcButton'
+import LcButton from '../components/LcButton/LcButton'
 
 import { vPosition, vVariant, vSize } from '../validators/LcTooltip'
 
