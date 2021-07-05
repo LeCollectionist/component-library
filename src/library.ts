@@ -7,6 +7,7 @@ import LcModal from './components/LcModal.vue'
 import LcMultiselect from './components/LcMultiselect'
 import LcPagination from './components/LcPagination.vue'
 import LcTable from './components/LcTable.vue'
+import LcTextarea from './components/LcTextarea/'
 import LcTooltip from './components/LcTooltip.vue'
 
 export {
@@ -19,5 +20,6 @@ export {
   LcMultiselect,
   LcPagination,
   LcTable,
+  LcTextarea,
   LcTooltip,
 }
