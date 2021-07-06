@@ -23,6 +23,11 @@
           :fields="field.fields || []"
           v-bind="field.attr"
         />
+        <lc-multiselect
+          v-if="field.inputType === 'select' && !field.hidden"
+          v-model="field.model"
+          v-bind="field.attr"
+        />
       </div>
 
       <slot name="before-submit-button" />
@@ -65,6 +70,7 @@ import fr from '@vee-validate/i18n/dist/locale/fr.json'
 import { FieldClassContainer, FormValues } from '../types/LcForm'
 
 import LcButton from './LcButton/LcButton.vue'
+import LcMultiselect from './LcMultiselect/LcMultiselect.vue'
 import LcCheckbox from './LcCheckbox.vue'
 import LcInput from './LcInput.vue'
 
@@ -87,6 +93,7 @@ export default defineComponent({
     LcButton,
     LcCheckbox,
     LcInput,
+    LcMultiselect,
     vForm,
   },
   props: {

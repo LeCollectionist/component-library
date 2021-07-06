@@ -4,6 +4,7 @@ import LcForm from './components/LcForm.vue'
 import LcIcon from './components/LcIcon.vue'
 import LcInput from './components/LcInput.vue'
 import LcModal from './components/LcModal.vue'
+import LcMultiselect from './components/LcMultiselect'
 import LcPagination from './components/LcPagination.vue'
 import LcTable from './components/LcTable.vue'
 import LcTooltip from './components/LcTooltip.vue'
@@ -15,6 +16,7 @@ export {
   LcIcon,
   LcInput,
   LcModal,
+  LcMultiselect,
   LcPagination,
   LcTable,
   LcTooltip,
