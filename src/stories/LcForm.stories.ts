@@ -64,5 +64,15 @@ Base.args = {
         rules: 'required',
       },
     },
+    {
+      model: null,
+      inputType: 'select',
+      attr: {
+        label: 'Pays',
+        name: 'coutnry',
+        options: ['France', 'Indonésie', 'Espagne'],
+        rules: 'required',
+      },
+    },
   ],
 }

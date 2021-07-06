@@ -4135,6 +4135,11 @@
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-2.0.0-rc.9.tgz#b3f817d710a1d0ae2084143520c9d8d3c552bfa6"
   integrity sha512-iJNAAfXTTSd2/5vUZpFbUwUwC8w3hbFu8s9ptKkZGsiw6pO6mFsaLs2rzI3Ea/8hwqcF3K7Wp2diKOdzqmb6qg==
 
+"@vueform/multiselect@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@vueform/multiselect/-/multiselect-2.0.1.tgz#ed8d7c052b8c7ae6fc91613098e96260afe691b1"
+  integrity sha512-7vC60wF8q7GB5yiv9qH8wF8vA1gj/wsdIUR9s/E0DELkmwCVHNex9nkHzDo5dS72fMLByiQbWbJ73K2yr2P2qQ==
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
