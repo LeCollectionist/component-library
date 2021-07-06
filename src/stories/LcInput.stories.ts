@@ -3,9 +3,6 @@ import LcInput from '../components/LcInput'
 export default {
   title: 'Example/LcInput',
   component: LcInput,
-  argTypes: {
-    rules: { control: { type: 'select', options: [] } },
-  },
 }
 
 const Template = (args: any) => ({

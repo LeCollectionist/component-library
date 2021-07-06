@@ -7,9 +7,9 @@ export default {
   title: 'Example/LcTooltip',
   component: LcTooltip,
   argTypes: {
-    position: { control: { type: 'select', options: vPosition } },
-    variant: { control: { type: 'select', options: vVariant } },
-    size: { control: { type: 'select', options: vSize } },
+    position: { control: { type: 'select' }, options: vPosition },
+    variant: { control: { type: 'select' }, options: vVariant },
+    size: { control: { type: 'select' }, options: vSize },
   },
 }
 

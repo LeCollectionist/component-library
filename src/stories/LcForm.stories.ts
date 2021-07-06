@@ -3,9 +3,6 @@ import LcForm from '../components/LcForm'
 export default {
   title: 'Example/LcForm',
   component: LcForm,
-  argTypes: {
-    rules: { control: { type: 'select', options: [] } },
-  },
 }
 
 const Template = (args: any) => ({

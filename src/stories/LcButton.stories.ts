@@ -7,10 +7,10 @@ export default {
   title: 'Example/LcButton',
   component: LcButton,
   argTypes: {
-    size: { control: { type: 'select', options: vSize } },
-    color: { control: { type: 'select', options: vColor } },
-    variant: { control: { type: 'select', options: vVariant } },
-    fontWeight: { control: { type: 'select', options: vFontWeight } },
+    size: { control: { type: 'select' }, options: vSize },
+    color: { control: { type: 'select' }, options: vColor },
+    variant: { control: { type: 'select' }, options: vVariant },
+    fontWeight: { control: { type: 'select' }, options: vFontWeight },
   },
 }
 
