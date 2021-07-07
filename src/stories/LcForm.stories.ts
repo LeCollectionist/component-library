@@ -72,10 +72,26 @@ Base.args = {
       model: false,
       inputType: 'checkbox',
       attr: {
+        class: 'mb-4',
         label: 'Je souhaite recevoir occasionnellement une sélection d’expériences et de maisons.',
         name: 'newsletter',
         rules: 'required',
       },
+    },
+    {
+      model: '',
+      inputType: 'radio',
+      attr: {
+        label: 'Votre civilité :',
+        name: 'civility',
+        rules: 'required',
+        vertical: false,
+      },
+      options: [
+        { label: 'Monsieur', value: 'mr' },
+        { label: 'Madame', value: 'ms' },
+        { label: 'Non spécifié', value: 'unspecified' },
+      ],
     },
     {
       model: null,
