@@ -1,9 +1,10 @@
 <template>
-  <div :class="inputClass">
+  <div :class="wrapperClass">
     <slot name="label">
       <label
         v-if="label"
         :for="$attrs.id || name"
+        class="block mb-1"
       >
         {{ label }}
       </label>
@@ -41,10 +42,6 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
-    inputClass: {
-      type: String,
-      default: 'w-full mb-4',
-    },
     label: {
       type: String,
       default: '',
@@ -64,6 +61,10 @@ export default defineComponent({
     rules: {
       type: String,
       default: '',
+    },
+    wrapperClass: {
+      type: String,
+      default: 'w-full mb-4',
     },
   },
   emits: ['update:modelValue', 'focus-out'],

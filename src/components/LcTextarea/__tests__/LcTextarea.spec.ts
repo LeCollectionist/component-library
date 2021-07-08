@@ -29,13 +29,13 @@ describe('LcTextarea', () => {
   })
 
   it('should set the right input class', async() => {
-    await wrapper.setProps({ inputClass: 'foo' })
+    await wrapper.setProps({ wrapperClass: 'foo' })
     const container = wrapper.find('.foo')
     expect(container.classes()).toContain('foo')
   })
 
   it('should set a placeholder', async() => {
-    await wrapper.setProps({ placeHolder: 'your request' })
+    await wrapper.setProps({ placeholder: 'your request' })
     const textarea = wrapper.find('textarea')
     expect(textarea.attributes('placeholder')).toEqual('your request')
   })

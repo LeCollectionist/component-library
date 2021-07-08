@@ -1,4 +1,4 @@
-import LcTextarea from './index'
+import LcTextarea from './LcTextarea'
 
 export default {
   title: 'Example/LcTextarea',
@@ -18,8 +18,26 @@ const Template = (args: any) => ({
 
 export const Base = Template.bind({}) as any
 Base.args = {
-  label: 'Entrez votre texte ici :',
+  label: 'Votre demande :',
   name: 'content',
   modelValue: '',
   inputClass: 'w-full',
+}
+
+export const withCustomRows = Template.bind({}) as any
+withCustomRows.args = {
+  label: 'Votre demande :',
+  name: 'content',
+  modelValue: '',
+  inputClass: 'w-full',
+  rows: 10,
+}
+
+export const withPlaceholder = Template.bind({}) as any
+withPlaceholder.args = {
+  label: 'Votre demande :',
+  name: 'content',
+  modelValue: '',
+  inputClass: 'w-full',
+  placeholder: 'Décrire votre demande ...',
 }
