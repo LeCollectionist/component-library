@@ -8,7 +8,7 @@
       v-model="inputValue"
       :class="[{ 'lc-multiselect--hasError': isError }]"
       :options="options"
-      v-bind="attrsMerged"
+      v-bind="{searchable: false, ...$attrs}"
       @change="handleChange"
       @deselect="onDeselect"
       @select="onSelect"
@@ -23,12 +23,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, PropType } from 'vue'
 import { ErrorMessage, useField } from 'vee-validate'
 
 import Multiselect from '@vueform/multiselect'
 
-interface AttrsMultiselect {
+interface Option {
+  disabled?: boolean
+  label?: string
+  value?: string|number
   [key: string]: any
 }
 
@@ -53,7 +56,7 @@ export default defineComponent({
       required: true,
     },
     options: {
-      type: Array,
+      type: Array as PropType<string[]|Option[]>,
       default: () => { return [] },
     },
     rules: {
@@ -87,22 +90,6 @@ export default defineComponent({
       onDeselect,
       onSelect,
     }
-  },
-  data() {
-    return {
-      defaultAttrs: {
-        searchable: false,
-      },
-    }
-  },
-  computed: {
-    attrsMerged(): AttrsMultiselect {
-      return Object.assign(
-        {},
-        this.defaultAttrs as AttrsMultiselect,
-        this.$attrs as AttrsMultiselect,
-      )
-    },
   },
 })
 </script>
