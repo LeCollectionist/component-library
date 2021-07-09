@@ -1,6 +1,6 @@
 
-import { vPosition, vVariant, vSize } from '../../validators/LcTooltip'
 import LcButton from '../LcButton'
+import { vPosition, vVariant, vSize } from './validators/LcTooltip'
 import LcTooltip from './LcTooltip'
 
 export default {

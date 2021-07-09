@@ -1,5 +1,5 @@
-import { vColor, vFontWeight, vSize, vVariant } from '../../validators/LcButton'
 import LcIcon from '../LcIcon'
+import { vColor, vFontWeight, vSize, vVariant } from './validators/LcButton'
 import LcButton from './LcButton'
 
 export default {

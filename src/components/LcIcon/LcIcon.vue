@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { vSize } from '../../validators/LcIcon'
+import { vSize } from './validators/LcIcon'
 
 export default defineComponent({
   name: 'BaseIcon',

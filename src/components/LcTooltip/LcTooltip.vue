@@ -27,8 +27,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import { vPosition, vVariant, vSize } from '../../validators/LcTooltip'
 import LcIcon from '../LcIcon'
+import { vPosition, vVariant, vSize } from './validators/LcTooltip'
 
 export default defineComponent({
   name: 'LcTooltip',
