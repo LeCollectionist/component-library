@@ -85,7 +85,7 @@ import LcButton from './LcButton/LcButton.vue'
 import LcMultiselect from './LcMultiselect/LcMultiselect.vue'
 import LcCheckbox from './LcCheckbox.vue'
 import LcInput from './LcInput.vue'
-import LcTextarea from './LcTextarea/'
+import LcTextarea from './LcTextarea'
 
 configure({
   generateMessage: localize({

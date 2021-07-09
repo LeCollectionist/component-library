@@ -3,9 +3,6 @@ import LcTextarea from './LcTextarea'
 export default {
   title: 'Example/LcTextarea',
   component: LcTextarea,
-  argTypes: {
-    rules: { control: { type: 'select', options: [] } },
-  },
 }
 
 const Template = (args: any) => ({
@@ -21,23 +18,17 @@ Base.args = {
   label: 'Votre demande :',
   name: 'content',
   modelValue: '',
-  inputClass: 'w-full',
+  inputWrapper: 'w-full',
 }
 
-export const withCustomRows = Template.bind({}) as any
-withCustomRows.args = {
-  label: 'Votre demande :',
-  name: 'content',
-  modelValue: '',
-  inputClass: 'w-full',
+export const WithCustomRows = Template.bind({}) as any
+WithCustomRows.args = {
+  ...Base.args,
   rows: 10,
 }
 
-export const withPlaceholder = Template.bind({}) as any
-withPlaceholder.args = {
-  label: 'Votre demande :',
-  name: 'content',
-  modelValue: '',
-  inputClass: 'w-full',
+export const WithPlaceholder = Template.bind({}) as any
+WithPlaceholder.args = {
+  ...Base.args,
   placeholder: 'Décrire votre demande ...',
 }
