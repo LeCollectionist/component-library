@@ -1,4 +1,4 @@
-import LcCheckbox from '../components/LcCheckbox'
+import LcCheckbox from './LcCheckbox'
 
 export default {
   title: 'Example/LcCheckbox',

@@ -1,7 +1,6 @@
-import LcButton from '../components/LcButton/LcButton'
-import LcIcon from '../components/LcIcon'
-
-import { vColor, vFontWeight, vSize, vVariant } from '../validators/LcButton'
+import { vColor, vFontWeight, vSize, vVariant } from '../../validators/LcButton'
+import LcIcon from '../LcIcon'
+import LcButton from './LcButton'
 
 export default {
   title: 'Example/LcButton',

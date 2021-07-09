@@ -66,7 +66,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import LcIcon from './LcIcon.vue'
+import LcIcon from '../LcIcon'
 
 export default defineComponent({
   name: 'LcPagination',

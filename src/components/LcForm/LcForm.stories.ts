@@ -1,4 +1,4 @@
-import LcForm from '../components/LcForm'
+import LcForm from './LcForm'
 
 export default {
   title: 'Example/LcForm',

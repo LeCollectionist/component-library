@@ -37,7 +37,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import LcIcon from './LcIcon.vue'
+import LcIcon from '../LcIcon'
 
 interface HeadClass {
   class: string

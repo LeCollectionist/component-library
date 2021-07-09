@@ -1,5 +1,5 @@
-import LcIcon from '../components/LcIcon'
-import LcPagination from '../components/LcPagination'
+import LcIcon from '../LcIcon'
+import LcPagination from './LcPagination'
 
 export default {
   title: 'Example/LcPagination',
@@ -16,7 +16,7 @@ const Template = (args: any) => ({
     return { args }
   },
   template: `
-    <lc-pagination v-model="args.modelValue" v-bind="args"></lc-pagination>
+    <lc-pagination v-bind="args"></lc-pagination>
   `,
 })
 

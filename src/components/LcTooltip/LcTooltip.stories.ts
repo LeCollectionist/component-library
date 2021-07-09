@@ -1,7 +1,7 @@
-import LcTooltip from '../components/LcTooltip'
-import LcButton from '../components/LcButton/LcButton'
 
-import { vPosition, vVariant, vSize } from '../validators/LcTooltip'
+import { vPosition, vVariant, vSize } from '../../validators/LcTooltip'
+import LcButton from '../LcButton'
+import LcTooltip from './LcTooltip'
 
 export default {
   title: 'Example/LcTooltip',
@@ -10,6 +10,9 @@ export default {
     position: { control: { type: 'select' }, options: vPosition },
     variant: { control: { type: 'select' }, options: vVariant },
     size: { control: { type: 'select' }, options: vSize },
+  },
+  parameters: {
+    layout: 'centered',
   },
 }
 
@@ -41,7 +44,23 @@ const Template = (args: any) => ({
 
 export const Base = Template.bind({}) as any
 Base.args = {
-  position: 'bottom',
+  show: true,
+}
+
+export const White = Template.bind({}) as any
+White.args = {
+  ...Base.args,
   variant: 'white',
-  blockFull: true,
+}
+
+export const Right = Template.bind({}) as any
+Right.args = {
+  ...White.args,
+  position: 'right',
+}
+
+export const Small = Template.bind({}) as any
+Small.args = {
+  ...Base.args,
+  size: 'small',
 }

@@ -1,5 +1,5 @@
-import LcButton from '../components/LcButton/LcButton'
-import LcModal from '../components/LcModal'
+import LcButton from '../LcButton'
+import LcModal from './LcModal'
 
 export default {
   title: 'Example/LcModal',
@@ -12,7 +12,7 @@ const Template = (args: any) => ({
     return { args }
   },
   template: `
-    <lc-modal v-model="args.modelValue" v-bind="args">
+    <lc-modal v-bind="args">
       <template #content>Hello world</template>
       <template #footer>
         <lc-button>Valider</lc-button>

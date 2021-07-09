@@ -1,4 +1,6 @@
-import LcInput from '../components/LcInput'
+import { action } from '@storybook/addon-actions'
+
+import LcInput from './LcInput'
 
 export default {
   title: 'Example/LcInput',
@@ -10,7 +12,15 @@ const Template = (args: any) => ({
   setup() {
     return { args }
   },
-  template: '<lc-input v-bind="args"/>',
+  template: `<lc-input
+    v-bind="args"
+    @update:modelValue="onUpdate"
+    @focus-out="onFocusOut"
+  />`,
+  methods: {
+    onUpdate: action('onUpdate'),
+    onFocusOut: action('onFocusOut'),
+  },
 })
 
 export const Base = Template.bind({}) as any

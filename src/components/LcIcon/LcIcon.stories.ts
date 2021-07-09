@@ -1,5 +1,5 @@
-import LcIcon from '../components/LcIcon'
-import { vSize } from '../validators/LcIcon'
+import { vSize } from '../../validators/LcIcon'
+import LcIcon from './LcIcon'
 
 export default {
   title: 'Example/LcIcon',

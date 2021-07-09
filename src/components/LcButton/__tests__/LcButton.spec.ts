@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import LcButton from '../LcButton.vue'
+import LcButton from '../LcButton'
 import { vColor, vFontWeight, vSize, vVariant } from '../../../validators/LcButton'
 
 let wrapper: any
