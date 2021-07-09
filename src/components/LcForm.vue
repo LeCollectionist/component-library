@@ -3,7 +3,7 @@
     <form
       :id="idForm"
       :ref="`form-${group}`"
-      :class="{'flex flex-wrap': columnMode}"
+      :class="{ 'flex flex-wrap': columnMode }"
       novalidate
       @submit.prevent="handleSubmit($event, onSubmit)"
     >
@@ -25,6 +25,11 @@
         />
         <lc-multiselect
           v-if="field.inputType === 'select' && !field.hidden"
+          v-model="field.model"
+          v-bind="field.attr"
+        />
+        <lc-textarea
+          v-if="field.inputType === 'textarea' && !field.hidden"
           v-model="field.model"
           v-bind="field.attr"
         />
@@ -63,7 +68,14 @@
 import { defineComponent, ref } from 'vue'
 
 import { Form as vForm, defineRule, configure } from 'vee-validate'
-import { required, email, min, numeric, min_value, max_value } from '@vee-validate/rules'
+import {
+  required,
+  email,
+  min,
+  numeric,
+  min_value,
+  max_value,
+} from '@vee-validate/rules'
 import { localize } from '@vee-validate/i18n'
 import fr from '@vee-validate/i18n/dist/locale/fr.json'
 
@@ -73,6 +85,7 @@ import LcButton from './LcButton/LcButton.vue'
 import LcMultiselect from './LcMultiselect/LcMultiselect.vue'
 import LcCheckbox from './LcCheckbox.vue'
 import LcInput from './LcInput.vue'
+import LcTextarea from './LcTextarea'
 
 configure({
   generateMessage: localize({
@@ -94,6 +107,7 @@ export default defineComponent({
     LcCheckbox,
     LcInput,
     LcMultiselect,
+    LcTextarea,
     vForm,
   },
   props: {

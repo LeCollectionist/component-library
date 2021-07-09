@@ -56,6 +56,19 @@ Base.args = {
       },
     },
     {
+      model: '',
+      inputType: 'textarea',
+      attr: {
+        inputClass: 'w-full lc-col mb-4',
+        label: 'Votre demande',
+        placeholder: 'Détailler votre demande',
+        name: 'request',
+        rules: 'required',
+        cols: 5,
+        rows: 5,
+      },
+    },
+    {
       model: false,
       inputType: 'checkbox',
       attr: {
