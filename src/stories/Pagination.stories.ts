@@ -5,8 +5,8 @@ export default {
   title: 'Example/LcPagination',
   component: LcPagination,
   argTypes: {
-    nbPages: { control: { type: 'select', options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } },
-    modelValue: { control: { type: 'select', options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } },
+    nbPages: { control: { type: 'select' }, options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
+    modelValue: { control: { type: 'select' }, options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
   },
 }
 

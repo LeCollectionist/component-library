@@ -3,9 +3,6 @@ import LcForm from '../components/LcForm'
 export default {
   title: 'Example/LcForm',
   component: LcForm,
-  argTypes: {
-    rules: { control: { type: 'select', options: [] } },
-  },
 }
 
 const Template = (args: any) => ({
@@ -59,12 +56,36 @@ Base.args = {
       },
     },
     {
+      model: '',
+      inputType: 'textarea',
+      attr: {
+        inputClass: 'w-full lc-col mb-4',
+        label: 'Votre demande',
+        placeholder: 'Détailler votre demande',
+        name: 'request',
+        rules: 'required',
+        cols: 5,
+        rows: 5,
+      },
+    },
+    {
       model: false,
       inputType: 'checkbox',
       attr: {
         label: 'Je souhaite recevoir occasionnellement une sélection d’expériences et de maisons.',
         name: 'newsletter',
         rules: 'required',
+      },
+    },
+    {
+      model: null,
+      inputType: 'select',
+      attr: {
+        labelText: 'Pays',
+        name: 'coutnry',
+        options: ['France', 'Indonésie', 'Espagne'],
+        rules: 'required',
+        wrapperClass: 'mb-4',
       },
     },
   ],

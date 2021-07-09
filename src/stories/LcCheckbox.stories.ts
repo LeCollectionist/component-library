@@ -3,9 +3,6 @@ import LcCheckbox from '../components/LcCheckbox'
 export default {
   title: 'Example/LcCheckbox',
   component: LcCheckbox,
-  argTypes: {
-    rules: { control: { type: 'select', options: [] } },
-  },
 }
 
 const Template = (args: any) => ({
