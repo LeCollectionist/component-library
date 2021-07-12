@@ -80,10 +80,10 @@ Base.args = {
     {
       model: null,
       inputType: 'select',
+      options: ['France', 'Indonésie', 'Espagne'],
       attr: {
         labelText: 'Pays',
         name: 'coutnry',
-        options: ['France', 'Indonésie', 'Espagne'],
         rules: 'required',
         wrapperClass: 'mb-4',
       },

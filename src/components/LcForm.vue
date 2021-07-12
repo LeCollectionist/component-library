@@ -26,6 +26,7 @@
         <lc-multiselect
           v-if="field.inputType === 'select' && !field.hidden"
           v-model="field.model"
+          :options="field.options"
           v-bind="field.attr"
         />
         <lc-textarea
