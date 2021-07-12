@@ -1,10 +1,9 @@
 <template>
   <label
     :class="[
-      'label',
-      disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-      vertical ? 'mb-2' : 'mr-4',
-      {'text-gray-500': disabled },
+      'lc-radio-label',
+      {'lc-radio-label--disabled': disabled },
+      {'lc-radio-label--vertical': vertical },
     ]
     "
     :for="value"
@@ -15,6 +14,7 @@
       :disabled="disabled"
       :name="name"
       :value="value"
+      class="lc-radio"
       type="radio"
       v-bind="$attrs"
       @change="onChange"
@@ -35,10 +35,6 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    name: {
-      type: String,
-      required: true,
-    },
     label: {
       type: String,
       default: '',
@@ -46,6 +42,10 @@ export default defineComponent({
     modelValue: {
       type: [Number, String],
       default: '',
+    },
+    name: {
+      type: String,
+      required: true,
     },
     value: {
       type: [Number, String],
@@ -69,15 +69,23 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-.label {
-  @apply inline-flex justify-start items-center mr-4;
+.lc-radio-label {
+  @apply inline-flex justify-start items-center mr-4 cursor-pointer;
 }
 
-input[type="radio"] {
+.lc-radio-label--disabled {
+  @apply text-gray-500 cursor-not-allowed;
+}
+
+.lc-radio-label--vertical {
+  @apply mb-2 mr-0
+}
+
+.lc-radio {
   @apply appearance-none cursor-pointer mr-2 border border-gray-400 rounded-full checked:bg-primary-500 checked:border-primary-500 w-6 h-6 md:w-4 md:h-4;
 }
 
-input[type="radio"]:checked {
+.lc-radio:checked {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
   border-color: transparent;
   background-size: 120% 120%;
@@ -85,15 +93,15 @@ input[type="radio"]:checked {
   background-repeat: no-repeat;
 }
 
-input[type="radio"]:hover:not(:checked) {
+.lc-radio:hover:not(:checked) {
   @apply bg-gray-200;
 }
 
-input[type="radio"]:disabled {
+.lc-radio:disabled {
   @apply bg-gray-300 cursor-not-allowed;
 }
 
-input[type="radio"]:hover:disabled {
+.lc-radio:hover:disabled {
   @apply bg-gray-300;
 }
 </style>

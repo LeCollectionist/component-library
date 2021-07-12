@@ -1,9 +1,9 @@
 <template>
   <div :class="wrapperClass">
-    <label v-if="label" class="mb-2">
+    <label v-if="label" class="lc-radiogroup-label">
       {{ label }}
     </label>
-    <div :class="['flex', { 'flex-col': vertical }]">
+    <div :class="['lc-radiogroup-layout', {'lc-radiogroup-layout--vertical': vertical }]">
       <lc-radio
         v-for="option in options"
         :key="option.value"
@@ -14,7 +14,7 @@
         @update:modelValue="onChange"
       />
     </div>
-    <error-message :name="name" as="span" class="lc-radio--error" />
+    <error-message :name="name" as="span" class="lc-radiogroup--error" />
   </div>
 </template>
 
@@ -84,7 +84,19 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-.lc-radio--error {
+.lc-radiogroup-label {
+  @apply mb-2
+}
+
+.lc-radiogroup-layout {
+  @apply flex
+}
+
+.lc-radiogroup-layout--vertical {
+  @apply flex-col
+}
+
+.lc-radiogroup--error {
   @apply text-sm text-error mt-1;
 }
 </style>

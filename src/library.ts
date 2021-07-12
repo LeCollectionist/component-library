@@ -6,6 +6,7 @@ import LcInput from './components/LcInput.vue'
 import LcModal from './components/LcModal.vue'
 import LcMultiselect from './components/LcMultiselect'
 import LcPagination from './components/LcPagination.vue'
+import { LcRadio, LcRadioGroup } from './components/LcRadio'
 import LcTable from './components/LcTable.vue'
 import LcTextarea from './components/LcTextarea'
 import LcTooltip from './components/LcTooltip.vue'
@@ -19,6 +20,8 @@ export {
   LcModal,
   LcMultiselect,
   LcPagination,
+  LcRadio,
+  LcRadioGroup,
   LcTable,
   LcTextarea,
   LcTooltip,
