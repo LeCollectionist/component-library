@@ -15,6 +15,7 @@ This repo provides a basic setup for developing component libraries in Vite with
 - [x] LcInput
 - [x] LcModal
 - [x] LcPagination
+- [x] LcRadioGroup & LcRadio
 - [x] LcTable
 - [x] LcTooltip
 
