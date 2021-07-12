@@ -1,4 +1,4 @@
-// import { action } from '@storybook/addon-actions'
+import { action } from '@storybook/addon-actions'
 
 import LcRadio from './LcRadio.vue'
 import LcRadioGroup from './LcRadioGroup.vue'
@@ -14,7 +14,10 @@ const Template = (args: any) => ({
   setup() {
     return { args }
   },
-  template: '<lc-radio-group v-bind="args" />',
+  template: '<lc-radio-group v-bind="args" @update:modelValue="onChange" />',
+  methods: {
+    onChange: action('onChange'),
+  },
 })
 
 export const Base = Template.bind({}) as any
@@ -51,15 +54,13 @@ Vertical.args = {
 
 export const VerticalWithLabel = Template.bind({}) as any
 VerticalWithLabel.args = {
-  ...Base.args,
-  label: 'Choisir votre civilité :',
+  ...WithLabel.args,
   vertical: true,
 }
 
 export const Disabled = Template.bind({}) as any
 Disabled.args = {
-  ...Base.args,
-  label: 'Choisir votre civilité :',
+  ...WithLabel.args,
   options: [
     {
       label: 'Monsieur',

@@ -78,7 +78,7 @@ export default defineComponent({
 }
 
 .lc-radio-label--vertical {
-  @apply mb-2 mr-0
+  @apply mb-2 mr-0;
 }
 
 .lc-radio {

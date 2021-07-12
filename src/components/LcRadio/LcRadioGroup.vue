@@ -85,15 +85,15 @@ export default defineComponent({
 </script>
 <style scoped>
 .lc-radiogroup-label {
-  @apply mb-2
+  @apply mb-2;
 }
 
 .lc-radiogroup-layout {
-  @apply flex
+  @apply flex;
 }
 
 .lc-radiogroup-layout--vertical {
-  @apply flex-col
+  @apply flex-col;
 }
 
 .lc-radiogroup--error {
