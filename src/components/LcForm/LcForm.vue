@@ -86,14 +86,13 @@ import {
 import { localize } from '@vee-validate/i18n'
 import fr from '@vee-validate/i18n/dist/locale/fr.json'
 
-import { FieldClassContainer, FormValues } from '../types/LcForm'
-
-import LcButton from './LcButton/LcButton.vue'
-import LcMultiselect from './LcMultiselect/LcMultiselect.vue'
-import LcCheckbox from './LcCheckbox.vue'
-import LcInput from './LcInput.vue'
-import LcTextarea from './LcTextarea'
-import { LcRadioGroup } from './LcRadio'
+import LcButton from '../LcButton'
+import LcMultiselect from '../LcMultiselect'
+import LcCheckbox from '../LcCheckbox'
+import LcInput from '../LcInput'
+import LcTextarea from '../LcTextarea'
+import { LcRadioGroup } from '../LcRadio'
+import { FieldClassContainer, FormValues } from './types'
 
 configure({
   generateMessage: localize({

@@ -1,4 +1,4 @@
-import LcTable from '../components/LcTable'
+import LcTable from './LcTable'
 
 export default {
   title: 'Example/LcTable',

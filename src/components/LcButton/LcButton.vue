@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { vColor, vFontWeight, vSize, vVariant } from '../../validators/LcButton'
+import { vColor, vFontWeight, vSize, vVariant } from './validators/LcButton'
 
 // Types
 interface ComputedClass {
