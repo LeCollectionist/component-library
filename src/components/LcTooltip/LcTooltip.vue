@@ -11,11 +11,16 @@
   >
     <slot name="element" />
 
-    <div v-if="show && $slots['text']" :class="tooltipClass">
+    <div
+      v-if="show && $slots['text']"
+      :class="tooltipClass"
+      data-testid="tooltip"
+    >
       <slot name="text" />
       <lc-icon
         v-if="clickable"
         class="lc_tooltip-icon"
+        data-testid="tooltip__close"
         name="exit"
         size="xs"
         @click.stop="toggleTooltip"
@@ -49,7 +54,7 @@ export default defineComponent({
     position: {
       type: String,
       default: 'top',
-      validator: (value) => {
+      validator: (value: string) => {
         return vPosition.includes(value)
       },
     },
@@ -64,14 +69,14 @@ export default defineComponent({
     size: {
       type: String,
       default: 'medium',
-      validator: (value) => {
+      validator: (value: string) => {
         return vSize.includes(value)
       },
     },
     variant: {
       type: String,
       default: 'grey',
-      validator: (value) => {
+      validator: (value: string) => {
         return vVariant.includes(value)
       },
     },
@@ -82,7 +87,7 @@ export default defineComponent({
     }
   },
   computed: {
-    tooltipClass() {
+    tooltipClass(): string | string[] {
       const baseClass = 'lc_tooltip-content'
 
       if (!this.hoveringTooltip) return `text-center ${baseClass}`

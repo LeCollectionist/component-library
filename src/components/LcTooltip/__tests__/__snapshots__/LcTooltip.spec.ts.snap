@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LcTooltip Slots should display some text in the tooltip 1`] = `
+"<div class=\\"relative lc_tooltip lc_tooltip--hover\\"><button>Click to see tooltip!</button>
+  <div class=\\"lc_tooltip-content lc_tooltip-content--top lc_tooltip-content--medium lc_tooltip-content--grey lc_tooltip-content--absolute\\" data-testid=\\"tooltip\\">Hi! I'm the tooltip message.
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`LcTooltip Slots should render an element which should have the tooltip 1`] = `
+"<div class=\\"relative lc_tooltip lc_tooltip--hover\\"><button>Click to see tooltip!</button>
+  <!--v-if-->
+</div>"
+`;

@@ -64,3 +64,9 @@ Small.args = {
   ...Base.args,
   size: 'small',
 }
+
+export const Clickable = Template.bind({}) as any
+Clickable.args = {
+  ...White.args,
+  clickable: true,
+}
