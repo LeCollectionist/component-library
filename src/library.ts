@@ -1,3 +1,4 @@
+import LcBadge from './components/LcBadge'
 import LcButton from './components/LcButton'
 import LcCheckbox from './components/LcCheckbox'
 import LcForm from './components/LcForm'
@@ -12,6 +13,7 @@ import LcTextarea from './components/LcTextarea'
 import LcTooltip from './components/LcTooltip'
 
 export {
+  LcBadge,
   LcButton,
   LcCheckbox,
   LcForm,

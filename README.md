@@ -8,6 +8,7 @@ This repo provides a basic setup for developing component libraries in Vite with
 - Automatically export and register all components in `./src/components`
 
 ## Components
+- [x] LcBadge
 - [x] LcButton
 - [x] LcCheckbox
 - [x] LcForm
