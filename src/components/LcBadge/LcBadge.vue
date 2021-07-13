@@ -1,0 +1,39 @@
+<template>
+  <div :class="['lc-badge', colorClass ? colorClass : 'lc-badge-primary']">
+    <p v-bind="$attrs">
+      {{ text }}
+    </p>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'LcBadge',
+  props: {
+    colorClass: {
+      type: String,
+      default: '',
+    },
+    text: {
+      type: String,
+      default: '',
+    },
+  },
+})
+</script>
+
+<style scoped>
+p {
+  @apply m-0;
+}
+
+.lc-badge {
+  @apply px-2 py-1 w-max rounded font-medium;
+}
+
+.lc-badge-primary {
+  @apply bg-primary-400 text-primary-700;
+}
+</style>
