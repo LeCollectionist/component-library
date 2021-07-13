@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions'
+
 import LcCheckbox from './LcCheckbox'
 
 export default {
@@ -10,7 +12,10 @@ const Template = (args: any) => ({
   setup() {
     return { args }
   },
-  template: '<lc-checkbox v-model="args.modelValue" v-bind="args"/>',
+  template: '<lc-checkbox v-bind="args" @update:modelValue="onChange"/>',
+  methods: {
+    onChange: action('onChange'),
+  },
 })
 
 export const Base = Template.bind({}) as any

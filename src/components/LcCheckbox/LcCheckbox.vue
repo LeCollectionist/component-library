@@ -11,6 +11,7 @@
             { backgroundColor: checkbox.color , borderColor: checkbox.color } :
             { borderColor: checkbox.color }"
           class="form-tick checkbox-custom"
+          data-testid="lc-checkbox"
         >
         <span :style="checkbox.value && checkbox.color ? { color: checkbox.color } : ''">{{ checkbox.label }}</span>
       </label>
@@ -24,6 +25,7 @@
           backgroundColor: color, borderColor: color } :
           { borderColor: color }"
         class="form-tick checkbox-custom"
+        data-testid="lc-checkbox"
       >
       <span :style="inputValue && color ? { color: color } : ''">{{ label }}</span>
     </label>
