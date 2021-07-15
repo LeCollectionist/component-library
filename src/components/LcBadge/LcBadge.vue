@@ -1,5 +1,5 @@
 <template>
-  <div :class="['lc-badge', colorClass ? colorClass : 'lc-badge-primary']">
+  <div :class="['lc-badge', colorClass]">
     <p v-bind="$attrs">
       {{ text }}
     </p>
@@ -14,7 +14,7 @@ export default defineComponent({
   props: {
     colorClass: {
       type: String,
-      default: '',
+      default: 'lc-badge-primary',
     },
     text: {
       type: String,
