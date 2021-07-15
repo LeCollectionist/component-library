@@ -1,5 +1,5 @@
 <template>
-  <div :class="inputClass">
+  <div :class="wrapperClass">
     <slot name="label">
       <label
         v-if="label"
@@ -47,7 +47,7 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    inputClass: {
+    wrapperClass: {
       type: String,
       default: 'w-full mb-4',
     },
@@ -72,7 +72,7 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: ['update:modelValue', 'focus-out'],
+  emits: ['update:modelValue', 'blur'],
   setup(props, { emit }) {
     const {
       value: inputValue,
@@ -92,7 +92,7 @@ export default defineComponent({
 
     function onBlur(): void {
       handleBlur()
-      emit('focus-out')
+      emit('blur')
     }
 
     return {

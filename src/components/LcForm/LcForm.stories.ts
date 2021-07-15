@@ -38,7 +38,7 @@ Base.args = {
       inputType: 'input',
       attr: {
         disabled: true,
-        inputClass: 'w-full lc-col mb-4',
+        wrapperClass: 'w-full lc-col mb-4',
         placeholder: 'Ecrit dedans :)',
         label: 'Prénom',
         name: 'firstname',
@@ -49,7 +49,7 @@ Base.args = {
       model: '',
       inputType: 'input',
       attr: {
-        inputClass: 'w-full lc-col mb-4',
+        wrapperClass: 'w-full lc-col mb-4',
         label: 'addresse',
         name: 'address',
         rules: 'required',

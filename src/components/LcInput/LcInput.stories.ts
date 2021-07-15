@@ -15,11 +15,11 @@ const Template = (args: any) => ({
   template: `<lc-input
     v-bind="args"
     @update:modelValue="onUpdate"
-    @focus-out="onFocusOut"
+    @blur="onBlur"
   />`,
   methods: {
     onUpdate: action('onUpdate'),
-    onFocusOut: action('onFocusOut'),
+    onBlur: action('onBlur'),
   },
 })
 
@@ -28,5 +28,11 @@ Base.args = {
   label: 'Prénom',
   name: 'firstname',
   modelValue: '',
-  inputClass: 'w-full',
+  wrapperClass: 'w-full',
+}
+
+export const Placeholder = Template.bind({}) as any
+Placeholder.args = {
+  ...Base.args,
+  placeholder: 'Votre prénom',
 }
