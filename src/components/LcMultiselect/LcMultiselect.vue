@@ -1,12 +1,12 @@
 <template>
   <div :class="wrapperClass">
-    <label v-if="labelText" class="block mb-1">
+    <label v-if="labelText" class="lc-form-label">
       {{ labelText }}
     </label>
 
     <multiselect
       v-model="inputValue"
-      :class="[{ 'lc-multiselect--hasError': isError }]"
+      :class="[{ 'lc-form--hasError': isError }]"
       :options="options"
       v-bind="{searchable: false, ...$attrs}"
       @change="handleChange"
@@ -17,7 +17,7 @@
     <error-message
       :name="name"
       as="span"
-      class="lc-multiselect--error"
+      class="lc-form--error"
     />
   </div>
 </template>
@@ -102,15 +102,5 @@ export default defineComponent({
   --ms-option-bg-selected: #e7d4b7;
   --ms-option-bg-selected-pointed: #e7d4b7;
   --ms-ring-color: #dbbc8f40;
-}
-</style>
-
-<style scoped>
-.lc-multiselect--error {
-  @apply text-sm text-error;
-}
-
-.lc-multiselect--hasError {
-  @apply border-error;
 }
 </style>

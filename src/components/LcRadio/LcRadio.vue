@@ -14,7 +14,8 @@
       :disabled="disabled"
       :name="name"
       :value="value"
-      class="lc-radio"
+      class="lc-radio lc-form-tick"
+      data-testid="lc-radio"
       type="radio"
       v-bind="$attrs"
       @change="onChange"
@@ -68,7 +69,7 @@ export default defineComponent({
   },
 })
 </script>
-<style scoped>
+<style>
 .lc-radio-label {
   @apply inline-flex justify-start items-center mr-4 cursor-pointer;
 }
@@ -83,14 +84,6 @@ export default defineComponent({
 
 .lc-radio {
   @apply appearance-none cursor-pointer mr-2 border border-gray-400 rounded-full checked:bg-primary-500 checked:border-primary-500 w-6 h-6 md:w-4 md:h-4;
-}
-
-.lc-radio:checked {
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
-  border-color: transparent;
-  background-size: 120% 120%;
-  background-position: 50%;
-  background-repeat: no-repeat;
 }
 
 .lc-radio:hover:not(:checked) {
