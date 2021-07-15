@@ -44,7 +44,7 @@ describe('LcCheckbox', () => {
       expect(changeEvent[0]).toEqual([true])
     })
 
-    it('should disabled the checkbox button', async() => {
+    it('should disable the checkbox button', async() => {
       await wrapper.setProps({ disabled: true })
       const checkbox = wrapper.find('[data-testid="lc-checkbox"]')
 
