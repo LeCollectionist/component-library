@@ -45,10 +45,10 @@ describe('LcInput', () => {
     expect(input.attributes('placeholder')).toBe(placeholderText)
   })
 
-  it('should emit on-blur event when leave input', async() => {
+  it('should emit blur event when leave input', async() => {
     const input = wrapper.find('input')
     await input.trigger('blur')
 
-    expect(wrapper.emitted('on-blur')).toBeTruthy()
+    expect(wrapper.emitted('blur')).toBeTruthy()
   })
 })

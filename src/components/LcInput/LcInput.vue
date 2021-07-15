@@ -72,7 +72,7 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: ['update:modelValue', 'on-blur'],
+  emits: ['update:modelValue', 'blur'],
   setup(props, { emit }) {
     const {
       value: inputValue,
@@ -92,7 +92,7 @@ export default defineComponent({
 
     function onBlur(): void {
       handleBlur()
-      emit('on-blur')
+      emit('blur')
     }
 
     return {

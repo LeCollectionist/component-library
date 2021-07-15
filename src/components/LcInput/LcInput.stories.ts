@@ -15,7 +15,7 @@ const Template = (args: any) => ({
   template: `<lc-input
     v-bind="args"
     @update:modelValue="onUpdate"
-    @on-blur="onBlur"
+    @blur="onBlur"
   />`,
   methods: {
     onUpdate: action('onUpdate'),
