@@ -11,6 +11,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'LcBadge',
+  inheritAttrs: false,
   props: {
     colorClass: {
       type: String,

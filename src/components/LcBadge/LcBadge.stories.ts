@@ -23,3 +23,9 @@ ColorClass.args = {
   ...Base.args,
   colorClass: 'bg-secondary-300 text-secondary-500',
 }
+
+export const AttrClass = Template.bind({}) as any
+AttrClass.args = {
+  ...Base.args,
+  class: 'font-bold text-white',
+}

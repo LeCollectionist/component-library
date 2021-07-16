@@ -3,27 +3,28 @@ import LcBadge from '../LcBadge'
 
 let wrapper: any
 
-beforeEach(() => {
-  wrapper = mount(LcBadge)
-})
-
 afterEach(() => {
   wrapper?.unmount()
 })
 
 describe('LcBadge', () => {
   it('is a Vue instance', () => {
+    wrapper = mount(LcBadge)
     expect(wrapper.vm).toBeTruthy()
   })
 
   it('should render text', async() => {
     const text = 'notifications'
-    await wrapper.setProps({ text })
+    wrapper = mount(LcBadge, { props: { text } })
 
     expect(wrapper.text()).toBe(text)
   })
 
   describe('Default behavior', () => {
+    beforeEach(() => {
+      wrapper = mount(LcBadge)
+    })
+
     it('should render default class', () => {
       expect(wrapper.classes('lc-badge')).toBeTruthy()
     })
@@ -34,8 +35,8 @@ describe('LcBadge', () => {
   })
 
   describe('Custom behavior', () => {
-    beforeEach(async() => {
-      await wrapper.setProps({ colorClass: 'foo' })
+    beforeEach(() => {
+      wrapper = mount(LcBadge, { props: { colorClass: 'foo' } })
     })
 
     it('shouln\'d have a primary class color', () => {
@@ -44,6 +45,15 @@ describe('LcBadge', () => {
 
     it('should have a custom class color', () => {
       expect(wrapper.classes('foo')).toBeTruthy()
+    })
+  })
+
+  describe('Custom attrs', () => {
+    it('should have $attrs class on child element', () => {
+      wrapper = mount(LcBadge, { attrs: { class: 'foo' } })
+      const child = wrapper.find('p')
+
+      expect(child.attributes('class')).toBe('foo')
     })
   })
 })
