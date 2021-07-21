@@ -1,3 +1,5 @@
+import './form.css'
+
 import LcBadge from './components/LcBadge'
 import LcButton from './components/LcButton'
 import LcCheckbox from './components/LcCheckbox'

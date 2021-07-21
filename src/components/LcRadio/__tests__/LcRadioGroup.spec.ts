@@ -28,26 +28,26 @@ describe('LcRadioGroup', () => {
 
   describe('Input behaviour', () => {
     it('should render good number of radio-buttons', () => {
-      const radiosButtons = wrapper.findAll('.lc-radio')
+      const radiosButtons = wrapper.findAll('[data-testid="lc-radio"]')
 
       expect(radiosButtons).toHaveLength(3)
     })
 
     it('should set good name attribute', () => {
-      const radiosButtons = wrapper.findAll('.lc-radio')
+      const radiosButtons = wrapper.findAll('[data-testid="lc-radio"]')
 
       expect(radiosButtons[1].attributes('value')).toEqual('ms')
     })
 
     it('should emit the event', () => {
-      const radioButton = wrapper.find('.lc-radio')
+      const radioButton = wrapper.find('[data-testid="lc-radio"]')
       radioButton.trigger('change')
 
       expect(wrapper.emitted()).toHaveProperty('update:modelValue')
     })
 
     it('should emit the right value', () => {
-      const radioButton = wrapper.find('.lc-radio')
+      const radioButton = wrapper.find('[data-testid="lc-radio"]')
       radioButton.trigger('change')
 
       const changeEvent = wrapper.emitted('update:modelValue')
@@ -60,7 +60,7 @@ describe('LcRadioGroup', () => {
     it('it should render the right label', async() => {
       await wrapper.setProps({ label: 'Your civility :' })
 
-      const label = wrapper.find('.lc-radiogroup-label')
+      const label = wrapper.find('[data-testid="lc-radiogroup-label"]')
       expect(label.text()).toEqual('Your civility :')
     })
 
