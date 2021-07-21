@@ -12,26 +12,28 @@
     <input
       :id="$attrs.id || name"
       :ref="name"
-      :value="inputValue"
+      v-maska="mask"
       :class="computedClass"
       :name="name"
       :placeholder="placeholder"
+      :value="inputValue"
+      data-testid="lc-mask-input"
       v-bind="$attrs"
-      @input="onInput"
-      @change="handleChange"
       @blur="onBlur"
+      @maska="onChange"
     >
-
     <error-message :name="name" as="span" class="lc-form--error" />
   </div>
 </template>
 
 <script lang="ts">
+import { maska } from 'maska'
 import { defineComponent, computed } from 'vue'
 import { ErrorMessage, useField } from 'vee-validate'
 
 export default defineComponent({
   name: 'LcInput',
+  directives: { maska },
   components: {
     ErrorMessage,
   },
@@ -43,6 +45,10 @@ export default defineComponent({
     },
     label: {
       type: String,
+      default: '',
+    },
+    mask: {
+      type: [String, Array],
       default: '',
     },
     modelValue: {
@@ -62,7 +68,7 @@ export default defineComponent({
       default: '',
     },
     rules: {
-      type: String,
+      type: [String, Object],
       default: '',
     },
     wrapperClass: {
@@ -70,7 +76,7 @@ export default defineComponent({
       default: 'w-full mb-4',
     },
   },
-  emits: ['update:modelValue', 'blur'],
+  emits: ['update:modelValue', 'blur', 'raw-value'],
   setup(props, { emit }) {
     const {
       value: inputValue,
@@ -83,57 +89,57 @@ export default defineComponent({
 
     const isError = computed(() => Boolean(errors.value.length))
 
-    function onInput(event: Event & { target: HTMLInputElement }): void {
-      handleChange(event)
-      emit('update:modelValue', event.target.value)
-    }
-
     function onBlur(): void {
       handleBlur()
       emit('blur')
+    }
+
+    function onChange(event: Event & { target: HTMLInputElement }): void {
+      handleChange(event.target.value)
+      emit('raw-value', event.target.dataset.maskRawValue)
     }
 
     return {
       inputValue,
       handleChange,
       isError,
-      onInput,
       onBlur,
+      onChange,
     }
   },
   computed: {
     computedClass(): any[] {
       return [
-        'lc-input',
-        { 'lc-input--hasBorder': !this.noBorder },
-        { 'lc-input--disabled': this.disabled },
-        { 'lc-input--hasError-hasBorder': this.isError && !this.noBorder },
-        { 'lc-input--hasntError-hasBorder': !this.isError && !this.noBorder },
+        'lc-mask-input',
+        { 'lc-mask-input--hasBorder': !this.noBorder },
+        { 'lc-mask-input--disabled': this.disabled },
+        { 'lc-mask-input--hasError-hasBorder': this.isError && !this.noBorder },
+        { 'lc-mask-input--hasntError-hasBorder': !this.isError && !this.noBorder },
       ]
     },
   },
 })
 </script>
 
-<style>
-.lc-input {
+<style scoped>
+.lc-mask-input {
   height: 51px;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   @apply block bg-clip-padding w-full text-gray-700 font-normal text-base leading-normal py-1.5 px-4 bg-white focus:text-gray-700 focus:bg-white focus:border-primary-focus focus:shadow-focus focus:outline-none;
 }
-.lc-input--hasBorder {
+.lc-mask-input--hasBorder {
   @apply border rounded-sm;
 }
-.lc-input--disabled {
+.lc-mask-input--disabled {
   @apply bg-gray-300 pointer-events-none text-gray-500;
 }
-.lc-input--hasError-hasBorder {
+.lc-mask-input--hasError-hasBorder {
   @apply border-error;
 }
-.lc-input--hasntError-hasBorder {
+.lc-mask-input--hasntError-hasBorder {
   @apply border-gray-400;
 }
-.lc-input[disabled=disabled] {
+.lc-mask-input[disabled=disabled] {
   -webkit-text-fill-color: #aaaaaa;
 }
 </style>

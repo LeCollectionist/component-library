@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions'
+
 import LcForm from './LcForm'
 
 export default {
@@ -10,7 +12,11 @@ const Template = (args: any) => ({
   setup() {
     return { args }
   },
-  template: '<lc-form v-bind="args"/>',
+  template: '<lc-form v-bind="args" @onSubmit="onSubmit" @onCancel="onCancel"/>',
+  methods: {
+    onSubmit: action('onSubmit'),
+    onCancel: action('onCancel'),
+  },
 })
 
 export const Base = Template.bind({}) as any
@@ -34,7 +40,7 @@ Base.args = {
   },
   fields: [
     {
-      model: '',
+      model: 'Bob',
       inputType: 'input',
       attr: {
         disabled: true,
@@ -102,6 +108,18 @@ Base.args = {
         name: 'coutnry',
         rules: 'required',
         wrapperClass: 'mb-4',
+      },
+    },
+    {
+      model: '',
+      inputType: 'mask',
+      attr: {
+        label: 'Siret',
+        mask: '### ### ### #####',
+        name: 'siret',
+        placeholder: '### ### ### #####',
+        rules: { required: true, regex: /^[0-9]{3} [0-9]{3} [0-9]{3} [0-9]{5}$/ },
+        wrapperClass: 'w-full lc-col mb-4',
       },
     },
   ],
