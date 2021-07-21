@@ -16,7 +16,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./dist",
-    "types": ["vite/client", "@types/jest"],
+    "types": ["vite/client", "@types/jest", "@types/vue-the-mask"],
     "paths": {
       "~/*": ["src/*"]
     }

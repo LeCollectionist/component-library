@@ -104,5 +104,16 @@ Base.args = {
         wrapperClass: 'mb-4',
       },
     },
+    {
+      model: '',
+      inputType: 'mask',
+      attr: {
+        labelText: 'Siret',
+        name: 'siret',
+        rules: 'required',
+        wrapperClass: 'mb-4',
+        mask: '### ### ### #####',
+      },
+    },
   ],
 }
