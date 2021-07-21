@@ -37,6 +37,7 @@
         v-if="item > 0"
         :key="`index-${i}`"
         :class="['lc-pagination__number', {'lc-pagination__number--active': item === modelValue}]"
+        data-testid="numberPage"
         @click="clickOnNumber(item)"
       >
         {{ item }}
