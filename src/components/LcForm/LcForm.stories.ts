@@ -104,5 +104,16 @@ Base.args = {
         wrapperClass: 'mb-4',
       },
     },
+    {
+      model: '111 111 111 11112',
+      inputType: 'mask',
+      attr: {
+        wrapperClass: 'w-full lc-col mb-4',
+        label: 'Siret',
+        name: 'siret',
+        rules: 'required',
+        mask: '### ### ### #####',
+      },
+    },
   ],
 }
