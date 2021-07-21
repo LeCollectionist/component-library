@@ -34,7 +34,8 @@
     "@vueform/multiselect": "^2.0.1",
     "esno": "0.4.4",
     "vee-validate": "4.4.4",
-    "vue": "3.1.1"
+    "vue": "3.1.1",
+    "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.4.3",
@@ -47,6 +48,7 @@
     "@storybook/vue3": "^6.3.2",
     "@tailwindcss/postcss7-compat": "^2.1.0",
     "@types/jest": "^26.0.23",
+    "@types/vue-the-mask": "^0.11.1",
     "@typescript-eslint/eslint-plugin": "4.21.0",
     "@vitejs/plugin-vue": "1.2.1",
     "@vue/compiler-sfc": "3.1.1",

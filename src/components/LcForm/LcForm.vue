@@ -40,6 +40,11 @@
           :options="field.options || []"
           v-bind="field.attr"
         />
+        <lc-mask-input
+          v-if="field.inputType === 'mask' && !field.hidden"
+          v-model="field.model"
+          v-bind="field.attr"
+        />
       </div>
 
       <slot name="before-submit-button" />
@@ -90,6 +95,7 @@ import LcButton from '../LcButton'
 import LcMultiselect from '../LcMultiselect'
 import LcCheckbox from '../LcCheckbox'
 import LcInput from '../LcInput'
+import LcMaskInput from '../LcMaskInput'
 import LcTextarea from '../LcTextarea'
 import { LcRadioGroup } from '../LcRadio'
 import { FieldClassContainer, FormValues } from './types'
@@ -113,6 +119,7 @@ export default defineComponent({
     LcButton,
     LcCheckbox,
     LcInput,
+    LcMaskInput,
     LcMultiselect,
     LcTextarea,
     LcRadioGroup,
