@@ -1,4 +1,5 @@
-import LcIcon from '../LcIcon'
+import { action } from '@storybook/addon-actions'
+
 import LcPagination from './LcPagination'
 
 export default {
@@ -11,23 +12,24 @@ export default {
 }
 
 const Template = (args: any) => ({
-  components: { LcPagination, LcIcon },
+  components: { LcPagination },
   setup() {
     return { args }
   },
   template: `
-    <lc-pagination v-bind="args"></lc-pagination>
+    <lc-pagination v-bind="args" @update:modelValue="onUpdate"></lc-pagination>
   `,
+  methods: {
+    onUpdate: action('onUpdate'),
+  },
 })
 
 export const FirstCase = Template.bind({}) as any
 FirstCase.args = {
-  modelValue: 1,
   nbPages: 3,
 }
 
 export const SecondCase = Template.bind({}) as any
 SecondCase.args = {
-  modelValue: 1,
   nbPages: 10,
 }

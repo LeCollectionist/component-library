@@ -9,20 +9,18 @@
       </label>
     </slot>
 
-    <div class="w-full">
-      <input
-        :id="$attrs.id || name"
-        :ref="name"
-        :value="inputValue"
-        :class="computedClass"
-        :name="name"
-        :placeholder="placeholder"
-        v-bind="$attrs"
-        @input="onInput"
-        @change="handleChange"
-        @blur="onBlur"
-      >
-    </div>
+    <input
+      :id="$attrs.id || name"
+      :ref="name"
+      :value="inputValue"
+      :class="computedClass"
+      :name="name"
+      :placeholder="placeholder"
+      v-bind="$attrs"
+      @input="onInput"
+      @change="handleChange"
+      @blur="onBlur"
+    >
 
     <error-message :name="name" as="span" class="lc-input--error" />
   </div>
@@ -39,25 +37,25 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
-    noBorder: {
-      type: Boolean,
-      default: false,
-    },
     disabled: {
       type: Boolean,
       default: false,
-    },
-    wrapperClass: {
-      type: String,
-      default: 'w-full mb-4',
     },
     label: {
       type: String,
       default: '',
     },
+    modelValue: {
+      type: [String, Number],
+      default: '',
+    },
     name: {
       type: String,
       required: true,
+    },
+    noBorder: {
+      type: Boolean,
+      default: false,
     },
     placeholder: {
       type: String,
@@ -67,9 +65,9 @@ export default defineComponent({
       type: String,
       default: '',
     },
-    modelValue: {
-      type: [String, Number],
-      default: '',
+    wrapperClass: {
+      type: String,
+      default: 'w-full mb-4',
     },
   },
   emits: ['update:modelValue', 'blur'],
@@ -117,7 +115,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style>
 .lc-input {
   height: 51px;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;

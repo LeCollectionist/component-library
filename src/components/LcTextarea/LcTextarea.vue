@@ -4,29 +4,27 @@
       <label
         v-if="label"
         :for="$attrs.id || name"
-        class="block mb-1"
+        class="lc-form-label"
       >
         {{ label }}
       </label>
     </slot>
-    <div class="w-full">
-      <textarea
-        :id="$attrs.id || name"
-        :ref="name"
-        :class="computedClass"
-        :name="name"
-        :placeholder="placeholder"
-        :value="inputValue"
-        v-bind="$attrs"
-        @blur="onBlur"
-        @change="handleChange"
-        @input="onInput"
-      />
-    </div>
+    <textarea
+      :id="$attrs.id || name"
+      :ref="name"
+      :class="computedClass"
+      :name="name"
+      :placeholder="placeholder"
+      :value="inputValue"
+      v-bind="$attrs"
+      @blur="onBlur"
+      @change="handleChange"
+      @input="onInput"
+    />
     <error-message
       :name="name"
       as="span"
-      class="lc-textarea--error"
+      class="lc-form--error"
     />
   </div>
 </template>
@@ -100,20 +98,14 @@ export default defineComponent({
   },
   computed: {
     computedClass(): any[] {
-      return ['lc-textarea', { 'lc-textarea--hasError': this.isError }]
+      return ['lc-textarea', { 'lc-form--hasError': this.isError }]
     },
   },
 })
 </script>
 
-<style scoped>
+<style>
 .lc-textarea {
   @apply block rounded-sm bg-clip-padding w-full border border-gray-400 text-gray-700 font-normal text-base leading-normal py-1.5 px-4 bg-white resize-none overflow-y-scroll focus:bg-white focus:border-primary-focus focus:shadow-focus focus:outline-none;
-}
-.lc-textarea--hasError {
-  @apply border-error;
-}
-.lc-textarea--error {
-  @apply text-sm text-error;
 }
 </style>
