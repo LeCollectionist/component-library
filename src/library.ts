@@ -7,6 +7,7 @@ import LcCount from './components/LcCount'
 import LcForm from './components/LcForm'
 import LcIcon from './components/LcIcon'
 import LcInput from './components/LcInput'
+import LcMaskInput from './components/LcMaskInput'
 import LcModal from './components/LcModal'
 import LcMultiselect from './components/LcMultiselect'
 import LcPagination from './components/LcPagination'
@@ -23,6 +24,7 @@ export {
   LcForm,
   LcIcon,
   LcInput,
+  LcMaskInput,
   LcModal,
   LcMultiselect,
   LcPagination,
