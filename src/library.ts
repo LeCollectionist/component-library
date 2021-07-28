@@ -3,6 +3,7 @@ import './form.css'
 import LcBadge from './components/LcBadge'
 import LcButton from './components/LcButton'
 import LcCheckbox from './components/LcCheckbox'
+import LcCount from './components/LcCount'
 import LcForm from './components/LcForm'
 import LcIcon from './components/LcIcon'
 import LcInput from './components/LcInput'
@@ -18,6 +19,7 @@ export {
   LcBadge,
   LcButton,
   LcCheckbox,
+  LcCount,
   LcForm,
   LcIcon,
   LcInput,
