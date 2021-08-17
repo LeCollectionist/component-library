@@ -40,6 +40,11 @@
           :options="field.options || []"
           v-bind="field.attr"
         />
+        <lc-mask-input
+          v-if="field.inputType === 'mask' && !field.hidden"
+          v-model="field.model"
+          v-bind="field.attr"
+        />
       </div>
 
       <slot name="before-submit-button" />
@@ -76,6 +81,7 @@ import { defineComponent, ref } from 'vue'
 
 import { Form as vForm, defineRule, configure } from 'vee-validate'
 import {
+  regex,
   required,
   email,
   min,
@@ -90,6 +96,7 @@ import LcButton from '../LcButton'
 import LcMultiselect from '../LcMultiselect'
 import LcCheckbox from '../LcCheckbox'
 import LcInput from '../LcInput'
+import LcMaskInput from '../LcMaskInput'
 import LcTextarea from '../LcTextarea'
 import { LcRadioGroup } from '../LcRadio'
 import { FieldClassContainer, FormValues } from './types'
@@ -101,6 +108,7 @@ configure({
 })
 
 defineRule('required', required)
+defineRule('regex', regex)
 defineRule('email', email)
 defineRule('min', min)
 defineRule('numeric', numeric)
@@ -113,6 +121,7 @@ export default defineComponent({
     LcButton,
     LcCheckbox,
     LcInput,
+    LcMaskInput,
     LcMultiselect,
     LcTextarea,
     LcRadioGroup,
