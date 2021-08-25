@@ -4007,16 +4007,6 @@
     "@typescript-eslint/types" "4.21.0"
     eslint-visitor-keys "^2.0.0"
 
-"@vee-validate/i18n@^4.1.20":
-  version "4.1.20"
-  resolved "https://registry.yarnpkg.com/@vee-validate/i18n/-/i18n-4.1.20.tgz#1f3a3a5da83217fc77fd32e5da6c9d714e91c515"
-  integrity sha512-3K7R3m3Z206Hq6iJpXHJNSYDjJFFHzZrA7wjowTts52iEsv9kNpA/WCkdJsQLae8J+QLiKyK53ma35gAet8yFg==
-
-"@vee-validate/rules@^4.1.20":
-  version "4.1.20"
-  resolved "https://registry.yarnpkg.com/@vee-validate/rules/-/rules-4.1.20.tgz#50c8cdf92df18560b6c6e8772399df88c44b7de3"
-  integrity sha512-DsG+NrCv/rEIpEEOqv+R7Za5rsA9xdIq4XEARjcHI3liXgkd8aeNWCnnmGyDbkz2BVav7n37IhP16ceJHnFXBA==
-
 "@vitejs/plugin-vue@1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.2.1.tgz#6de49436fc346f829a56676066428e3f011522ac"
@@ -4266,11 +4256,6 @@
   version "2.0.0-rc.9"
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-2.0.0-rc.9.tgz#b3f817d710a1d0ae2084143520c9d8d3c552bfa6"
   integrity sha512-iJNAAfXTTSd2/5vUZpFbUwUwC8w3hbFu8s9ptKkZGsiw6pO6mFsaLs2rzI3Ea/8hwqcF3K7Wp2diKOdzqmb6qg==
-
-"@vueform/multiselect@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@vueform/multiselect/-/multiselect-2.0.1.tgz#ed8d7c052b8c7ae6fc91613098e96260afe691b1"
-  integrity sha512-7vC60wF8q7GB5yiv9qH8wF8vA1gj/wsdIUR9s/E0DELkmwCVHNex9nkHzDo5dS72fMLByiQbWbJ73K2yr2P2qQ==
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -10242,11 +10227,6 @@ markdown-to-jsx@^7.1.3:
   resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.1.3.tgz#f00bae66c0abe7dd2d274123f84cb6bd2a2c7c6a"
   integrity sha512-jtQ6VyT7rMT5tPV0g2EJakEnXLiPksnvlYtwQsVVZ611JsWGN8bQ1tVSDX4s6JllfEH6wmsYxNjTUAMrPmNA8w==
 
-maska@^1.4.4:
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/maska/-/maska-1.4.4.tgz#0a43dcd10c7ab5d58be59a7a5fd577c496e73fd1"
-  integrity sha512-0z6O2s+KhA/13y2GXSSeX6rg5at9F9mMt+wbx+v/juUAFFGPtiPjXlqZu09lkN7gi4G1xJ2yeN+gvHBJi5SsTA==
-
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -14319,11 +14299,6 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
-
-vee-validate@4.4.4:
-  version "4.4.4"
-  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.4.4.tgz#ee0b86fed0325cc9f3a0b756184fa63c8bb218bb"
-  integrity sha512-1zVt1wJEE/I7ozD2Ixrz7pfAbcZsCItvSNVJq3CAw48cKZOM/m6i8IM/LfbhwIs/HF4xjx0G7YbMQZTG6N8keA==
 
 verror@1.10.0:
   version "1.10.0"
