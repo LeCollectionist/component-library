@@ -16,8 +16,11 @@ const Template = (args: any) => ({
   setup() {
     return { args }
   },
+  data() {
+    return { page: args.modelValue }
+  },
   template: `
-    <lc-pagination v-bind="args" @update:modelValue="onUpdate"></lc-pagination>
+    <lc-pagination v-bind="args" v-model="page" @update:modelValue="onUpdate"></lc-pagination>
   `,
   methods: {
     onUpdate: action('onUpdate'),
@@ -27,9 +30,11 @@ const Template = (args: any) => ({
 export const FirstCase = Template.bind({}) as any
 FirstCase.args = {
   nbPages: 3,
+  modelValue: 1,
 }
 
 export const SecondCase = Template.bind({}) as any
 SecondCase.args = {
   nbPages: 10,
+  modelValue: 5,
 }

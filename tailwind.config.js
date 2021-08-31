@@ -65,6 +65,9 @@ module.exports = {
       boxShadow: {
         focus: '0 0 0 0.2rem #dbbc8f40',
       },
+      transitionProperty: {
+        height: 'height',
+      },
     },
   },
   variants: {
