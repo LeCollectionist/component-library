@@ -6,10 +6,10 @@ exports[`LcButton Html tag must be a <a></a> 1`] = `
 </a>"
 `;
 
-exports[`LcButton Html tag must be a <nuxt-link></nuxt-link> 1`] = `
-"<nuxt-link class=\\"lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" disabled=\\"false\\" to=\\"/\\">
+exports[`LcButton Html tag must be a <router-link></router-link> 1`] = `
+"<router-link class=\\"lc-btn--primary lc-btn--md lc-btn lc-btn--font-bold\\" disabled=\\"false\\" to=\\"/\\">
   <!--v-if-->
-</nuxt-link>"
+</router-link>"
 `;
 
 exports[`LcButton should be a block button 1`] = `

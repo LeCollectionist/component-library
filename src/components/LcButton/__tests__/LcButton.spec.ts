@@ -231,10 +231,10 @@ describe('LcButton', () => {
   })
 
   describe('Html tag', () => {
-    it('must be a <nuxt-link></nuxt-link>', () => {
-      const wrapperNuxtLink = mount(LcButton, { attrs: { to: '/' } })
+    it('must be a <router-link></router-link>', () => {
+      const wrapperRouterLink = mount(LcButton, { attrs: { to: '/' } })
 
-      expect(wrapperNuxtLink.html()).toMatchSnapshot()
+      expect(wrapperRouterLink.html()).toMatchSnapshot()
     })
 
     it('must be a <a></a>', () => {
@@ -265,9 +265,9 @@ describe('LcButton', () => {
       })
 
       it('must be a button without attribute type', () => {
-        const wrapperNuxtLink = mount(LcButton, { attrs: { to: '/' } })
+        const wrapperRouterLink = mount(LcButton, { attrs: { to: '/' } })
 
-        expect(wrapperNuxtLink.attributes('type')).toBeFalsy()
+        expect(wrapperRouterLink.attributes('type')).toBeFalsy()
       })
     })
   })
