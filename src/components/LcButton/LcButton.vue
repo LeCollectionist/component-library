@@ -151,7 +151,7 @@ export default defineComponent({
   },
   computed: {
     type(): string {
-      if (this.$attrs.to) return 'nuxt-link'
+      if (this.$attrs.to) return 'router-link'
       else if (this.$attrs.href) return 'a'
       else return 'button'
     },
