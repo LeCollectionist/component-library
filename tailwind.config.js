@@ -37,7 +37,7 @@ module.exports = {
         red: {
           100: '#E38687',
           200: '#DC6869',
-          300: '#EFCCC3',
+          300: '#B05354',
         },
         transparent: 'transparent',
         'primary-focus': '#dbbc8f40',

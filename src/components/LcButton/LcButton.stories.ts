@@ -21,6 +21,17 @@ const Template = (args: any) => ({
   template: '<lc-button v-bind="args">Hello world</lc-button>',
 })
 
+const TemplateTextIcon = (args: any) => ({
+  components: { LcButton, LcIcon },
+  setup() {
+    return { args }
+  },
+  template: `
+  <lc-button v-bind="args">
+    <lc-icon name="requests" /> Hello world
+  </lc-button>`,
+})
+
 const TemplateIcon = (args: any) => ({
   components: { LcButton, LcIcon },
   setup() {
@@ -37,6 +48,7 @@ Primary.args = {
   color: 'primary',
   variant: 'btn',
 }
+
 export const Secondary = Template.bind({}) as any
 Secondary.args = {
   color: 'secondary',
@@ -48,13 +60,22 @@ IconPrimary.args = {
   color: 'primary',
   variant: 'icon',
 }
+
 export const IconSecondary = TemplateIcon.bind({}) as any
 IconSecondary.args = {
   color: 'secondary',
   variant: 'icon',
 }
+
 export const IconRed = TemplateIcon.bind({}) as any
 IconRed.args = {
   color: 'red',
   variant: 'icon',
+}
+
+export const TextAndIcon = TemplateTextIcon.bind({}) as any
+TextAndIcon.args = {
+  color: 'primary',
+  variant: 'btn',
+  hasIcon: true,
 }
