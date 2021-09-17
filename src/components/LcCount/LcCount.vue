@@ -28,6 +28,6 @@ export default defineComponent({
 
 <style>
 .lc-count {
-  @apply border border-gray-200 bg-gray-200 rounded-full w-8 h-8 flex text-xs items-center justify-center text-gray-400 mx-1;
+  @apply border border-gray-200 bg-gray-200 rounded-full w-8 h-8 flex text-xs items-center justify-center text-gray-600 mx-1;
 }
 </style>
