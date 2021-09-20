@@ -4140,30 +4140,6 @@
     "@vue/compiler-core" "3.2.3"
     "@vue/shared" "3.2.3"
 
-"@vue/compiler-sfc@3.2.12":
-  version "3.2.12"
-  resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.2.12.tgz#39555550d96051508753ba934f7260dc5ee5211e"
-  integrity sha512-EjzeMQ7H2ICj+JRw2buSFXTocdCg8e5yWQTlNM/6h/u68sTwMbIfiOJBFEwBhG/wCG7Nb6Nnz888AfHTU3hdrA==
-  dependencies:
-    "@babel/parser" "^7.15.0"
-    "@babel/types" "^7.15.0"
-    "@types/estree" "^0.0.48"
-    "@vue/compiler-core" "3.2.12"
-    "@vue/compiler-dom" "3.2.12"
-    "@vue/compiler-ssr" "3.2.12"
-    "@vue/ref-transform" "3.2.12"
-    "@vue/shared" "3.2.12"
-    consolidate "^0.16.0"
-    estree-walker "^2.0.2"
-    hash-sum "^2.0.0"
-    lru-cache "^5.1.1"
-    magic-string "^0.25.7"
-    merge-source-map "^1.1.0"
-    postcss "^8.1.10"
-    postcss-modules "^4.0.0"
-    postcss-selector-parser "^6.0.4"
-    source-map "^0.6.1"
-
 "@vue/compiler-sfc@^3.0.7":
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.0.11.tgz#cd8ca2154b88967b521f5ad3b10f5f8b6b665679"
@@ -4217,14 +4193,6 @@
     "@vue/compiler-dom" "3.0.11"
     "@vue/shared" "3.0.11"
 
-"@vue/compiler-ssr@3.2.12":
-  version "3.2.12"
-  resolved "https://registry.yarnpkg.com/@vue/compiler-ssr/-/compiler-ssr-3.2.12.tgz#32e5d4bc31c371c125b43e9d07b8a8f70442b080"
-  integrity sha512-sY+VbLQ17FPr1CgirnqEgY+jbC7wI5c2Ma6u8le0+b4UKMYF9urI2pybAZc1nKz6O78FWA3OSnQFxTTLppe+9Q==
-  dependencies:
-    "@vue/compiler-dom" "3.2.12"
-    "@vue/shared" "3.2.12"
-
 "@vue/compiler-ssr@3.2.3":
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@vue/compiler-ssr/-/compiler-ssr-3.2.3.tgz#75518e43e52c3d50db2e06cbdf37b981d3b4e711"
@@ -4246,17 +4214,6 @@
   integrity sha512-HGmciaVNb3VKn4f4wCswFWLXBcopKQbO1oEs+WunBtt5tym0SS2wFNEGvWfW0dzzlXRbM507ys09m68L+JTa/Q==
   dependencies:
     "@vue/shared" "3.2.3"
-
-"@vue/ref-transform@3.2.12":
-  version "3.2.12"
-  resolved "https://registry.yarnpkg.com/@vue/ref-transform/-/ref-transform-3.2.12.tgz#6f7fa46dd84447ddcf54adfb1b689b1cf4243de0"
-  integrity sha512-lS7TDda61iSf3ljokXVfN0VbOsQdmpST6MZLjxzBydFCECCJaEAr6o+K8VZ7NhUCSrl+gKXHpdXxmcvwdk66aQ==
-  dependencies:
-    "@babel/parser" "^7.15.0"
-    "@vue/compiler-core" "3.2.12"
-    "@vue/shared" "3.2.12"
-    estree-walker "^2.0.2"
-    magic-string "^0.25.7"
 
 "@vue/runtime-core@3.2.12":
   version "3.2.12"
