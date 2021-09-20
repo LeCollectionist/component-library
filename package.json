@@ -1,6 +1,6 @@
 {
   "name": "lc-component-library",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "license": "MIT",
   "files": [
     "dist"
@@ -30,7 +30,7 @@
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-typescript": "^7.13.0",
     "esno": "0.4.4",
-    "vue": "3.2.6"
+    "vue": "3.2.12"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.4.3",
@@ -45,7 +45,7 @@
     "@types/jest": "^26.0.23",
     "@typescript-eslint/eslint-plugin": "4.21.0",
     "@vitejs/plugin-vue": "1.2.1",
-    "@vue/compiler-sfc": "3.2.6",
+    "@vue/compiler-sfc": "3.2.12",
     "@vue/test-utils": "^2.0.0-rc.6",
     "autoprefixer": "^9",
     "babel-loader": "^8.2.2",
