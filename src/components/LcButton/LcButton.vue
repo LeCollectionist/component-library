@@ -260,7 +260,7 @@ export default defineComponent({
 .lc-btn.lc-btn--has-icon,
 .lc-link.lc-link--has-icon,
 .lc-outline.lc-outline--has-icon {
-  @apply flex items-center justify-center;
+  @apply flex items-center justify-center gap-x-2;
 }
 
 /* Block */
