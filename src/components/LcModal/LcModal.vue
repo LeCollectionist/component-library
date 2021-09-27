@@ -3,9 +3,11 @@
     <div
       v-if="modelValue"
       class="lc-modal"
+      data-testid="lc-modal"
     >
       <div
         class="lc-modal__shadow"
+        data-testid="lc-modal__shadow"
         @click="clickOnShadow"
       />
       <div
@@ -16,6 +18,7 @@
             v-if="!disableCloseModal"
             name="exit"
             class="lc-modal__close"
+            data-testid="lc-modal__close"
             size="xs"
             @click="closeModal"
           />
@@ -23,9 +26,10 @@
           <header
             v-if="!noHeader"
             class="lc-modal__header"
+            data-testid="lc-modal__header"
           >
             <slot name="header">
-              <h2 class="lc-modal__header--title">
+              <h2 class="lc-modal__header--title" data-testid="lc-modal__header--title">
                 {{ title }}
               </h2>
             </slot>
@@ -41,6 +45,7 @@
           <footer
             v-if="!noFooter"
             class="lc-modal__container--footer"
+            data-testid="lc-modal__footer"
           >
             <slot name="footer" />
           </footer>
