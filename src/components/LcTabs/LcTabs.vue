@@ -48,9 +48,9 @@ export default defineComponent({
     })
 
     return {
-      tabs,
       active,
       selectTab,
+      tabs,
     }
   },
 })
@@ -87,7 +87,7 @@ export default defineComponent({
 @screen lg {
   .lc-tabs-link--active:after {
     content: '';
-      @apply absolute h-0.5 left-0 -bottom-4 w-full bg-active;
+    @apply absolute h-0.5 left-0 -bottom-4 w-full bg-active;
   }
 }
 
