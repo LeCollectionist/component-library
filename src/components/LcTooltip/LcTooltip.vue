@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'relative lc_tooltip',
+      'lc_tooltip',
       {
         'lc_tooltip--appear': showTooltip && clickable,
         'lc_tooltip--hover': showTooltip,
@@ -112,6 +112,9 @@ export default defineComponent({
 </script>
 
 <style>
+.lc_tooltip {
+  @apply relative;
+}
 .lc_tooltip-content {
   @apply mt-6 mx-0 mb-0;
 }
@@ -119,8 +122,8 @@ export default defineComponent({
   @apply absolute cursor-pointer top-4 right-3;
 }
 .lc_tooltip-content--absolute {
-  @apply opacity-0 invisible absolute w-max text-white font-normal transition-opacity m-0 z-10;
   display: inline-table;
+  @apply opacity-0 invisible absolute w-max text-white font-normal transition-opacity m-0 z-10;
 }
 .lc_tooltip-content--grey {
   @apply bg-gray-600 border border-gray-600;
