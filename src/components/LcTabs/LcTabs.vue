@@ -6,7 +6,8 @@
         :key="i"
         :aria-selected="active === i"
         :aria-controls="`panel-${i}`"
-        :class="['lc-tabs-links', {'lc-tabs-links--active': active === i}]"
+        :class="['lc-tabs-link', {'lc-tabs-link--active': active === i}]"
+        data-testid="lc-tabs-link"
         role="tab"
         tabindex="0"
         @click="selectTab(i)"
@@ -75,16 +76,16 @@ export default defineComponent({
   }
 }
 
-.lc-tabs-links {
+.lc-tabs-link {
   @apply relative text-gray-500 font-medium cursor-pointer hover:text-active transition duration-300 ease-in-out;
 }
 
-.lc-tabs-links--active {
+.lc-tabs-link--active {
   @apply text-active;
 }
 
 @screen lg {
-  .lc-tabs-links--active:after {
+  .lc-tabs-link--active:after {
     content: '';
       @apply absolute h-0.5 left-0 -bottom-4 w-full bg-active;
   }

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isActive">
+  <div v-if="isActive" data-testid="lc-tab-tabpanel">
     <slot />
   </div>
 </template>
