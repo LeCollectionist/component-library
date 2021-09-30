@@ -10,12 +10,16 @@ This repo provides a basic setup for developing component libraries in Vite with
 
 ## Components
 
+- [x] LcAccordion
 - [x] LcBadge
 - [x] LcButton
+- [x] LcCount
 - [x] LcIcon
 - [x] LcModal
 - [x] LcPagination
+- [x] LcTab
 - [x] LcTable
+- [x] LcTabs
 - [x] LcTooltip
 
 ## Commands
