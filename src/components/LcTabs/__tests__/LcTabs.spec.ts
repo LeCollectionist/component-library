@@ -53,4 +53,9 @@ describe('LcTabs.vue', () => {
     const sideContent = wrapper.find('[data-testid="lc-tabs-sidecontent"]')
     expect(sideContent).toBeTruthy()
   })
+
+  it('should set sidecontent class on container', async() => {
+    const container = wrapper.find('[data-testid="lc-tabs-container"]')
+    expect(container.classes()).toContain('lc-tabs-container--sidecontent')
+  })
 })

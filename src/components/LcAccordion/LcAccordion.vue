@@ -51,7 +51,7 @@
         data-testid="lc-accordion-body"
         :style="containerStyle"
       >
-        <div ref="wrapper" class="lc-accordion-body-wrapper">
+        <div ref="wrapper" :class="['lc-accordion-body-wrapper', {'lc-accordion-body-wrapper--withpadding': hasBodyPadding}]">
           <slot name="body" />
         </div>
       </div>
@@ -59,7 +59,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 import LcButton from '../LcButton'
@@ -74,6 +74,10 @@ export default defineComponent({
     duration: {
       type: Number,
       default: 250,
+    },
+    hasBodyPadding: {
+      type: Boolean,
+      default: true,
     },
     haveToggle: {
       type: Boolean,
@@ -90,7 +94,7 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   computed: {
-    containerStyle() {
+    containerStyle(): Record<string, string> {
       return {
         transitionDuration: `${this.duration}ms`,
       }
@@ -154,6 +158,9 @@ export default defineComponent({
    @apply overflow-hidden h-0 ease-in-out transition-height;
 }
 .lc-accordion-body-wrapper {
-  @apply px-9 py-5 w-full;
+  @apply w-full;
+}
+.lc-accordion-body-wrapper--withpadding {
+  @apply px-9 py-5;
 }
 </style>

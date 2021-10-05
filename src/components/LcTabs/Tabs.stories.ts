@@ -35,7 +35,7 @@ const TemplateSlotSideContent = (args: any) => ({
   template: `
   <lc-tabs v-model="currentTab">
     <template #sideContent>
-      <lc-button>button side</lc-button>
+      <lc-button class="mb-6">button side</lc-button>
     </template>
     <lc-tab title="Tab A">Content A</lc-tab>
     <lc-tab title="Tab B">Content B</lc-tab>
