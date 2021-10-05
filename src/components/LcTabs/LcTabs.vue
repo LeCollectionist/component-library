@@ -1,5 +1,5 @@
 <template>
-  <div class="lc-tabs-container">
+  <div :class="['lc-tabs-container', {'lc-tabs-container--sidecontent': isSideContent }]">
     <ul class="lc-tabs-navigation" role="tablist">
       <li
         v-for="(tab, i) of tabs"
@@ -34,9 +34,13 @@ export default defineComponent({
     },
   },
   emits: ['update:modelValue'],
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
     const active = computed(() => props.modelValue)
     const tabs = ref<ComponentInternalInstance[]>([])
+
+    const isSideContent = computed(() => {
+      return Boolean(slots.sideContent) ?? null
+    })
 
     function selectTab(tab: number) {
       emit('update:modelValue', tab)
@@ -49,6 +53,7 @@ export default defineComponent({
 
     return {
       active,
+      isSideContent,
       selectTab,
       tabs,
     }
@@ -58,22 +63,24 @@ export default defineComponent({
 
 <style>
 .lc-tabs-container {
-  @apply flex items-center border-gray-400 pb-4;
+  @apply flex border-gray-400 pb-4;
 }
+
+.lc-tabs-container--sidecontent {
+  @apply flex-col-reverse;
+}
+
 @screen lg {
   .lc-tabs-container {
     @apply items-end border-b;
   }
+  .lc-tabs-container--sidecontent {
+    @apply flex-row;
+  }
 }
 
 .lc-tabs-navigation {
-  @apply h-full flex-1 flex flex-col gap-x-8;
-}
-
-@screen lg {
-  .lc-tabs-navigation {
-    @apply flex-row;
-  }
+  @apply h-full flex-1 flex gap-x-8;
 }
 
 .lc-tabs-link {
@@ -84,11 +91,9 @@ export default defineComponent({
   @apply text-active;
 }
 
-@screen lg {
-  .lc-tabs-link--active:after {
-    content: '';
-    @apply absolute h-0.5 left-0 -bottom-4 w-full bg-active;
-  }
+.lc-tabs-link--active:after {
+  content: '';
+  @apply absolute h-0.5 left-0 -bottom-4 w-full bg-active;
 }
 
 .lc-tabs-tabpanel {
