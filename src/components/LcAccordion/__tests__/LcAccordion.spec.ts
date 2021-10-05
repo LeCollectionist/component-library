@@ -44,6 +44,18 @@ describe('LcAccordion', () => {
       const body = wrapper.find('[data-testid="lc-accordion-body"]')
       expect(body.isVisible()).toBe(true)
     })
+
+    it('should set bodypadding class on body-wrapper', () => {
+      const bodyWrapper = wrapper.find('[data-testid="lc-accordion-body"] > div')
+      expect(bodyWrapper.classes()).toContain('lc-accordion-body-wrapper--withpadding')
+    })
+
+    it('should not set bodypadding class on body-wrapper', async() => {
+      await wrapper.setProps({ hasBodyPadding: false })
+
+      const bodyWrapper = wrapper.find('[data-testid="lc-accordion-body"] > div')
+      expect(bodyWrapper.classes()).not.toContain('lc-accordion-body-wrapper--withpadding')
+    })
   })
 
   describe('Toggle button', () => {

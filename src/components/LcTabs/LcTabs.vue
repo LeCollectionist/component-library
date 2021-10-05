@@ -1,12 +1,18 @@
 <template>
-  <div :class="['lc-tabs-container', {'lc-tabs-container--sidecontent': isSideContent }]">
+  <div
+    :class="[
+      'lc-tabs-container',
+      { 'lc-tabs-container--sidecontent': isSideContent }
+    ]"
+    data-testid="lc-tabs-container"
+  >
     <ul class="lc-tabs-navigation" role="tablist">
       <li
         v-for="(tab, i) of tabs"
         :key="i"
         :aria-selected="active === i"
         :aria-controls="`panel-${i}`"
-        :class="['lc-tabs-link', {'lc-tabs-link--active': active === i}]"
+        :class="['lc-tabs-link', { 'lc-tabs-link--active': active === i }]"
         data-testid="lc-tabs-link"
         role="tab"
         tabindex="0"
@@ -39,7 +45,7 @@ export default defineComponent({
     const tabs = ref<ComponentInternalInstance[]>([])
 
     const isSideContent = computed(() => {
-      return Boolean(slots.sideContent) ?? null
+      return Boolean(slots.sideContent)
     })
 
     function selectTab(tab: number) {
