@@ -65,6 +65,8 @@ import { defineComponent } from 'vue'
 import LcButton from '../LcButton'
 import LcIcon from '../LcIcon'
 
+type Height = number | 'auto'
+
 export default defineComponent({
   components: {
     LcButton,
@@ -102,28 +104,31 @@ export default defineComponent({
   },
   mounted() {
     if (this.modelValue) {
-      const el = this.$refs['lc-accordion-body']
+      const el = this.$refs['lc-accordion-body'] as HTMLElement
       this.setContainerHeight('auto', el)
     }
   },
   methods: {
     getContentHeight() {
-      const wrapper = this.$refs.wrapper
+      const wrapper = this.$refs.wrapper as HTMLElement
       return wrapper?.getBoundingClientRect().height || 0
     },
-    onEnter(el) {
+    onEnter(el: HTMLElement) {
       this.setContainerHeight(this.getContentHeight(), el)
+      el.style.overflow = 'hidden'
     },
-    onAfterEnter(el) {
+    onAfterEnter(el: HTMLElement) {
       this.setContainerHeight('auto', el)
+      el.style.overflow = 'visible'
     },
-    onBeforeLeave(el) {
+    onBeforeLeave(el: HTMLElement) {
       this.setContainerHeight(this.getContentHeight(), el)
+      el.style.overflow = 'hidden'
     },
-    onLeave(el) {
+    onLeave(el: HTMLElement) {
       this.setContainerHeight(0, el)
     },
-    setContainerHeight(height, el) {
+    setContainerHeight(height: Height, el: HTMLElement) {
       el.style.height = typeof height === 'number' ? `${height}px` : height
     },
     toggle() {
@@ -155,7 +160,7 @@ export default defineComponent({
 }
 
 .lc-accordion-body {
-   @apply overflow-hidden h-0 ease-in-out transition-height;
+   @apply h-0 ease-in-out transition-height;
 }
 .lc-accordion-body-wrapper {
   @apply w-full;
