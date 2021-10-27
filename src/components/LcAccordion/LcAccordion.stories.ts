@@ -69,12 +69,6 @@ Base.args = {
   modelValue: true,
 }
 
-export const HaveNoBodyPadding = Template.bind({}) as any
-HaveNoBodyPadding.args = {
-  ...Base.args,
-  hasBodyPadding: false,
-}
-
 export const HaveToogle = Template.bind({}) as any
 HaveToogle.args = {
   ...Base.args,
@@ -109,4 +103,10 @@ export const HaveButtonLeftAndToggle = TemplateSlotActionsBefore.bind({}) as any
 HaveButtonLeftAndToggle.args = {
   ...HaveButtonLeft.args,
   haveToggle: true,
+}
+
+export const HaveNoBodyPadding = Template.bind({}) as any
+HaveNoBodyPadding.args = {
+  ...Base.args,
+  hasBodyPadding: false,
 }
