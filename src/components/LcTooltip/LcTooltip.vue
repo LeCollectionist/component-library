@@ -123,7 +123,7 @@ export default defineComponent({
 }
 .lc_tooltip-content--absolute {
   display: inline-table;
-  @apply opacity-0 invisible absolute w-max text-white font-normal transition-opacity m-0 z-10;
+  @apply opacity-0 invisible absolute w-max text-white font-normal transition-opacity m-0 z-50;
 }
 .lc_tooltip-content--grey {
   @apply bg-gray-600 border border-gray-600;
