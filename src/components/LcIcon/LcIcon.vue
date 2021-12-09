@@ -21,7 +21,7 @@ export default defineComponent({
     },
     color: {
       type: String,
-      default: 'black',
+      default: 'default',
       validator: (value: string) =>
         vColor.includes(value),
     },
@@ -66,5 +66,11 @@ export default defineComponent({
   }
   .icon-grey {
     @apply text-gray-600
+  }
+  .icon-white {
+    @apply text-white
+  }
+  .icon-black {
+    @apply text-black
   }
 </style>
