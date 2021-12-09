@@ -36,6 +36,10 @@ export default defineComponent({
     font-size: 2rem;
     @apply inline-block align-bottom box-content leading-none;
   }
+  .icon-3xs {
+    min-width: 0.875rem;
+    font-size: 0.875rem;
+  }
   .icon-xxs {
     min-width: 1rem;
     font-size: 1rem;
