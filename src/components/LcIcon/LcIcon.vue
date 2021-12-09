@@ -1,10 +1,10 @@
 <template>
-  <span :class="['icon', `icon-${name}`, `icon-${size}`]" />
+  <span :class="['icon', `icon-${name}`, `icon-${size}`, `icon-${color}`]" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { vSize } from './validators/LcIcon'
+import { vColor, vSize } from './validators/LcIcon'
 
 export default defineComponent({
   name: 'BaseIcon',
@@ -18,6 +18,12 @@ export default defineComponent({
       default: 'sm',
       validator: (value: string) =>
         vSize.includes(value),
+    },
+    color: {
+      type: String,
+      default: 'black',
+      validator: (value: string) =>
+        vColor.includes(value),
     },
   },
 })
@@ -57,5 +63,8 @@ export default defineComponent({
   .icon-xxl {
     min-width: 10rem;
     font-size: 10rem;
+  }
+  .icon-grey {
+    @apply text-gray-600
   }
 </style>

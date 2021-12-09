@@ -15,14 +15,14 @@
       >
         <div class="lc-modal__container">
           <lc-icon
-            v-if="!disableCloseModal"
-            name="exit"
+            v-if="!disableCloseModal && !noHeader"
             class="lc-modal__close"
             data-testid="lc-modal__close"
+            name="cross"
             size="xs"
+            color="grey"
             @click="closeModal"
           />
-
           <header
             v-if="!noHeader"
             class="lc-modal__header"
@@ -148,18 +148,18 @@ export default defineComponent({
     @apply w-full relative bg-white;
   }
   .lc-modal__close {
-    @apply absolute top-1 right-0;
+    @apply absolute top-6 right-6;
   }
   .lc-modal__header {
-    @apply text-center relative px-8 py-4 pointer-events-none;
+    @apply relative px-8 py-4 pointer-events-none border-b border-gray-200;
   }
   .lc-modal__header--title {
-    @apply text-4xl m-0;
+    @apply text-2xl m-0;
   }
   .lc-modal__container--content {
     @apply overflow-y-auto p-8;
   }
   .lc-modal__container--footer {
-    @apply relative py-4 px-6;
+    @apply relative py-4 px-6 text-right border-t border-gray-200;
   }
 </style>

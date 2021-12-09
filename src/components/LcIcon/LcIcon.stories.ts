@@ -1,12 +1,13 @@
-import { vSize } from './validators/LcIcon'
+import { vColor, vSize } from './validators/LcIcon'
 import LcIcon from './LcIcon'
 
 export default {
   title: 'Example/LcIcon',
   component: LcIcon,
   argTypes: {
-    name: { control: { type: 'select' }, options: ['finances', 'requests', 'send', 'star-plain'] },
+    name: { control: { type: 'select' }, options: ['finances', 'requests', 'send', 'star-plain', 'cross', 'cross2'] },
     size: { control: { type: 'select' }, options: vSize },
+    color: { control: { type: 'select' }, options: vColor },
   },
 }
 
@@ -22,4 +23,5 @@ export const Base = Template.bind({}) as any
 Base.args = {
   size: 'md',
   name: 'finances',
+  color: 'black',
 }
