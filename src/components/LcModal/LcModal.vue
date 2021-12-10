@@ -147,7 +147,7 @@ export default defineComponent({
     @apply w-full relative bg-white;
   }
   .lc-modal__close {
-    @apply top-7 right-6 text-sm cursor-pointer text-gray-600;
+    @apply text-sm cursor-pointer text-gray-600;
   }
   .lc-modal__header {
     @apply relative p-6 border-b border-gray-200 flex justify-between items-center;

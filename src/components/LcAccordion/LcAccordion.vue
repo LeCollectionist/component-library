@@ -152,12 +152,13 @@ export default defineComponent({
 .lc-accordion-header-toggle-button {
   @apply ml-4;
 }
-.lc-accordion-header-right {
-  @apply flex items-center;
-}
 .lc-accordion-header-toggle-button-icon {
   @apply text-white;
 }
+.lc-accordion-header-right {
+  @apply flex items-center;
+}
+
 .lc-accordion-body {
    @apply h-0 ease-in-out transition-height;
 }
