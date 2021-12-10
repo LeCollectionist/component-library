@@ -30,7 +30,6 @@
           <slot name="button-toggle-icon">
             <lc-icon
               class="lc-accordion-header-toggle-button-icon"
-              color="white"
               :name="modelValue ? 'bottom-chevron' : 'top-chevron'"
               size="xxs"
             />
@@ -156,7 +155,9 @@ export default defineComponent({
 .lc-accordion-header-right {
   @apply flex items-center;
 }
-
+.lc-accordion-header-toggle-button-icon {
+  @apply text-white;
+}
 .lc-accordion-body {
    @apply h-0 ease-in-out transition-height;
 }
