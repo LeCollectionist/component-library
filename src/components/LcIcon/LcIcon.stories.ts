@@ -5,7 +5,7 @@ export default {
   title: 'Example/LcIcon',
   component: LcIcon,
   argTypes: {
-    name: { control: { type: 'select' }, options: ['finances', 'requests', 'send', 'star-plain'] },
+    name: { control: { type: 'select' }, options: ['finances', 'requests', 'send', 'star-plain', 'cross'] },
     size: { control: { type: 'select' }, options: vSize },
   },
 }
