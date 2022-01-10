@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LcTabs.vue should match with snapshot 1`] = `"<div data-testid=\\"lc-tab-tabpanel\\"><div>Content A</div></div>"`;
+exports[`LcTabs.vue should match with snapshot 1`] = `
+"<div data-testid=\\"lc-tab-tabpanel\\">
+  <div>Content A</div>
+</div>"
+`;
