@@ -116,6 +116,7 @@ export default defineComponent({
           primary: 'lc-icon--primary',
           secondary: 'lc-icon--secondary',
           red: 'lc-icon--red',
+          disabled: 'lc-icon--disabled',
         },
       } as any,
       btnSizes: {
@@ -384,6 +385,9 @@ export default defineComponent({
 }
 .lc-icon--red {
   @apply bg-red-100 hover:bg-red-200;
+}
+.lc-icon--disabled {
+  @apply pointer-events-none bg-gray-400 hover:bg-gray-400;
 }
 
 /* Btn Loader */
