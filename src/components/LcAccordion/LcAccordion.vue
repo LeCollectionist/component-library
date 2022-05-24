@@ -30,7 +30,7 @@
           <slot name="button-toggle-icon">
             <lc-icon
               class="lc-accordion-header-toggle-button-icon"
-              :name="modelValue ? 'bottom-chevron' : 'top-chevron'"
+              :name="modelValue ? 'top-chevron' : 'bottom-chevron'"
               size="xxs"
             />
           </slot>
