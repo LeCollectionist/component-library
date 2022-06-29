@@ -1,39 +1,8 @@
-<template>
-  <div
-    :class="[
-      'lc_tooltip',
-      {
-        'lc_tooltip--appear': showTooltip && clickable,
-        'lc_tooltip--hover': showTooltip,
-      },
-    ]"
-    @click.stop="toggleTooltip"
-  >
-    <slot name="element" />
-
-    <div
-      v-if="show && $slots['text']"
-      :class="tooltipClass"
-      data-testid="tooltip"
-    >
-      <slot name="text" />
-      <lc-icon
-        v-if="clickable"
-        class="lc_tooltip-icon"
-        data-testid="tooltip__close"
-        name="exit"
-        size="xs"
-        @click.stop="toggleTooltip"
-      />
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import LcIcon from '../LcIcon'
-import { vPosition, vVariant, vSize } from './validators/LcTooltip'
+import LcIcon from '../LcIcon/index'
+import { vPosition, vSize, vVariant } from './validators/LcTooltip'
 
 export default defineComponent({
   name: 'LcTooltip',
@@ -90,7 +59,8 @@ export default defineComponent({
     tooltipClass(): string | string[] {
       const baseClass = 'lc_tooltip-content'
 
-      if (!this.hoveringTooltip) return `text-center ${baseClass}`
+      if (!this.hoveringTooltip)
+        return `text-center ${baseClass}`
 
       return [
         baseClass,
@@ -105,11 +75,42 @@ export default defineComponent({
   },
   methods: {
     toggleTooltip() {
-      if (this.clickable) this.showTooltip = !this.showTooltip
+      if (this.clickable)
+        this.showTooltip = !this.showTooltip
     },
   },
 })
 </script>
+
+<template>
+  <div
+    class="lc_tooltip" :class="[
+      {
+        'lc_tooltip--appear': showTooltip && clickable,
+        'lc_tooltip--hover': showTooltip,
+      },
+    ]"
+    @click.stop="toggleTooltip"
+  >
+    <slot name="element" />
+
+    <div
+      v-if="show && $slots.text"
+      :class="tooltipClass"
+      data-testid="tooltip"
+    >
+      <slot name="text" />
+      <LcIcon
+        v-if="clickable"
+        class="lc_tooltip-icon"
+        data-testid="tooltip__close"
+        name="exit"
+        size="xs"
+        @click.stop="toggleTooltip"
+      />
+    </div>
+  </div>
+</template>
 
 <style>
 .lc_tooltip {

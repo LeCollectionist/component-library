@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center">
+  <div class="lc-pagination">
     <button
       :disabled="modelValue === 1"
       :class="[
@@ -126,6 +126,12 @@ export default defineComponent({
 </script>
 
 <style>
+  .lc-pagination { @apply flex items-center; }
+  .lc-pagination__number,
+  .lc-pagination__prev,
+  .lc-pagination__etc,
+  .lc-pagination__next,
+  .lc-pagination__arrow { @apply border-0 cursor-pointer; }
   .lc-pagination__prev { @apply w-8 h-8 mr-2 outline-none focus:outline-none rounded-full disabled:opacity-40; }
   .lc-pagination__prev--hover { @apply hover:bg-gray-200; }
   .lc-pagination__etc { @apply flex items-center justify-center w-8 h-8 mx-2; }

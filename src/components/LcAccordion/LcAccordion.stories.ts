@@ -1,5 +1,5 @@
-import LcButton from '../LcButton'
-import LcAccordion from './LcAccordion'
+import LcButton from '../LcButton/index'
+import LcAccordion from './index'
 
 export default {
   title: 'Example/LcAccordion',

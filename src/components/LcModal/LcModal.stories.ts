@@ -1,5 +1,5 @@
-import LcButton from '../LcButton'
-import LcModal from './LcModal'
+import LcButton from '../LcButton/index'
+import LcModal from './index'
 
 export default {
   title: 'Example/LcModal',

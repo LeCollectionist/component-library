@@ -1,13 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LcAccordion After slot should render HTML header with after slot 1`] = `"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\"><div><!--v-if--></div><div class=\\"lc-accordion-header-right\\"><button data-testid=\\"button-after-slot\\">test</button><!--v-if--></div></div>"`;
+exports[`LcAccordion After slot should render HTML header with after slot 1`] = `
+"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\">
+  <div>
+    <!--v-if-->
+  </div>
+  <div class=\\"lc-accordion-header-right\\"><button data-testid=\\"button-after-slot\\">test</button>
+    <!--v-if-->
+  </div>
+</div>"
+`;
 
-exports[`LcAccordion After slot should render HTML header with button toogle + after slot 1`] = `"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\"><div><!--v-if--></div><div class=\\"lc-accordion-header-right\\"><button data-testid=\\"button-after-slot\\">test</button><button class=\\"lc-icon--primary lc-icon--xs lc-icon lc-icon--font-bold lc-accordion-header-toggle-button\\" data-testid=\\"lc-accordion-header-toggle-button\\" type=\\"button\\"><!--v-if--><span class=\\"icon icon-top-chevron icon-xxs lc-accordion-header-toggle-button-icon\\"></span></button></div></div>"`;
+exports[`LcAccordion After slot should render HTML header with button toogle + after slot 1`] = `
+"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\">
+  <div>
+    <!--v-if-->
+  </div>
+  <div class=\\"lc-accordion-header-right\\"><button data-testid=\\"button-after-slot\\">test</button><button class=\\"lc-icon--primary lc-icon--xs lc-icon lc-icon--font-bold lc-accordion-header-toggle-button\\" data-testid=\\"lc-accordion-header-toggle-button\\" type=\\"button\\">
+      <!--v-if--><span class=\\"icon icon-top-chevron icon-xxs lc-accordion-header-toggle-button-icon\\"></span>
+    </button></div>
+</div>"
+`;
 
-exports[`LcAccordion Before slot should render HTML header with before slot 1`] = `"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\"><div><!--v-if--><button data-testid=\\"button-before-slot\\">test</button></div><!--v-if--></div>"`;
+exports[`LcAccordion Before slot should render HTML header with before slot 1`] = `
+"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\">
+  <div>
+    <!--v-if--><button data-testid=\\"button-before-slot\\">test</button>
+  </div>
+  <!--v-if-->
+</div>"
+`;
 
-exports[`LcAccordion Before slot should render HTML header with button toogle + befor slot 1`] = `"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\"><div><!--v-if--><button data-testid=\\"button-before-slot\\">test</button></div><div class=\\"lc-accordion-header-right\\"><button class=\\"lc-icon--primary lc-icon--xs lc-icon lc-icon--font-bold lc-accordion-header-toggle-button\\" data-testid=\\"lc-accordion-header-toggle-button\\" type=\\"button\\"><!--v-if--><span class=\\"icon icon-top-chevron icon-xxs lc-accordion-header-toggle-button-icon\\"></span></button></div></div>"`;
+exports[`LcAccordion Before slot should render HTML header with button toogle + befor slot 1`] = `
+"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\">
+  <div>
+    <!--v-if--><button data-testid=\\"button-before-slot\\">test</button>
+  </div>
+  <div class=\\"lc-accordion-header-right\\"><button class=\\"lc-icon--primary lc-icon--xs lc-icon lc-icon--font-bold lc-accordion-header-toggle-button\\" data-testid=\\"lc-accordion-header-toggle-button\\" type=\\"button\\">
+      <!--v-if--><span class=\\"icon icon-top-chevron icon-xxs lc-accordion-header-toggle-button-icon\\"></span>
+    </button></div>
+</div>"
+`;
 
-exports[`LcAccordion Without slots should render HTML header (only title) 1`] = `"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\"><div><span class=\\"lc-accordion-header-title\\" data-testid=\\"lc-accordion-header-title\\">My title</span></div><!--v-if--></div>"`;
+exports[`LcAccordion Without slots should render HTML header (only title) 1`] = `
+"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\">
+  <div><span class=\\"lc-accordion-header-title\\" data-testid=\\"lc-accordion-header-title\\">My title</span></div>
+  <!--v-if-->
+</div>"
+`;
 
-exports[`LcAccordion Without slots should render HTML header with button toggle 1`] = `"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\"><div><span class=\\"lc-accordion-header-title\\" data-testid=\\"lc-accordion-header-title\\">My title</span></div><div class=\\"lc-accordion-header-right\\"><button class=\\"lc-icon--primary lc-icon--xs lc-icon lc-icon--font-bold lc-accordion-header-toggle-button\\" data-testid=\\"lc-accordion-header-toggle-button\\" type=\\"button\\"><!--v-if--><span class=\\"icon icon-top-chevron icon-xxs lc-accordion-header-toggle-button-icon\\"></span></button></div></div>"`;
+exports[`LcAccordion Without slots should render HTML header with button toggle 1`] = `
+"<div class=\\"lc-accordion-header\\" data-testid=\\"lc-accordion-header\\">
+  <div><span class=\\"lc-accordion-header-title\\" data-testid=\\"lc-accordion-header-title\\">My title</span></div>
+  <div class=\\"lc-accordion-header-right\\"><button class=\\"lc-icon--primary lc-icon--xs lc-icon lc-icon--font-bold lc-accordion-header-toggle-button\\" data-testid=\\"lc-accordion-header-toggle-button\\" type=\\"button\\">
+      <!--v-if--><span class=\\"icon icon-top-chevron icon-xxs lc-accordion-header-toggle-button-icon\\"></span>
+    </button></div>
+</div>"
+`;

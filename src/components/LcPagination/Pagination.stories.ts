@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 
-import LcPagination from './LcPagination'
+import LcPagination from './index'
 
 export default {
   title: 'Example/LcPagination',
