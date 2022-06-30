@@ -1,4 +1,4 @@
-import { LcTabs, LcTab } from './components/LcTabs'
+import { LcTab, LcTabs } from './components/LcTabs'
 import LcAccordion from './components/LcAccordion'
 import LcBadge from './components/LcBadge'
 import LcButton from './components/LcButton'

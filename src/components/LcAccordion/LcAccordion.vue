@@ -1,64 +1,3 @@
-<template>
-  <div class="lc-accordion">
-    <div
-      class="lc-accordion-header"
-      data-testid="lc-accordion-header"
-    >
-      <div>
-        <span
-          v-if="title"
-          class="lc-accordion-header-title"
-          data-testid="lc-accordion-header-title"
-        >
-          {{ title }}
-        </span>
-        <slot name="content-before" />
-      </div>
-      <div
-        v-if="$slots['content-after'] || haveToggle"
-        class="lc-accordion-header-right"
-      >
-        <slot name="content-after" />
-        <lc-button
-          v-if="haveToggle"
-          class="lc-accordion-header-toggle-button"
-          data-testid="lc-accordion-header-toggle-button"
-          variant="icon"
-          size="xs"
-          @click="toggle"
-        >
-          <slot name="button-toggle-icon">
-            <lc-icon
-              class="lc-accordion-header-toggle-button-icon"
-              :name="modelValue ? 'top-chevron' : 'bottom-chevron'"
-              size="xxs"
-            />
-          </slot>
-        </lc-button>
-      </div>
-    </div>
-
-    <transition
-      @enter="onEnter"
-      @after-enter="onAfterEnter"
-      @before-leave="onBeforeLeave"
-      @leave="onLeave"
-    >
-      <div
-        v-show="modelValue"
-        ref="lc-accordion-body"
-        class="lc-accordion-body"
-        data-testid="lc-accordion-body"
-        :style="containerStyle"
-      >
-        <div ref="wrapper" :class="['lc-accordion-body-wrapper', {'lc-accordion-body-wrapper--withpadding': hasBodyPadding}]">
-          <slot name="body" />
-        </div>
-      </div>
-    </transition>
-  </div>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 
@@ -137,6 +76,67 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <div class="lc-accordion">
+    <div
+      class="lc-accordion-header"
+      data-testid="lc-accordion-header"
+    >
+      <div>
+        <span
+          v-if="title"
+          class="lc-accordion-header-title"
+          data-testid="lc-accordion-header-title"
+        >
+          {{ title }}
+        </span>
+        <slot name="content-before" />
+      </div>
+      <div
+        v-if="$slots['content-after'] || haveToggle"
+        class="lc-accordion-header-right"
+      >
+        <slot name="content-after" />
+        <LcButton
+          v-if="haveToggle"
+          class="lc-accordion-header-toggle-button"
+          data-testid="lc-accordion-header-toggle-button"
+          variant="icon"
+          size="xs"
+          @click="toggle"
+        >
+          <slot name="button-toggle-icon">
+            <LcIcon
+              class="lc-accordion-header-toggle-button-icon"
+              :name="modelValue ? 'top-chevron' : 'bottom-chevron'"
+              size="xxs"
+            />
+          </slot>
+        </LcButton>
+      </div>
+    </div>
+
+    <transition
+      @enter="onEnter"
+      @after-enter="onAfterEnter"
+      @before-leave="onBeforeLeave"
+      @leave="onLeave"
+    >
+      <div
+        v-show="modelValue"
+        ref="lc-accordion-body"
+        class="lc-accordion-body"
+        data-testid="lc-accordion-body"
+        :style="containerStyle"
+      >
+        <div ref="wrapper" class="lc-accordion-body-wrapper" :class="[{ 'lc-accordion-body-wrapper--withpadding': hasBodyPadding }]">
+          <slot name="body" />
+        </div>
+      </div>
+    </transition>
+  </div>
+</template>
 
 <style>
 .lc-accordion {

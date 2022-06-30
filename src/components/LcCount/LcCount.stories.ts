@@ -1,4 +1,4 @@
-import LcCount from './LcCount'
+import LcCount from './index'
 
 export default {
   title: 'Example/LcCount',
