@@ -1,4 +1,4 @@
-import LcBadge from './LcBadge'
+import LcBadge from './index'
 
 export default {
   title: 'Example/LcBadge',

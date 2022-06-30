@@ -18,7 +18,7 @@ describe('LcAccordion', () => {
       wrapper = mount(LcAccordion)
     })
 
-    it('should render title', async() => {
+    it('should render title', async () => {
       await wrapper.setProps({ title: 'My title' })
 
       const title = wrapper.find('[data-testid="lc-accordion-header-title"]')
@@ -33,7 +33,7 @@ describe('LcAccordion', () => {
       expect(title.exists()).toBeFalsy()
     })
 
-    it('should body is hide', async() => {
+    it('should body is hide', async () => {
       await wrapper.setProps({ modelValue: false })
 
       const body = wrapper.find('[data-testid="lc-accordion-body"]')
@@ -50,7 +50,7 @@ describe('LcAccordion', () => {
       expect(bodyWrapper.classes()).toContain('lc-accordion-body-wrapper--withpadding')
     })
 
-    it('should not set bodypadding class on body-wrapper', async() => {
+    it('should not set bodypadding class on body-wrapper', async () => {
       await wrapper.setProps({ hasBodyPadding: false })
 
       const bodyWrapper = wrapper.find('[data-testid="lc-accordion-body"] > div')
@@ -77,7 +77,7 @@ describe('LcAccordion', () => {
       expect(button.exists()).toBeTruthy()
     })
 
-    it('should emit update:modelValue with value false', async() => {
+    it('should emit update:modelValue with value false', async () => {
       wrapper = mount(LcAccordion, {
         props: { haveToggle: true },
       })
@@ -89,7 +89,7 @@ describe('LcAccordion', () => {
       expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([false])
     })
 
-    it('should emit update:modelValue with value true', async() => {
+    it('should emit update:modelValue with value true', async () => {
       wrapper = mount(LcAccordion, {
         props: { haveToggle: true, modelValue: false },
       })
@@ -101,7 +101,7 @@ describe('LcAccordion', () => {
       expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([true])
     })
 
-    it('should render body accordion visible then hide', async() => {
+    it('should render body accordion visible then hide', async () => {
       const wrapper = mount({
         data() {
           return { open: true }
@@ -121,7 +121,7 @@ describe('LcAccordion', () => {
       expect(bodyAfterClick.isVisible()).toBe(false)
     })
 
-    it('should render body accordion hide then visible', async() => {
+    it('should render body accordion hide then visible', async () => {
       const wrapper = mount({
         data() {
           return { open: false }
@@ -160,7 +160,7 @@ describe('LcAccordion', () => {
       expect(header.html()).toMatchSnapshot()
     })
 
-    it('should render HTML header with button toogle + befor slot', async() => {
+    it('should render HTML header with button toogle + befor slot', async () => {
       await wrapper.setProps({ haveToggle: true })
 
       const header = wrapper.find('[data-testid="lc-accordion-header"]')
@@ -186,7 +186,7 @@ describe('LcAccordion', () => {
       expect(header.html()).toMatchSnapshot()
     })
 
-    it('should render HTML header with button toogle + after slot', async() => {
+    it('should render HTML header with button toogle + after slot', async () => {
       await wrapper.setProps({ haveToggle: true })
 
       const header = wrapper.find('[data-testid="lc-accordion-header"]')
@@ -201,13 +201,13 @@ describe('LcAccordion', () => {
       })
     })
 
-    it('should render HTML header (only title)', async() => {
+    it('should render HTML header (only title)', async () => {
       const header = wrapper.find('[data-testid="lc-accordion-header"]')
 
       expect(header.html()).toMatchSnapshot()
     })
 
-    it('should render HTML header with button toggle', async() => {
+    it('should render HTML header with button toggle', async () => {
       await wrapper.setProps({ haveToggle: true })
 
       const header = wrapper.find('[data-testid="lc-accordion-header"]')

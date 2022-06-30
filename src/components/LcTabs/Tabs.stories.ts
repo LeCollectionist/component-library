@@ -1,6 +1,5 @@
-import LcButton from '../LcButton'
-import LcTabs from './LcTabs'
-import LcTab from './LcTab'
+import LcButton from '../LcButton/index'
+import { LcTab, LcTabs } from './index'
 
 export default {
   title: 'Example/LcTabs',

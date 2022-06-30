@@ -1,7 +1,6 @@
-
 import LcButton from '../LcButton'
 import { vPosition, vVariant, vSize } from './validators/LcTooltip'
-import LcTooltip from './LcTooltip'
+import LcTooltip from './index'
 
 export default {
   title: 'Example/LcTooltip',
@@ -34,9 +33,9 @@ const Template = (args: any) => ({
       </template>
 
       <template #text>
-        <p class="mb-0">
+        <span>
           Texte
-        </p>
+        </span>
       </template>
     </lc-tooltip>
   `,
