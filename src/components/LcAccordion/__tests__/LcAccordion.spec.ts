@@ -77,7 +77,7 @@ describe('LcAccordion', () => {
       expect(button.exists()).toBeTruthy()
     })
 
-    it('should emit update:modelValue with value false', async () => {
+    it('should emit update:model-value with value false', async () => {
       wrapper = mount(LcAccordion, {
         props: { haveToggle: true },
       })
@@ -85,11 +85,11 @@ describe('LcAccordion', () => {
       const button = wrapper.find('[data-testid="lc-accordion-header-toggle-button"]')
       await button.trigger('click')
 
-      expect(wrapper.emitted('update:modelValue')).toBeTruthy()
-      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([false])
+      expect(wrapper.emitted('update:model-value')).toBeTruthy()
+      expect(wrapper.emitted('update:model-value')[0]).toStrictEqual([false])
     })
 
-    it('should emit update:modelValue with value true', async () => {
+    it('should emit update:model-value with value true', async () => {
       wrapper = mount(LcAccordion, {
         props: { haveToggle: true, modelValue: false },
       })
@@ -97,8 +97,8 @@ describe('LcAccordion', () => {
       const button = wrapper.find('[data-testid="lc-accordion-header-toggle-button"]')
       await button.trigger('click')
 
-      expect(wrapper.emitted('update:modelValue')).toBeTruthy()
-      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([true])
+      expect(wrapper.emitted('update:model-value')).toBeTruthy()
+      expect(wrapper.emitted('update:model-value')[0]).toStrictEqual([true])
     })
 
     it('should render body accordion visible then hide', async () => {

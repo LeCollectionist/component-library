@@ -1,59 +1,3 @@
-<template>
-  <transition name="fade">
-    <div
-      v-if="modelValue"
-      class="lc-modal"
-      data-testid="lc-modal"
-    >
-      <div
-        class="lc-modal__shadow"
-        data-testid="lc-modal__shadow"
-        @click="clickOnShadow"
-      />
-      <div
-        class="lc-modal__content"
-      >
-        <div class="lc-modal__container">
-          <header
-            v-if="!noHeader"
-            class="lc-modal__header"
-            data-testid="lc-modal__header"
-          >
-            <slot name="header">
-              <h2 class="lc-modal__header--title" data-testid="lc-modal__header--title">
-                {{ title }}
-              </h2>
-            </slot>
-            <lc-icon
-              v-if="!disableCloseModal"
-              class="lc-modal__close"
-              data-testid="lc-modal__close"
-              name="cross"
-              size="3xs"
-              @click="closeModal"
-            />
-          </header>
-
-          <div
-            ref="lcModalContent"
-            class="lc-modal__container--content"
-          >
-            <slot name="content" />
-          </div>
-
-          <footer
-            v-if="!noFooter"
-            class="lc-modal__container--footer"
-            data-testid="lc-modal__footer"
-          >
-            <slot name="footer" />
-          </footer>
-        </div>
-      </div>
-    </div>
-  </transition>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 
@@ -90,7 +34,7 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ['close-modal', 'update:modelValue'],
+  emits: ['close-modal', 'update:model-value'],
   watch: {
     modelValue() {
       this.updateOverflow()
@@ -115,11 +59,12 @@ export default defineComponent({
   },
   methods: {
     clickOnShadow() {
-      if (!this.disableCloseModal) this.closeModal()
+      if (!this.disableCloseModal)
+        this.closeModal()
     },
     closeModal() {
       this.$emit('close-modal')
-      this.$emit('update:modelValue', false)
+      this.$emit('update:model-value', false)
     },
     updateOverflow() {
       if (!this.multipleModals) {
@@ -132,6 +77,62 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <transition name="fade">
+    <div
+      v-if="modelValue"
+      class="lc-modal"
+      data-testid="lc-modal"
+    >
+      <div
+        class="lc-modal__shadow"
+        data-testid="lc-modal__shadow"
+        @click="clickOnShadow"
+      />
+      <div
+        class="lc-modal__content"
+      >
+        <div class="lc-modal__container">
+          <header
+            v-if="!noHeader"
+            class="lc-modal__header"
+            data-testid="lc-modal__header"
+          >
+            <slot name="header">
+              <h2 class="lc-modal__header--title" data-testid="lc-modal__header--title">
+                {{ title }}
+              </h2>
+            </slot>
+            <LcIcon
+              v-if="!disableCloseModal"
+              class="lc-modal__close"
+              data-testid="lc-modal__close"
+              name="cross"
+              size="3xs"
+              @click="closeModal"
+            />
+          </header>
+
+          <div
+            ref="lcModalContent"
+            class="lc-modal__container--content"
+          >
+            <slot name="content" />
+          </div>
+
+          <footer
+            v-if="!noFooter"
+            class="lc-modal__container--footer"
+            data-testid="lc-modal__footer"
+          >
+            <slot name="footer" />
+          </footer>
+        </div>
+      </div>
+    </div>
+  </transition>
+</template>
 
 <style>
   .lc-modal {

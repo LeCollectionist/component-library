@@ -1,16 +1,75 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+import LcIcon from '../LcIcon'
+
+export default defineComponent({
+  name: 'LcPagination',
+  components: {
+    LcIcon,
+  },
+  props: {
+    modelValue: {
+      type: Number,
+      default: 1,
+    },
+    nbPages: {
+      type: Number,
+      default: 1,
+    },
+  },
+  emits: ['update:model-value'],
+  computed: {
+    paginateArr(): (string | number)[] {
+      const firstItem = this.modelValue > 2 ? 1 : 0 as number
+      const secondItem = this.modelValue < 4 ? this.modelValue - 1 : '...' as number | string
+      const thirdItem = this.modelValue as number
+      let fourthItem = this.modelValue + 1 as number | string
+
+      if (this.modelValue > this.nbPages - 1)
+        fourthItem = 0
+
+      else if (this.modelValue < this.nbPages - 2)
+        fourthItem = '...'
+
+      const fifthItem = this.modelValue < this.nbPages - 1 ? this.nbPages : 0
+
+      return [firstItem, secondItem, thirdItem, fourthItem, fifthItem]
+    },
+  },
+  methods: {
+    clickOnNumber(value: number | string) {
+      this.$emit('update:model-value', value)
+    },
+    prevPage() {
+      if (this.modelValue > 1) {
+        const value = this.modelValue - 1
+
+        this.$emit('update:model-value', value)
+      }
+    },
+    nextPage() {
+      if (this.modelValue < this.nbPages) {
+        const value = this.modelValue + 1
+
+        this.$emit('update:model-value', value)
+      }
+    },
+  },
+})
+</script>
+
 <template>
   <div class="lc-pagination">
     <button
+      :class="{ 'lc-pagination__prev--hover': modelValue > 1 }"
       :disabled="modelValue === 1"
-      :class="[
-        'lc-pagination__prev',
-        {'lc-pagination__prev--hover': modelValue > 1}
-      ]"
+      class="lc-pagination__prev"
       data-testid="prevPage"
       type="button"
       @click="prevPage"
     >
-      <lc-icon
+      <LcIcon
         class="lc-pagination__arrow"
         name="left-chevron"
         size="xs"
@@ -36,7 +95,8 @@
       <button
         v-if="item > 0"
         :key="`index-${i}`"
-        :class="['lc-pagination__number', {'lc-pagination__number--active': item === modelValue}]"
+        :class="{ 'lc-pagination__number--active': item === modelValue }"
+        class="lc-pagination__number"
         data-testid="numberPage"
         @click="clickOnNumber(item)"
       >
@@ -45,17 +105,14 @@
     </template>
 
     <button
+      :class="{ 'lc-pagination__next--hover': modelValue !== nbPages }"
       :disabled="modelValue === nbPages"
-      class="lc-pagination__next"
-      :class="[
-        'lc-pagination__next',
-        {'lc-pagination__next--hover': modelValue !== nbPages}
-      ]"
+      class="lc-pagination__next lc-pagination__next"
       data-testid="nextPage"
       type="button"
       @click="nextPage"
     >
-      <lc-icon
+      <LcIcon
         class="lc-pagination__arrow"
         name="right-chevron"
         size="xs"
@@ -63,67 +120,6 @@
     </button>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-import LcIcon from '../LcIcon'
-
-export default defineComponent({
-  name: 'LcPagination',
-  components: {
-    LcIcon,
-  },
-  props: {
-    modelValue: {
-      type: Number,
-      default: 1,
-    },
-    nbPages: {
-      type: Number,
-      default: 1,
-    },
-  },
-  emits: ['update:modelValue'],
-  computed: {
-    paginateArr(): (string|number)[] {
-      const firstItem = this.modelValue > 2 ? 1 : 0 as number
-      const secondItem = this.modelValue < 4 ? this.modelValue - 1 : '...' as number | string
-      const thirdItem = this.modelValue as number
-      let fourthItem = this.modelValue + 1 as number | string
-
-      if (this.modelValue > this.nbPages - 1)
-        fourthItem = 0
-
-      else if (this.modelValue < this.nbPages - 2)
-        fourthItem = '...'
-
-      const fifthItem = this.modelValue < this.nbPages - 1 ? this.nbPages : 0
-
-      return [firstItem, secondItem, thirdItem, fourthItem, fifthItem]
-    },
-  },
-  methods: {
-    clickOnNumber(value: number|string) {
-      this.$emit('update:modelValue', value)
-    },
-    prevPage() {
-      if (this.modelValue > 1) {
-        const value = this.modelValue - 1
-
-        this.$emit('update:modelValue', value)
-      }
-    },
-    nextPage() {
-      if (this.modelValue < this.nbPages) {
-        const value = this.modelValue + 1
-
-        this.$emit('update:modelValue', value)
-      }
-    },
-  },
-})
-</script>
 
 <style>
   .lc-pagination { @apply flex items-center; }
