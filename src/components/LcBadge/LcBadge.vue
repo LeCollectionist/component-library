@@ -1,11 +1,3 @@
-<template>
-  <div :class="['lc-badge', colorClass]">
-    <p v-bind="$attrs">
-      {{ text }}
-    </p>
-  </div>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 
@@ -24,6 +16,17 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <div
+    class="lc-badge"
+    :class="colorClass"
+  >
+    <p v-bind="$attrs">
+      {{ text }}
+    </p>
+  </div>
+</template>
 
 <style scoped>
 p {

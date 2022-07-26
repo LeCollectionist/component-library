@@ -33,7 +33,7 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: ['update:modelValue'],
+  emits: ['update:model-value'],
   computed: {
     containerStyle(): Record<string, string> {
       return {
@@ -71,7 +71,7 @@ export default defineComponent({
       el.style.height = typeof height === 'number' ? `${height}px` : height
     },
     toggle() {
-      this.$emit('update:modelValue', !this.modelValue)
+      this.$emit('update:model-value', !this.modelValue)
     },
   },
 })

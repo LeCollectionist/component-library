@@ -1,35 +1,6 @@
-<template>
-  <div
-    :class="[
-      'lc-tabs-container',
-      { 'lc-tabs-container--sidecontent': isSideContent }
-    ]"
-    data-testid="lc-tabs-container"
-  >
-    <ul class="lc-tabs-navigation" role="tablist">
-      <li
-        v-for="(tab, i) of tabs"
-        :key="i"
-        :aria-selected="active === i"
-        :aria-controls="`panel-${i}`"
-        :class="['lc-tabs-link', { 'lc-tabs-link--active': active === i }]"
-        data-testid="lc-tabs-link"
-        role="tab"
-        tabindex="0"
-        @click="selectTab(i)"
-      >
-        {{ tab.props.title }}
-      </li>
-    </ul>
-    <slot name="sideContent" />
-  </div>
-  <div class="lc-tabs-tabpanel">
-    <slot />
-  </div>
-</template>
-
 <script lang="ts">
-import { ComponentInternalInstance, computed, defineComponent, provide, ref } from 'vue'
+import type { ComponentInternalInstance } from 'vue'
+import { computed, defineComponent, provide, ref } from 'vue'
 
 export default defineComponent({
   name: 'LcTabs',
@@ -39,7 +10,7 @@ export default defineComponent({
       required: true,
     },
   },
-  emits: ['update:modelValue'],
+  emits: ['update:model-value'],
   setup(props, { emit, slots }) {
     const active = computed(() => props.modelValue)
     const tabs = ref<ComponentInternalInstance[]>([])
@@ -49,7 +20,7 @@ export default defineComponent({
     })
 
     function selectTab(tab: number) {
-      emit('update:modelValue', tab)
+      emit('update:model-value', tab)
     }
 
     provide('tabsState', {
@@ -66,6 +37,35 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <div
+    :class="{ 'lc-tabs-container--sidecontent': isSideContent }"
+    class="lc-tabs-container"
+    data-testid="lc-tabs-container"
+  >
+    <ul class="lc-tabs-navigation" role="tablist">
+      <li
+        v-for="(tab, i) of tabs"
+        :key="i"
+        :aria-controls="`panel-${i}`"
+        :aria-selected="active === i"
+        :class="{ 'lc-tabs-link--active': active === i }"
+        class="lc-tabs-link"
+        data-testid="lc-tabs-link"
+        role="tab"
+        tabindex="0"
+        @click="selectTab(i)"
+      >
+        {{ tab.props.title }}
+      </li>
+    </ul>
+    <slot name="sideContent" />
+  </div>
+  <div class="lc-tabs-tabpanel">
+    <slot />
+  </div>
+</template>
 
 <style>
 .lc-tabs-container {
