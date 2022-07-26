@@ -20,7 +20,7 @@ const Template = (args: any) => ({
     return { page: args.modelValue }
   },
   template: `
-    <lc-pagination v-bind="args" v-model="page" @update:modelValue="onUpdate"></lc-pagination>
+    <lc-pagination v-bind="args" v-model="page" @update:model-value="onUpdate"></lc-pagination>
   `,
   methods: {
     onUpdate: action('onUpdate'),
