@@ -40,6 +40,13 @@ OpenDefault.args = {
   modelValue: true,
 }
 
+export const PositionTop = Template.bind({}) as any
+PositionTop.args = {
+  ...Base.args,
+  modelValue: true,
+  position: 'top',
+}
+
 export const WithoutHeader = Template.bind({}) as any
 WithoutHeader.args = {
   ...Base.args,
