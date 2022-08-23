@@ -33,14 +33,14 @@ describe('LcModal', () => {
       expect(closeButton.exists()).toBeTruthy()
     })
 
-    it('shouldn\'t have close button', async() => {
+    it('shouldn\'t have close button', async () => {
       await wrapper.setProps({ disableCloseModal: true })
       const closeButton = wrapper.find('[data-testid="lc-modal__close"]')
 
       expect(closeButton.exists()).toBeFalsy()
     })
 
-    it('should close modal when click button', async() => {
+    it('should close modal when click button', async () => {
       const closeButton = wrapper.find('[data-testid="lc-modal__close"]')
       const modalBefore = wrapper.find('[data-testid="lc-modal"]')
 
@@ -57,7 +57,7 @@ describe('LcModal', () => {
       expect(document.body.style.overflow).toBe('auto')
     })
 
-    it('should close modal when click shadow', async() => {
+    it('should close modal when click shadow', async () => {
       const shadow = wrapper.find('[data-testid="lc-modal__shadow"]')
       const modalBefore = wrapper.find('[data-testid="lc-modal"]')
 
@@ -90,7 +90,7 @@ describe('LcModal', () => {
       expect(footer.exists()).toBeTruthy()
     })
 
-    it('should have header and not footer', async() => {
+    it('should have header and not footer', async () => {
       await wrapper.setProps({ noFooter: true })
 
       const header = wrapper.find('[data-testid="lc-modal__header"]')
@@ -100,7 +100,7 @@ describe('LcModal', () => {
       expect(footer.exists()).toBeFalsy()
     })
 
-    it('should have footer and not header', async() => {
+    it('should have footer and not header', async () => {
       await wrapper.setProps({ noHeader: true })
 
       const header = wrapper.find('[data-testid="lc-modal__header"]')
@@ -110,7 +110,7 @@ describe('LcModal', () => {
       expect(footer.exists()).toBeTruthy()
     })
 
-    it('shouldn\'t have header and footer', async() => {
+    it('shouldn\'t have header and footer', async () => {
       await wrapper.setProps({ noHeader: true, noFooter: true })
 
       const header = wrapper.find('[data-testid="lc-modal__header"]')
@@ -128,7 +128,7 @@ describe('LcModal', () => {
       })
     })
 
-    it('should have title', async() => {
+    it('should have title', async () => {
       const title = 'My title'
       await wrapper.setProps({ title })
 
@@ -137,7 +137,7 @@ describe('LcModal', () => {
       expect(titleWrapper.text()).toBe(title)
     })
 
-    it('shouldn\'t have title', async() => {
+    it('shouldn\'t have title', async () => {
       const titleWrapper = wrapper.get('[data-testid="lc-modal__header--title"]')
 
       expect(titleWrapper.text()).toBe('')
@@ -145,7 +145,7 @@ describe('LcModal', () => {
   })
 
   describe('Multiple modals', () => {
-    it('should render correct style document', async() => {
+    it('should render correct style document', async () => {
       wrapper = mount(LcModal, {
         props: { modelValue: true },
       })
@@ -159,6 +159,42 @@ describe('LcModal', () => {
       await wrapper.setProps({ multipleModals: false })
 
       expect(document.body.style.overflow).toBe('auto')
+    })
+  })
+
+  describe('Position', () => {
+    beforeEach(() => {
+      wrapper = mount(LcModal, { props: { modelValue: true } })
+    })
+
+    it('should be in the center', () => {
+      const modalWrapper = wrapper.get('[data-testid="lc-modal"]')
+      expect(modalWrapper.classes('lc-modal-center')).toBeTruthy()
+    })
+
+    it('should be on top', async () => {
+      await wrapper.setProps({ position: 'top' })
+
+      const modalWrapper = wrapper.get('[data-testid="lc-modal"]')
+      expect(modalWrapper.classes('lc-modal-top')).toBeTruthy()
+    })
+  })
+
+  describe('Overflow', () => {
+    beforeEach(() => {
+      wrapper = mount(LcModal, { props: { modelValue: true } })
+    })
+
+    it('should have overflow', () => {
+      const modaContent = wrapper.get('[data-testid="lc-modal__container--content"]')
+      expect(modaContent.classes('lc-modal__container--content-overflow')).toBeTruthy()
+    })
+
+    it('shouldn\'t have overflow', async () => {
+      await wrapper.setProps({ disableOverflow: true })
+
+      const modaContent = wrapper.get('[data-testid="lc-modal__container--content"]')
+      expect(modaContent.classes('lc-modal__container--content-overflow')).toBeFalsy()
     })
   })
 })

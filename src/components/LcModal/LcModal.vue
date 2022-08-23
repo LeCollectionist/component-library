@@ -13,9 +13,17 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    disableOverflow: {
+      type: Boolean,
+      default: false,
+    },
     title: {
       type: String,
       default: '',
+    },
+    modelValue: {
+      type: Boolean,
+      default: false,
     },
     multipleModals: {
       type: Boolean,
@@ -29,9 +37,12 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    modelValue: {
-      type: Boolean,
-      default: false,
+    position: {
+      type: String,
+      default: 'center',
+      validator: (value: string) => {
+        return ['center', 'top'].includes(value)
+      },
     },
   },
   emits: ['close-modal', 'update:model-value'],
@@ -51,6 +62,8 @@ export default defineComponent({
   },
   mounted() {
     this.updateOverflow()
+
+    document.addEventListener('keyup', this.keyListener)
   },
   beforeUnmount() {
     const body = document.querySelector('body')
@@ -65,6 +78,17 @@ export default defineComponent({
     closeModal() {
       this.$emit('close-modal')
       this.$emit('update:model-value', false)
+    },
+    keyListener(event: Event & Partial<{ key: string | number; keyCode: string }>) {
+      if (event.defaultPrevented)
+        return
+
+      const key = event.key || event.keyCode
+
+      if (key === 'Escape' || key === 'Esc' || key === 27) {
+        this.$emit('close-modal')
+        this.$emit('update:model-value', false)
+      }
     },
     updateOverflow() {
       if (!this.multipleModals) {
@@ -83,6 +107,7 @@ export default defineComponent({
     <div
       v-if="modelValue"
       class="lc-modal"
+      :class="{ 'lc-modal-center': position === 'center', 'lc-modal-top': position === 'top' }"
       data-testid="lc-modal"
     >
       <div
@@ -117,6 +142,8 @@ export default defineComponent({
           <div
             ref="lcModalContent"
             class="lc-modal__container--content"
+            :class="[{ 'lc-modal__container--content-overflow': !disableOverflow }]"
+            data-testid="lc-modal__container--content"
           >
             <slot name="content" />
           </div>
@@ -136,7 +163,13 @@ export default defineComponent({
 
 <style>
   .lc-modal {
-    @apply z-[99999] fixed top-0 left-0 right-0 h-full flex mx-auto my-0 items-center justify-center;
+    @apply z-[99999] fixed top-0 left-0 right-0 h-full flex mx-auto my-0  justify-center;
+  }
+  .lc-modal-center {
+    @apply items-center;
+  }
+  .lc-modal-top {
+    @apply items-start;
   }
   .lc-modal__shadow {
     @apply z-[9999] bg-gray-700 bg-opacity-40 absolute top-0 left-0 right-0 h-full;
@@ -154,10 +187,13 @@ export default defineComponent({
     @apply relative p-6 border-b border-gray-200 flex justify-between items-center;
   }
   .lc-modal__header--title {
-    @apply text-base m-0;
+    @apply text-base m-0 font-medium;
   }
   .lc-modal__container--content {
-    @apply overflow-y-auto px-6 py-8;
+    @apply px-6 py-8;
+  }
+  .lc-modal__container--content-overflow {
+    @apply overflow-y-auto
   }
   .lc-modal__container--footer {
     @apply relative p-6 text-right border-t border-gray-200;
