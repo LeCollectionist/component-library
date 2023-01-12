@@ -184,7 +184,7 @@ export default defineComponent({
     @apply text-sm cursor-pointer text-gray-600;
   }
   .lc-modal__header {
-    @apply relative p-6 border-b border-gray-200 flex justify-between items-center;
+    @apply relative p-6 border-b border-gray-200 flex justify-between;
   }
   .lc-modal__header--title {
     @apply text-base m-0 font-medium;
