@@ -243,15 +243,15 @@ export default defineComponent({
   user-select: none;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
     border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  @apply rounded-sm inline-block text-center cursor-pointer align-middle border border-solid border-transparent text-base leading-tight hover:no-underline focus:outline-none focus:border-primary-focus;
+  @apply rounded inline-block text-center cursor-pointer align-middle border border-solid border-transparent text-base leading-tight hover:no-underline focus:outline-none focus:border-primary-focus;
 }
 .lc-link {
   user-select: none;
   transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
-  @apply bg-transparent rounded-sm p-0 inline-block border-none outline-none focus:outline-none;
+  @apply bg-transparent p-0 inline-block border-none outline-none focus:outline-none;
 }
 .lc-outline {
-  @apply rounded-sm inline-block text-center cursor-pointer align-middle border border-solid text-base leading-tight hover:no-underline focus:outline-none focus:border-primary-focus;
+  @apply rounded inline-block text-center cursor-pointer align-middle border border-solid text-base leading-tight hover:no-underline focus:outline-none focus:border-primary-focus;
 }
 .lc-icon {
   @apply flex items-center justify-center transition-colors rounded-full outline-none cursor-pointer focus:outline-none box-content;

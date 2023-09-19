@@ -132,6 +132,7 @@ export default defineComponent({
             <LcIcon
               v-if="!disableCloseModal"
               class="lc-modal__close"
+              data-cy="lc-modal__close"
               data-testid="lc-modal__close"
               name="cross"
               size="3xs"
