@@ -5,6 +5,7 @@ import LcTooltip from './index'
 export default {
   title: 'Example/LcTooltip',
   component: LcTooltip,
+  tags: ['autodocs'],
   argTypes: {
     position: { control: { type: 'select' }, options: vPosition },
     variant: { control: { type: 'select' }, options: vVariant },

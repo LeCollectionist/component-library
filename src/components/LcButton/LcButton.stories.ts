@@ -5,6 +5,7 @@ import LcButton from './index'
 export default {
   title: 'Example/LcButton',
   component: LcButton,
+  tags: ['autodocs'],
   argTypes: {
     size: { control: { type: 'select' }, options: vSize },
     color: { control: { type: 'select' }, options: vColor },

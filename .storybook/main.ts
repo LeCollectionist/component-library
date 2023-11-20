@@ -4,17 +4,24 @@ module.exports = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
     "../src/*.css",
   ],
+
   "addons": [
     "@storybook/addon-a11y",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-postcss"
+    "@storybook/addon-mdx-gfm"
   ],
-  "framework": "@storybook/vue3",
-  "core": {
-    "builder": "@storybook/builder-vite"
+
+  "framework": {
+    name: "@storybook/vue3-vite",
+    options: {}
   },
+
   "features": {
     "storyStoreV7": false
+  },
+
+  docs: {
+    autodocs: true
   }
 }
