@@ -71,8 +71,7 @@ export default defineComponent({
     >
       <LcIcon
         class="lc-pagination__arrow"
-        name="left-chevron"
-        size="xs"
+        name="arrowLeft"
       />
     </button>
 
@@ -114,8 +113,7 @@ export default defineComponent({
     >
       <LcIcon
         class="lc-pagination__arrow"
-        name="right-chevron"
-        size="xs"
+        name="arrowRight"
       />
     </button>
   </div>

@@ -134,8 +134,7 @@ export default defineComponent({
               class="lc-modal__close"
               data-cy="lc-modal__close"
               data-testid="lc-modal__close"
-              name="cross"
-              size="3xs"
+              name="close"
               @click="closeModal"
             />
           </header>

@@ -109,8 +109,7 @@ export default defineComponent({
           <slot name="button-toggle-icon">
             <LcIcon
               class="lc-accordion-header-toggle-button-icon"
-              :name="modelValue ? 'top-chevron' : 'bottom-chevron'"
-              size="xxs"
+              :name="modelValue ? 'arrowUp' : 'arrowDown'"
             />
           </slot>
         </LcButton>

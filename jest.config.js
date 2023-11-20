@@ -14,10 +14,5 @@ module.exports = {
     'ts-jest': {
       babelConfig: true,
     },
-    'vue-jest': {
-      transform: {
-        '^tsx?$': 'babel-jest',
-      },
-    },
   },
 }
